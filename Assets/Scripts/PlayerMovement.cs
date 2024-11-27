@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float drag = 1;
     [SerializeField] private float translationStrength = 2;
     [SerializeField] private Vector3 translationVelocity = new();
+    [SerializeField] private float jerk = 0;
 
     private Dictionary<BoIn, bool> inputs = new Dictionary<BoIn, bool>()
     {
@@ -41,10 +42,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inputs[BoIn.THROTTLE_UP]) Thrust += Time.deltaTime;
-        if (inputs[BoIn.THROTTLE_DOWN]) Thrust -= Time.deltaTime;
+        Thrust += jerk * Time.deltaTime;
 
-        Thrust %= 2;
+        if (Thrust > 1) Thrust = 1;
+        if (Thrust < -1) Thrust = -1;
+        Debug.Log(Thrust);
         
         Velocity += transform.forward * Time.deltaTime * Thrust;
         transform.position += Velocity * Time.deltaTime;
@@ -59,15 +61,12 @@ public class PlayerMovement : MonoBehaviour
             inputs[(BoIn)i] = false;
         }
     }
-
-    public void OnTranslate(InputAction.CallbackContext context)
-    {
+    public void OnTranslate(InputAction.CallbackContext context) =>
         translationVelocity = context.ReadValue<Vector3>();
-    }
+    public void OnThrottle(InputAction.CallbackContext context) =>
+        jerk = context.ReadValue<float>();
     public void OnPrimary() => inputs[BoIn.PRIMARY] = true;
     public void OnSecond() => inputs[BoIn.SECONDARY] = true;
     public void OnYawRight() => inputs[BoIn.YAW_RIGHT] = true;
     public void OnYawLeft() => inputs[BoIn.YAW_LEFT] = true;
-    public void OnThrottleUp() => inputs[BoIn.THROTTLE_UP] = true;
-    public void OnThrottleDown() => inputs[BoIn.THROTTLE_DOWN] = true;
 }

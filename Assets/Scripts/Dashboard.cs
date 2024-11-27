@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class Dashboard : MonoBehaviour
     private PlayerMovement playerMovement;
 
     [SerializeField] private Slider thrust;
+    [SerializeField] private Slider reverseThrust;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +21,6 @@ public class Dashboard : MonoBehaviour
     void Update()
     {
         thrust.value = playerMovement.Thrust;
+        reverseThrust.value = -playerMovement.Thrust;
     }
 }

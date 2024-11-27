@@ -60,22 +60,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ThrottleUp",
-                    "type": "Button",
-                    "id": "e1a6a974-67fa-402f-8db1-9d97010fa0ec",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ThrottleDown",
-                    "type": "Button",
+                    "name": "Throttle",
+                    "type": "Value",
                     "id": "7cbf7652-cf75-4b29-bb65-03584729996d",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Translate",
@@ -138,28 +129,6 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Pitch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f3fce7ba-6bba-4681-afe8-b23880282861",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "ThrottleUp",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "98b098b5-212f-4306-961d-3feae3b9789d",
-                    "path": "<Keyboard>/leftCtrl",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "ThrottleDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -259,6 +228,39 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Translate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Keyboard",
+                    "id": "ed60f834-0ca0-432e-942e-302553bad186",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throttle",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Negative",
+                    "id": "4b2bb22c-2c3e-4e1d-bc62-1d0ecd653638",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Throttle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Positive",
+                    "id": "46269d34-3174-4104-9f0d-9f4a74cc4f8d",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Throttle",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
