@@ -19,6 +19,5 @@ public class Dashboard : MonoBehaviour
     void Update()
     {
         thrust.value = playerMovement.Thrust;
-        Debug.Log(playerMovement.Thrust);
     }
 }
