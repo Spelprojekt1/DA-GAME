@@ -38,6 +38,7 @@ Material:
     - _2nd_ShadeColor_Step: 0.2
     - _BaseColor_Step: 0.606
     - _ShadeColor_Step: 0.2
+    - _StencilComp: 0
     m_Colors:
     - _1st_ShadeColor: {r: 0.094304785, g: 0.09433961, b: 0.090334624, a: 1}
     - _2nd_ShadeColor: {r: 0, g: 0, b: 0, a: 1}
