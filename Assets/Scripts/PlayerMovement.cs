@@ -12,12 +12,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float thrustStrength = 50f;
     [SerializeField] private Vector3 velocity /*{ get; private set; }*/ = new(0, 0, 0);
     [SerializeField] private float drag = 1f;
-    [SerializeField] private float translationStrength = 2f;
+    [SerializeField] private float translationStrength = 5f;
     [SerializeField] private Vector3 translationVelocity = new(0,0,0);
     [SerializeField] private float jerk = 0f;
     [SerializeField] private Vector3 rotation /*{ get; private set; }*/ = new(0,0,0);
     [SerializeField] private Vector2 primaryRotationSensitivity = new(0.001f,0.001f);
-    [SerializeField] private Vector3 rotationStrength = new(200, 200, 200);
+    [SerializeField] private Vector3 rotationStrength = new(100, 100, 100);
 
     public float Thrust => thrust;
     public Vector3 Rotation => rotation;
@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
