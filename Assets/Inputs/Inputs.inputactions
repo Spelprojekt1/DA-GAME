@@ -24,42 +24,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Roll",
-                    "type": "Value",
-                    "id": "5f0ee371-d6e0-483c-a4ca-f6a1a27d5998",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Pitch",
-                    "type": "Value",
-                    "id": "9a48ae60-8f54-41b1-8ec1-4bba5150e81d",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "YawRight",
-                    "type": "Button",
-                    "id": "afe21e8d-69f8-4d56-a20b-5c405862c869",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "YawLeft",
-                    "type": "Button",
-                    "id": "a014c408-f228-4f6d-a9c1-a724cb1951df",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Throttle",
                     "type": "Value",
                     "id": "7cbf7652-cf75-4b29-bb65-03584729996d",
@@ -78,10 +42,19 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Rotate",
+                    "name": "PrimaryRotation",
                     "type": "Value",
-                    "id": "5d0d6486-5b92-4453-8b19-de49c7722749",
-                    "expectedControlType": "Vector3",
+                    "id": "fd587dfd-7e91-42fd-bf96-e52d59e972f6",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Yaw",
+                    "type": "Value",
+                    "id": "bc410abf-d6b8-4bd3-adea-304da9e69954",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -107,50 +80,6 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "SecondaryAction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b2b7fa63-1a8a-40d7-bfbd-db23864b638a",
-                    "path": "<Mouse>/position/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Roll",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "12609e76-0f74-4eec-bce9-7dcf46f50542",
-                    "path": "<Mouse>/position/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Pitch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ebbfaba8-fb47-40bb-afb7-a823d4fbf866",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "YawLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a15853d1-cd06-48e9-bb2d-6fabd8e8c786",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "YawRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -261,6 +190,50 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Throttle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "55e9a8b5-7501-44df-aace-02902b471d74",
+                    "path": "<Pointer>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrimaryRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "7d6e8063-e3e2-4e85-81cc-00ef9919561b",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Yaw",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "778b1696-8bd5-480d-b3f2-4dcee469ade5",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Yaw",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "d89b1168-cf4b-4284-8435-8449076f2633",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Yaw",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

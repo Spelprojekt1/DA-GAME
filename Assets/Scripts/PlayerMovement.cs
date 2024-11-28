@@ -3,36 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
-// BooleanInputs
-public enum BoIn
-{
-    PRIMARY,
-    SECONDARY,
-    YAW_RIGHT,
-    YAW_LEFT,
-    THROTTLE_UP,
-    THROTTLE_DOWN
-}
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField][Range(0,1)] public float Thrust; // { get; private set; }
-    [SerializeField] public float MaxThrust; // { get; private set; }
-    [SerializeField] public Vector3 Velocity; // { get; private set; }
-    [SerializeField] private float drag = 1;
-    [SerializeField] private float translationStrength = 2;
-    [SerializeField] private Vector3 translationVelocity = new();
-    [SerializeField] private float jerk = 0;
+    [SerializeField][Range(0,1)] private float thrust; // { get; private set; }
+    [SerializeField] private float maxThrust = 1f; // { get; private set; }
+    [SerializeField] private float thrustStrength = 50f;
+    [SerializeField] private Vector3 velocity /*{ get; private set; }*/ = new(0, 0, 0);
+    [SerializeField] private float drag = 1f;
+    [SerializeField] private float translationStrength = 2f;
+    [SerializeField] private Vector3 translationVelocity = new(0,0,0);
+    [SerializeField] private float jerk = 0f;
+    [SerializeField] private Vector3 rotation /*{ get; private set; }*/ = new(0,0,0);
+    [SerializeField] private Vector2 primaryRotationSensitivity = new(0.001f,0.001f);
+    [SerializeField] private Vector3 rotationStrength = new(200, 200, 200);
 
-    private Dictionary<BoIn, bool> inputs = new Dictionary<BoIn, bool>()
-    {
-        [BoIn.PRIMARY] = false,
-        [BoIn.SECONDARY] = false,
-        [BoIn.YAW_RIGHT] = false,
-        [BoIn.YAW_LEFT] = false,
-        [BoIn.THROTTLE_UP] = false,
-        [BoIn.THROTTLE_DOWN] = false
-    };
+    public float Thrust => thrust;
+    public Vector3 Rotation => rotation;
     
     // Start is called before the first frame update
     void Start()
@@ -42,31 +30,39 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Thrust += jerk * Time.deltaTime;
+        thrust += jerk * Time.deltaTime;
 
-        if (Thrust > 1) Thrust = 1;
-        if (Thrust < -1) Thrust = -1;
-        Debug.Log(Thrust);
+        if (thrust > 1) thrust = 1;
+        if (thrust < -1) thrust = -1;
         
-        Velocity += transform.forward * Time.deltaTime * Thrust;
-        transform.position += Velocity * Time.deltaTime;
-        transform.position += translationVelocity * Time.deltaTime;
+        transform.Rotate(Vector3.Scale(rotation, rotationStrength) * Time.deltaTime);
+        
+        velocity += transform.forward * (Time.deltaTime * thrust * thrustStrength);
+        transform.position += velocity * Time.deltaTime;
+        transform.position += translationVelocity * (translationStrength * Time.deltaTime);
 
-        Velocity *= 1 - drag * Mathf.Min(Time.deltaTime,1);
+        velocity *= 1 - drag * Mathf.Min(Time.deltaTime,1);
 
-        if (Velocity.magnitude < 0.0001f) Velocity = new Vector3(0,0,0);
-
-        for (int i = 0; i < inputs.Count; i++)
-        {
-            inputs[(BoIn)i] = false;
-        }
+        if (velocity.magnitude < 0.0001f) velocity = new Vector3(0,0,0);
     }
     public void OnTranslate(InputAction.CallbackContext context) =>
         translationVelocity = context.ReadValue<Vector3>();
     public void OnThrottle(InputAction.CallbackContext context) =>
         jerk = context.ReadValue<float>();
-    public void OnPrimary() => inputs[BoIn.PRIMARY] = true;
-    public void OnSecond() => inputs[BoIn.SECONDARY] = true;
-    public void OnYawRight() => inputs[BoIn.YAW_RIGHT] = true;
-    public void OnYawLeft() => inputs[BoIn.YAW_LEFT] = true;
+
+    public void OnPrimaryRotation(InputAction.CallbackContext context)
+    {
+        Vector3 a = rotation;
+        Vector2 b = context.ReadValue<Vector2>();
+        Vector2 c = primaryRotationSensitivity;
+        
+        a.z = Mathf.Max(Mathf.Min(a.z -= b.x * c.x, 1), -1);
+        a.x = Mathf.Max(Mathf.Min(a.x -= b.y * c.y, 1), -1);
+
+        rotation = a;
+    }
+    public void OnYaw(InputAction.CallbackContext context) => 
+        rotation.y = context.ReadValue<float>();
+    public void OnPrimary() => Debug.Log("Primary");
+    public void OnSecondary() => Debug.Log("Secondary");
 }
