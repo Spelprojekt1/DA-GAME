@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         
         velocity += transform.forward * (Time.deltaTime * thrust * thrustStrength);
         transform.position += velocity * Time.deltaTime;
-        transform.position += translationVelocity * (translationStrength * Time.deltaTime);
+        transform.position += transform.rotation * translationVelocity * (translationStrength * Time.deltaTime);
 
         velocity *= 1 - drag * Mathf.Min(Time.deltaTime,1);
 
