@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour {
     //What target the enemy will move towards
     [SerializeField]public Transform target;
     [SerializeField]public float movementSpeed = 7f;
-    [SerializeField]public float turningSpeed = 2f;
+   // [SerializeField]public float turningSpeed = 2f;
     [SerializeField]public float rotationalDamp = .5f;
     [SerializeField]public float rayCastOffset = 2.5f;
     [SerializeField] public float detectionDistance = 20f;
