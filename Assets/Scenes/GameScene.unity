@@ -277,13 +277,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 0
-  maxThrust: 1
   thrustStrength: 50
   velocity: {x: 0, y: 0, z: 0}
   drag: 1
   translationStrength: 5
-  translationVelocity: {x: 0, y: 0, z: 0}
-  jerk: 0
+  translationalDrag: 5
   rotation: {x: 0, y: 0, z: 0}
   primaryRotationSensitivity: {x: 0.001, y: 0.001}
   rotationStrength: {x: 100, y: 100, z: 100}
