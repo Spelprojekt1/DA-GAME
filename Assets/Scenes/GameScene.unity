@@ -122,18 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &272478265 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 275400965252519364, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1322360227}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &287593046 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 275400965252519364, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
-    type: 3}
-  m_PrefabInstance: {fileID: 2000841988}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &324985843
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,12 +263,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3654b3a41cb36d45b65a39f53879554, type: 3}
---- !u!1 &595519188 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 275400965252519364, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1205946436}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &615414789 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 611486120629135135, guid: 6120d308066adcf4b8c09a79b975fb84,
@@ -684,16 +666,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origin: {fileID: 645485857}
-  MAX_DISTANCE: 200
-  bezierP2: 0.8
-  RadarPing: {fileID: 9219036264867150684, guid: dbe93bdcec52e8e49b16153e95fd25b4,
+  RadarPing: {fileID: 2101324446228598158, guid: dbe93bdcec52e8e49b16153e95fd25b4,
     type: 3}
-  enemies:
-  - {fileID: 595519188}
-  - {fileID: 287593046}
-  - {fileID: 272478265}
-  - {fileID: 1847010186}
-  radarEnemies: []
 --- !u!1001 &1205946436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1348,12 +1322,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &1847010186 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 74288114432172360, guid: c3654b3a41cb36d45b65a39f53879554,
-    type: 3}
-  m_PrefabInstance: {fileID: 326996511}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2000841988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1692,6 +1660,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cockpit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991139702527946638, guid: 3538bd78715fde64aab2b3246c486c36,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6411045775420774565, guid: 3538bd78715fde64aab2b3246c486c36,
         type: 3}
