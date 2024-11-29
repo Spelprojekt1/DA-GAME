@@ -78,17 +78,10 @@ public class LaserSpawner : ProjectileSpawner
         //träffar laser något object med någon Physics component händer x 
         if (Physics.Raycast(this.laserRay, out RaycastHit hit))
         {
-            //Debug.Log(gameObject)
+            Debug.Log(hit.collider.gameObject.tag + " was hit");
+            
         }
-       // RaycastHit hit;
-        //Vector3 laserRayDisctance = Vector3.Zero;
-        //Skapar en storleken av ray som är lika lång som laserRayDistance.
-      //  Vector3 laserRay = transform.position;
-      //  //Ritar ut en Röd laserRay rakt fram.
-       // Debug.DrawRay(laserRay, transform.forward *laserRayDistance , Color.red);
-        //Om laser ray träffar x  så händer x
-        //if (Physics.Raycast(laserRay, transform.forward, out hit, laserRayDistance))
-       // {
+       
             
     }
 }
