@@ -1,6 +1,6 @@
 using System;
-using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [Serializable]
 struct QBezier
@@ -17,11 +17,12 @@ struct QBezier
         T = t;
     }
 }
+[ExecuteInEditMode]
 public class RadarPing : MonoBehaviour
 {
-    [SerializeField] private float MAX_DISTANCE = 200.0f;
     [SerializeField] private QBezier bezier = new(0f, 0.8f, 1f, 0f);
     
+    public float maxDistance = 200.0f;
     public Transform origin;
     public GameObject target;
     
@@ -32,22 +33,17 @@ public class RadarPing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        // transform.localPosition = new Vector3(target.x, 0, target.z);
-        // ping.transform.localPosition = new Vector3(0, target.y, 0);
-        //
-        // positiveY.transform.localScale = new Vector3(1, Mathf.Max(0,target.z), 1);
-        // negativeY.transform.localScale = new Vector3(1, Mathf.Max(0,-target.z), 1);
+        if (!target) return;
         
         Vector3 targetPos = target.transform.position;
         Vector3 originPos = origin.position;
-        if (Mathf.Abs((targetPos - originPos).magnitude) < MAX_DISTANCE)
+        if (Mathf.Abs((targetPos - originPos).magnitude) < maxDistance)
         {
             // Set ping to active
             XZ.SetActive(true);
 
             // Calculate bezierT
-            bezier.T = (targetPos - originPos).magnitude / MAX_DISTANCE;
+            bezier.T = (targetPos - originPos).magnitude / maxDistance;
 
             // Calculate one dimensional quadratic bezier curve
             float a = (1 - bezier.T) * bezier.P1 + bezier.T * bezier.P2;
@@ -59,9 +55,10 @@ public class RadarPing : MonoBehaviour
 
             // Rotate rPingVector opposite to origin's rotation
             rPingVector = Quaternion.Inverse(origin.transform.rotation) * rPingVector;
-
-            // Move ping to rPingVector and account for radar scaling
-            transform.localPosition = Vector3.Scale(rPingVector, transform.lossyScale);
+            XZ.transform.localPosition = new Vector3(rPingVector.x, 0, rPingVector.z);
+            ping.transform.localPosition = new Vector3(0, rPingVector.y, 0);
+            positiveY.transform.localScale = new Vector3(1, Mathf.Max(0,rPingVector.y), 1);
+            negativeY.transform.localScale = new Vector3(1, Mathf.Max(0,-rPingVector.y), 1);
         }
         else
         {

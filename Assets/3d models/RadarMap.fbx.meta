@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa98ef9f76b9e06409d3ee39000411a2
+guid: 5e923811848bafd48b16f20941e4b9e9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Ping
-    second: {fileID: 2100000, guid: cdd981bd2e9e9db4daea2cbfb20d0385, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SecondaryPing
-    second: {fileID: 2100000, guid: e941280e11cfb884ea7ca756628feeaa, type: 2}
+      name: Material
+    second: {fileID: 2100000, guid: 46bcb2b85aebe474699bee9ce526abbe, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

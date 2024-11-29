@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-// [ExecuteInEditMode]
 public class Radar : MonoBehaviour
 {
+    [SerializeField] private float maxDistance = 200f;
     [SerializeField] private Transform origin;
     [SerializeField] private GameObject RadarPing;
     public void Ping()
@@ -21,9 +18,12 @@ public class Radar : MonoBehaviour
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             GameObject ping = (GameObject)PrefabUtility.InstantiatePrefab(RadarPing);
-            ping.GetComponent<RadarPing>().target = o;
-            ping.GetComponent<RadarPing>().origin = origin;
-            ping.transform.SetParent(transform);
+            RadarPing script = ping.GetComponent<RadarPing>();
+            script.target = o;
+            script.origin = origin;
+            script.maxDistance = maxDistance;
+            
+            ping.transform.SetParent(transform, false);
         }
     }
 
