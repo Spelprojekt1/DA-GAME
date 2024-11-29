@@ -18,7 +18,7 @@ public class Radar : MonoBehaviour
         }
 
         // Get all objects with the tag "RadarEnemy"
-        foreach (GameObject o in GameObject.FindGameObjectsWithTag("RadarEnemy"))
+        foreach (GameObject o in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             GameObject ping = (GameObject)PrefabUtility.InstantiatePrefab(RadarPing);
             ping.GetComponent<RadarPing>().target = o;
