@@ -42,7 +42,7 @@ public class LaserSpawner : ProjectileSpawner
     
     public override void Fire()
     {
-        if (cooldown <= 0)
+        if (!active && cooldown <= 0)
         {
             laser.SetActive(true);
             active = true;
