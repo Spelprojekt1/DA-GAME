@@ -129,14 +129,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65ed1436a1796d548b415fcb48367551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_DISTANCE: 200
   bezier:
     P1: 0
     P2: 0.8
     P3: 1
     T: 0
+  materials:
+    LockedPrimary: {fileID: 2100000, guid: 113035d09250c2c45bdf017ea71524e3, type: 2}
+    LockedSecondary: {fileID: 2100000, guid: 616f540ce18755f4da76a1b9f148c8a1, type: 2}
+    EnemyPrimary: {fileID: 2100000, guid: cdd981bd2e9e9db4daea2cbfb20d0385, type: 2}
+    EnemySecondary: {fileID: 2100000, guid: e941280e11cfb884ea7ca756628feeaa, type: 2}
+  maxDistance: 200
   origin: {fileID: 0}
   target: {fileID: 0}
+  type: 0
   XZ: {fileID: 2371165611956413991}
   ping: {fileID: 8267326690144386337}
   positiveY: {fileID: 7305259161213675344}

@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [Serializable]
 struct QBezier
@@ -17,15 +16,31 @@ struct QBezier
         T = t;
     }
 }
+[Serializable]
+struct PingMaterials
+{
+    public Material LockedPrimary;
+    public Material LockedSecondary;
+    public Material EnemyPrimary;
+    public Material EnemySecondary;
+    public PingMaterials(Material lockedPrimary, Material lockedSecondary, Material enemyPrimary, Material enemySecondary)
+    {
+        LockedPrimary = lockedPrimary;
+        LockedSecondary = lockedSecondary;
+        EnemyPrimary = enemyPrimary;
+        EnemySecondary = enemySecondary;
+    }
+}
+
 [ExecuteInEditMode]
 public class RadarPing : MonoBehaviour
 {
     [SerializeField] private QBezier bezier = new(0f, 0.8f, 1f, 0f);
-    
+    [SerializeField] private PingMaterials materials = new(null, null, null, null);
     public float maxDistance = 200.0f;
     public Transform origin;
     public GameObject target;
-    
+    public RadarPingType type;
     [SerializeField] private GameObject XZ;
     [SerializeField] private Transform ping;
     [SerializeField] private Transform positiveY;
@@ -64,6 +79,28 @@ public class RadarPing : MonoBehaviour
         {
             // Set ping to not active
             XZ.SetActive(false);
+        }
+    }
+    public void CheckLock(GameObject target)
+    {
+        if (this.target == target)
+        {
+            ping.GetComponent<MeshRenderer>().material = materials.LockedPrimary;
+            XZ.GetComponent<MeshRenderer>().material = materials.LockedSecondary;
+            positiveY.GetComponent<MeshRenderer>().material = materials.LockedSecondary;
+            negativeY.GetComponent<MeshRenderer>().material = materials.LockedSecondary;
+        }
+        else
+        {
+            switch (type)
+            {
+                case RadarPingType.ENEMY:
+                    ping.GetComponent<MeshRenderer>().material = materials.EnemyPrimary;
+                    XZ.GetComponent<MeshRenderer>().material = materials.EnemySecondary;
+                    positiveY.GetComponent<MeshRenderer>().material = materials.EnemySecondary;
+                    negativeY.GetComponent<MeshRenderer>().material = materials.EnemySecondary;
+                    break;
+            }
         }
     }
 }
