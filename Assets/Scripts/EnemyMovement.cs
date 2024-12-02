@@ -74,9 +74,12 @@ public class EnemyMovement : MonoBehaviour {
             raycastOffset += Vector3.up;
             Debug.Log( "upp");
         }
-        
-        if(raycastOffset != Vector3.zero)
-        {transform.Rotate(raycastOffset * 3f * Time.deltaTime);}
+
+        if (raycastOffset != Vector3.zero)
+        {
+            Debug.Log("nu");
+            transform.Rotate(raycastOffset * 3f * Time.deltaTime);
+        }
         else
         {
             Turn();
