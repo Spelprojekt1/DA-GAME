@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88890f230093f24b938454ff17ac178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 1
+  force: 10
   torque: 2
   target: {fileID: 0}
   lifeTime: 5
