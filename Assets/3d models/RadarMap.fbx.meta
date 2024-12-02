@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f
+guid: 5e923811848bafd48b16f20941e4b9e9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,28 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Blue
-    second: {fileID: 2100000, guid: 64bb6737dfdbf994fb0679f7543a875e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Green
-    second: {fileID: 2100000, guid: 9c8afb1282d2f24478ad73f58a66b5cb, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Outline
-    second: {fileID: 2100000, guid: 380869dc7dd0716408c1289502fd7f21, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Red
-    second: {fileID: 2100000, guid: 04badde3640755e4a9af172a0ce50032, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Yellow
-    second: {fileID: 2100000, guid: cda05f402c417444395f4d5adcdc179e, type: 2}
+      name: Material
+    second: {fileID: 2100000, guid: 46bcb2b85aebe474699bee9ce526abbe, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
