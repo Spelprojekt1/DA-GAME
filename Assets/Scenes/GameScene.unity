@@ -189,6 +189,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 660077679}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnTargetLock
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &324985843
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +634,7 @@ MonoBehaviour:
   startDuration: 0.2
   startCooldown: 0.2
   laser: {fileID: 615414789}
+  laserThickness: 0.7
 --- !u!4 &860793499 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6874530638130314886, guid: 3538bd78715fde64aab2b3246c486c36,
@@ -1647,6 +1660,7 @@ MonoBehaviour:
   startDuration: 0.2
   startCooldown: 0.2
   laser: {fileID: 705006595}
+  laserThickness: 0.7
 --- !u!4 &1671152438 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4519000928910761737, guid: 18c1d74e6fadd2b4cb2cfcde268596a1,

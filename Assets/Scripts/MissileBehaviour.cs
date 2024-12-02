@@ -3,7 +3,6 @@ using UnityEngine.Serialization;
 
 public class MissileBehaviour : MonoBehaviour
 {
-    // [SerializeField] private Vector3 velocity;
     [SerializeField] private float force = 10f;
     [SerializeField] private float torque = 2f;
     

@@ -58,7 +58,7 @@ public class LaserSpawner : ProjectileSpawner
         }
     }
     
-    public override void Fire()
+    public override void Fire(Transform _)
     {
         //Aktiverar laserRay
         
