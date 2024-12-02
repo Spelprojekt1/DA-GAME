@@ -15,16 +15,14 @@ public class MissileBehaviour : MonoBehaviour
         velocity = transform.forward * speed;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        // If the missile's collider is triggered, destroy the missile
-        if (false)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        
         if (lifeTime <= 0)
         {
             Destroy(gameObject);
