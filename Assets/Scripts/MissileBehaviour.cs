@@ -18,6 +18,13 @@ public class MissileBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If the missile's collider is triggered, destroy the missile
+        if (false)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
         if (lifeTime <= 0)
         {
             Destroy(gameObject);
@@ -31,6 +38,7 @@ public class MissileBehaviour : MonoBehaviour
         velocity += steering * Time.deltaTime;
         transform.Translate(velocity * Time.deltaTime);
         
-        // Rotate towards velocity
+        // Rotate child towards velocity
+        transform.GetChild(0).rotation = Quaternion.LookRotation(velocity);
     }
 }
