@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector2 primaryRotationSensitivity = new(0.001f,0.001f);
     [SerializeField] private Vector3 rotationStrength = new(100, 100, 100);
     private ProjectileSpawner[] primaryWeapons;
-    private ProjectileSpawner[] secondaryWeapons;
     public float Thrust => thrust;
     public Vector3 Rotation => rotation;
     
@@ -29,8 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         ProjectileSpawner[] spawners = GetComponentsInChildren<ProjectileSpawner>();
-        primaryWeapons = spawners.Where(s => s.Primary).ToArray();
-        secondaryWeapons = spawners.Where(s => !s.Primary).ToArray();
+        primaryWeapons = spawners.ToArray();
     }
     
     // Update is called once per frame
@@ -81,9 +79,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnSecondary()
     {
-        foreach (var spawner in secondaryWeapons)
-        {
-            spawner.Fire();
-        }
+        
     }
 }
