@@ -937,6 +937,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MissileSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 8092621558893526338, guid: 18c1d74e6fadd2b4cb2cfcde268596a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8469327783730959713, guid: 18c1d74e6fadd2b4cb2cfcde268596a1,
         type: 3}
       propertyPath: target
@@ -2044,6 +2049,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MissileSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092621558893526338, guid: 18c1d74e6fadd2b4cb2cfcde268596a1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8469327783730959713, guid: 18c1d74e6fadd2b4cb2cfcde268596a1,
         type: 3}
