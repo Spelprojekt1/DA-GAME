@@ -2727,21 +2727,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 944091023421361497, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 944091023421361497, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -18.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 944091023421361497, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 4.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1341537825712070754, guid: 3538bd78715fde64aab2b3246c486c36,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2751,21 +2736,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891233909571238154, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.2830189
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891233909571238154, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.2830189
-      objectReference: {fileID: 0}
-    - target: {fileID: 2891233909571238154, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.2830189
       objectReference: {fileID: 0}
     - target: {fileID: 3098983080926078744, guid: 3538bd78715fde64aab2b3246c486c36,
         type: 3}
@@ -2801,36 +2771,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -13.589
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637695911048309155, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.28627452
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637695911048309155, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.28627452
-      objectReference: {fileID: 0}
-    - target: {fileID: 3637695911048309155, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.28627452
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781689004374658629, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781689004374658629, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.28652775
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781689004374658629, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4846432763236926934, guid: 3538bd78715fde64aab2b3246c486c36,
         type: 3}
@@ -2907,24 +2847,7 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8246543605319776235, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246543605319776235, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.5727849
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246543605319776235, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4135486270013974819, guid: 3538bd78715fde64aab2b3246c486c36, type: 3}
-    - {fileID: 6016247931310574652, guid: 3538bd78715fde64aab2b3246c486c36, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3430739563027041211, guid: 3538bd78715fde64aab2b3246c486c36,
