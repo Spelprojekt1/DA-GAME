@@ -59,24 +59,27 @@ public class EnemyMovement : MonoBehaviour
 
         void Turn()
         {
-          //  if (currentEnemyTarget = patrolTarget)
-            {
-              //  Vector3 pos = patrolTarget.position - transform.position;
-              //  Quaternion rotation = Quaternion.LookRotation(pos);
-               // transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationalDamp * Time.deltaTime);
-            }
-            if (currentEnemyTarget = playerTarget)
-                // THE ROTATE TOWARDS PLAYER FUNCTION
-                transform.LookAt(playerTarget);
-              //  transform.rotation = Quaternion.Slerp(transform.rotation, rotation2, rotationalDamp * Time.deltaTime);
-        }
-
-        void TargetPlayer()
-        {
-            // THE ROTATE TOWARDS PLAYER FUNCTION
-            Quaternion rotation = Quaternion.RotateTowards(transform.rotation, playerTarget.rotation, 50.0f);
+            // if (currentEnemyTarget = patrolTarget)
+            // {
+            Vector3 pos = patrolTarget.position - transform.position;
+            Quaternion rotation = Quaternion.LookRotation(pos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationalDamp * Time.deltaTime);
         }
+
+        // }// if (currentEnemyTarget = playerTarget)}
+            void TargetPlayer()
+            {
+                // THE ROTATE TOWARDS PLAYER FUNCTION
+                transform.LookAt(playerTarget);
+                //  transform.rotation = Quaternion.Slerp(transform.rotation, rotation2, rotationalDamp * Time.deltaTime)
+            }
+
+            
+              
+        
+
+        
+        
 
         void Move()
         {
@@ -146,13 +149,15 @@ public class EnemyMovement : MonoBehaviour
             
             if (distanceBetween < chasePlayerRange)
             {
-                currentEnemyTarget = playerTarget;
-                rayColor = rayColorChase;
+                TargetPlayer();
+                //currentEnemyTarget = playerTarget;
+                //rayColor = rayColorChase;
             }
             else 
             {
-                currentEnemyTarget = patrolTarget;
-                rayColor = rayColorPatrol;
+                Turn();
+                //currentEnemyTarget = patrolTarget;
+               // rayColor = rayColorPatrol;
             }
             //Debugging medelanden 
             Debug.Log("Enemies distance between player: "+distanceBetween);
