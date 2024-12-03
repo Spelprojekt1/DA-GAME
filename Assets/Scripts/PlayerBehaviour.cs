@@ -6,7 +6,9 @@ using UnityEngine.InputSystem;
 public class PlayerBehaviour : MonoBehaviour
 {
     private Transform target;
-    private ProjectileSpawner[] primaryWeapons;
+    private ProjectileSpawner[] missiles;
+    private ProjectileSpawner[] lasers;
+    private bool missileMode = false;
     [SerializeField] private float health;
     [SerializeField] private float maxHealth;
     [SerializeField] private float shield;
@@ -17,12 +19,13 @@ public class PlayerBehaviour : MonoBehaviour
     public float MaxHealth => maxHealth;
     public float Shield => shield;
     public float MaxShield => maxShield;
+    public bool MissileMode => missileMode;
     
     // Start is called before the first frame update
     void Start()
     {
-        ProjectileSpawner[] spawners = GetComponentsInChildren<ProjectileSpawner>();
-        primaryWeapons = spawners.ToArray();
+        missiles = GetComponentsInChildren<MissileSpawner>();
+        lasers = GetComponentsInChildren<LaserSpawner>();
     }
 
     // Update is called once per frame
@@ -33,7 +36,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
     public void OnPrimary()
     {
-        foreach (var spawner in primaryWeapons)
+        foreach (var spawner in missileMode? missiles : lasers)
         {
             spawner.Fire(target);
         }
@@ -43,4 +46,9 @@ public class PlayerBehaviour : MonoBehaviour
         if (!target) this.target = null;
         else this.target = target.transform;
     }
+    public void OnSwitchWeapon()
+    {
+        missileMode = !missileMode;
+    }
+
 }

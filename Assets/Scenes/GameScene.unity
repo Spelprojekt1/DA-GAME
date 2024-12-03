@@ -122,6 +122,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &164070657 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7515664741559161698, guid: 3538bd78715fde64aab2b3246c486c36,
+    type: 3}
+  m_PrefabInstance: {fileID: 937138735413153860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &324985843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1546,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 660077677}
+    - target: {fileID: 4846432763236926934, guid: 3538bd78715fde64aab2b3246c486c36,
+        type: 3}
+      propertyPath: weaponMode
+      value: 
+      objectReference: {fileID: 164070657}
     - target: {fileID: 4877420664381080270, guid: 3538bd78715fde64aab2b3246c486c36,
         type: 3}
       propertyPath: playerMovement
@@ -1593,6 +1610,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515664741559161698, guid: 3538bd78715fde64aab2b3246c486c36,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515664741559161698, guid: 3538bd78715fde64aab2b3246c486c36,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7897640865478787439, guid: 3538bd78715fde64aab2b3246c486c36,
         type: 3}
@@ -1667,30 +1694,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 654943753917462962, guid: 910feb5ff1c48714fb7d925e77a901b5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1533852188818959315, guid: 910feb5ff1c48714fb7d925e77a901b5,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2092940129849529586, guid: 910feb5ff1c48714fb7d925e77a901b5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283949242110456905, guid: 910feb5ff1c48714fb7d925e77a901b5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4249370696343570857, guid: 910feb5ff1c48714fb7d925e77a901b5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4494471603129443083, guid: 910feb5ff1c48714fb7d925e77a901b5,
         type: 3}

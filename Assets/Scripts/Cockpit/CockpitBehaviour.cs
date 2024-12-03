@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,11 +12,12 @@ public class CockpitBehaviour : MonoBehaviour
     [SerializeField] private Slider health;
     [SerializeField] private Slider shield;
     [SerializeField] private Image pointer;
+    [SerializeField] private TextMeshProUGUI weaponMode;
     // Start is called before the first frame update
     void Start()
     {
-    playerMovement = player.GetComponent<PlayerMovement>();
-    playerBehaviour = player.GetComponent<PlayerBehaviour>();
+        playerMovement = player.GetComponent<PlayerMovement>();
+        playerBehaviour = player.GetComponent<PlayerBehaviour>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class CockpitBehaviour : MonoBehaviour
         reverseThrust.value = -playerMovement.Thrust;
         health.value = playerBehaviour.Health / playerBehaviour.MaxHealth;
         shield.value = playerBehaviour.Shield / playerBehaviour.MaxShield;
+        weaponMode.text = playerBehaviour.MissileMode ? "MISSILES" : "LASERS";
         
         transform.rotation = player.transform.rotation;
         pointer.rectTransform.localPosition = new Vector3(
