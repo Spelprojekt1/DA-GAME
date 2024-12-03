@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 169636208472503506}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 517698776778060691}
+        m_TargetAssemblyTypeName: PlayerBehaviour, Assembly-CSharp
         m_MethodName: OnPrimary
         m_Mode: 1
         m_Arguments:
@@ -238,6 +238,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c25ef1b6faab2c4d9023a150575d3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 0
+  shield: 0
+  maxShield: 0
+  shieldRegen: 0
 --- !u!1 &3283949242110456905
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,8 +439,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 169636208472503506}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 517698776778060691}
+        m_TargetAssemblyTypeName: PlayerBehaviour, Assembly-CSharp
         m_MethodName: OnTargetLock
         m_Mode: 0
         m_Arguments:
