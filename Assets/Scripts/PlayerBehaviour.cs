@@ -40,6 +40,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
     public void OnTargetLock(GameObject target)
     {
-        this.target = target.transform;
+        if (!target) this.target = null;
+        else this.target = target.transform;
     }
 }

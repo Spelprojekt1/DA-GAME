@@ -18,9 +18,6 @@ public class EnemyMovement : MonoBehaviour {
     [SerializeField]public float rayCastOffset = 2.5f;
     [SerializeField] public float detectionDistance = 20f;
 
-
-   
-
     // Update is called once per frame
     void Update()
     {
@@ -28,7 +25,7 @@ public class EnemyMovement : MonoBehaviour {
         if (shield > maxHealth) shield = maxHealth;
         
         Pathfinding();
-     
+
         Move();
 
     }
