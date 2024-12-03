@@ -3,12 +3,12 @@ using UnityEngine;
 using System.Collections;
 
 public class EnemyMovement : MonoBehaviour {
-    [SerializeField] private float health;
-    [SerializeField] private float maxHealth;
-    [SerializeField] private float shield;
-    [SerializeField] private float maxShield;
+    [SerializeField] private float health = 100f;
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float shield = 100f;
+    [SerializeField] private float maxShield = 100f;
     [Tooltip("shield per second that's regenerated")]
-    [SerializeField] private float shieldRegen;
+    [SerializeField] private float shieldRegen = 1f;
     
     //What target the enemy will move towards
     [SerializeField]public Transform target;
@@ -23,7 +23,10 @@ public class EnemyMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update()
-    { 
+    {
+        if (shield < maxShield) shield += shieldRegen * Time.deltaTime;
+        if (shield > maxHealth) shield = maxHealth;
+        
         Pathfinding();
      
         Move();
