@@ -19,8 +19,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector3 rotation = new(0,0,0);
     [SerializeField] private Vector2 primaryRotationSensitivity = new(0.001f,0.001f);
     [SerializeField] private Vector3 rotationStrength = new(100, 100, 100);
-    private Transform target;
-    private ProjectileSpawner[] primaryWeapons;
     public float Thrust => thrust;
     public Vector3 Rotation => rotation;
     
@@ -28,8 +26,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        ProjectileSpawner[] spawners = GetComponentsInChildren<ProjectileSpawner>();
-        primaryWeapons = spawners.ToArray();
     }
     
     // Update is called once per frame
@@ -70,15 +66,4 @@ public class PlayerMovement : MonoBehaviour
     }
     public void OnYaw(InputAction.CallbackContext context) => 
         rotation.y = context.ReadValue<float>();
-    public void OnPrimary()
-    {
-        foreach (var spawner in primaryWeapons)
-        {
-            spawner.Fire(target);
-        }
-    }
-    public void OnTargetLock(GameObject target)
-    {
-        this.target = target.transform;
-    }
 }
