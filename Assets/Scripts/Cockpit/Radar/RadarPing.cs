@@ -41,10 +41,10 @@ public class RadarPing : MonoBehaviour
     public Transform origin;
     public GameObject target;
     public RadarPingType type;
-    [SerializeField] private GameObject XZ;
-    [SerializeField] private Transform ping;
-    [SerializeField] private Transform positiveY;
-    [SerializeField] private Transform negativeY;
+    [SerializeField] private readonly GameObject XZ;
+    [SerializeField] private readonly Transform ping;
+    [SerializeField] private readonly Transform positiveY;
+    [SerializeField] private readonly Transform negativeY;
     // Update is called once per frame
     void Update()
     {
