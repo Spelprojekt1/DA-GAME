@@ -26,7 +26,7 @@ public class EnemyMovement : MonoBehaviour {
 
     void Turn()
     {
-       Debug.Log( "Target");
+       //Debug.Log( "Target");
         Vector3 pos = target.position - transform.position;
        Quaternion rotation = Quaternion.LookRotation(pos);
        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationalDamp * Time.deltaTime);
@@ -62,17 +62,17 @@ public class EnemyMovement : MonoBehaviour {
         else if (Physics.Raycast(rightRay, transform.forward, out hit, detectionDistance))
         {
             raycastOffset -= Vector3.right;
-            Debug.Log( "vänster");
+            //Debug.Log( "vänster");
         }
         if (Physics.Raycast(upRay, transform.forward, out hit, detectionDistance))
         {
             raycastOffset -= Vector3.up ;
-            Debug.Log( "ner");
+            //Debug.Log( "ner");
         }
         else if (Physics.Raycast(downRay, transform.forward, out hit, detectionDistance))
         {
             raycastOffset += Vector3.up;
-            Debug.Log( "upp");
+            //Debug.Log( "upp");
         }
         
         if(raycastOffset != Vector3.zero)

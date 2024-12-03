@@ -22,7 +22,7 @@ public class RandomEnemyTargetPosition : MonoBehaviour
     {
         //Countdown before new x,y,z positions 
         randomTimer -= Time.deltaTime;
-        Debug.Log(randomTimer);
+        //Debug.Log(randomTimer);
         if(randomTimer<= 0.0f)
         { NewPositonValues();}
        
