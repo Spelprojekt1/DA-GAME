@@ -1592,35 +1592,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 517698776778060691, guid: 910feb5ff1c48714fb7d925e77a901b5,
+    - target: {fileID: 654943753917462962, guid: 910feb5ff1c48714fb7d925e77a901b5,
         type: 3}
-      propertyPath: health
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 517698776778060691, guid: 910feb5ff1c48714fb7d925e77a901b5,
-        type: 3}
-      propertyPath: shield
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 517698776778060691, guid: 910feb5ff1c48714fb7d925e77a901b5,
-        type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 517698776778060691, guid: 910feb5ff1c48714fb7d925e77a901b5,
-        type: 3}
-      propertyPath: maxShield
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 517698776778060691, guid: 910feb5ff1c48714fb7d925e77a901b5,
-        type: 3}
-      propertyPath: shieldRegen
-      value: 2
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1533852188818959315, guid: 910feb5ff1c48714fb7d925e77a901b5,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249370696343570857, guid: 910feb5ff1c48714fb7d925e77a901b5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4494471603129443083, guid: 910feb5ff1c48714fb7d925e77a901b5,
         type: 3}
