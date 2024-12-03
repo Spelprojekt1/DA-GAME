@@ -9,6 +9,10 @@ public class EnemyMovement : MonoBehaviour {
     [SerializeField] private float maxShield = 100f;
     [Tooltip("shield per second that's regenerated")]
     [SerializeField] private float shieldRegen = 1f;
+    public float Health => health;
+    public float MaxHealth => maxHealth;
+    public float Shield => shield;
+    public float MaxShield => maxShield;
     
     //What target the enemy will move towards
     [SerializeField]public Transform target;

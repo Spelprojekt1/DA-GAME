@@ -11,8 +11,12 @@ public class CockpitBehaviour : MonoBehaviour
     [SerializeField] private Slider reverseThrust;
     [SerializeField] private Slider health;
     [SerializeField] private Slider shield;
+    [SerializeField] private Slider targetHealth;
+    [SerializeField] private Slider targetShield;
     [SerializeField] private Image pointer;
     [SerializeField] private TextMeshProUGUI weaponMode;
+    private EnemyMovement target;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,11 +32,33 @@ public class CockpitBehaviour : MonoBehaviour
         health.value = playerBehaviour.Health / playerBehaviour.MaxHealth;
         shield.value = playerBehaviour.Shield / playerBehaviour.MaxShield;
         weaponMode.text = playerBehaviour.MissileMode ? "MISSILES" : "LASERS";
+
+        if (target)
+        {
+            targetHealth.value = target.Health / target.MaxHealth;
+            targetShield.value = target.Shield / target.MaxShield;
+        }
         
         transform.rotation = player.transform.rotation;
         pointer.rectTransform.localPosition = new Vector3(
             playerMovement.Rotation.z * -200,
             playerMovement.Rotation.x * -200,
             0);
+    }
+
+    public void OnTargetLocked(GameObject target)
+    {
+        if (target)
+        {
+            this.target = target.GetComponent<EnemyMovement>();
+            targetHealth.gameObject.SetActive(true);
+            targetShield.gameObject.SetActive(true);
+        }
+        else
+        {
+            this.target = null;
+            targetHealth.gameObject.SetActive(false);
+            targetShield.gameObject.SetActive(false);
+        }
     }
 }
