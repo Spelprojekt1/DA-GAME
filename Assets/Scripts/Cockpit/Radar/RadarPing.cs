@@ -48,7 +48,11 @@ public class RadarPing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!target) return;
+        if (!target)
+        {
+            Destroy(gameObject);
+            return;
+        }
         
         Vector3 targetPos = target.transform.position;
         Vector3 originPos = origin.position;

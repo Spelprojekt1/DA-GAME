@@ -16,7 +16,7 @@ public class TargetHologram : MonoBehaviour
 
     public void OnTargetLocked(GameObject target)
     {
-        if (target != null)
+        if (target)
         {
             targetTransform = target.transform;
             active = true;
@@ -33,7 +33,7 @@ public class TargetHologram : MonoBehaviour
     void Update()
     {
         // Set hologram's rotation to the enemy's rotation relative to the player's viewpoint
-        if (active)
+        if (active && targetTransform != null)
         {
             hologram.transform.localRotation = Quaternion.Inverse(playerTransform.rotation) * targetTransform.rotation;
         }
