@@ -15,6 +15,7 @@ public class CockpitBehaviour : MonoBehaviour
     [SerializeField] private Slider targetShield;
     [SerializeField] private Image pointer;
     [SerializeField] private TextMeshProUGUI weaponMode;
+    [SerializeField] private TextMeshProUGUI hostilesCount;
     private EnemyMovement target;
 
     // Start is called before the first frame update
@@ -32,6 +33,8 @@ public class CockpitBehaviour : MonoBehaviour
         health.value = playerBehaviour.Health / playerBehaviour.MaxHealth;
         shield.value = playerBehaviour.Shield / playerBehaviour.MaxShield;
         weaponMode.text = playerBehaviour.MissileMode ? "MISSILES" : "LASERS";
+
+        hostilesCount.text = GameObject.FindGameObjectsWithTag("Enemy").Length.ToString();
 
         if (target)
         {
