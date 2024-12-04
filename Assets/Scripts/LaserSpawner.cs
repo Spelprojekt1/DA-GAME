@@ -1,4 +1,4 @@
-using System.Drawing;
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,17 +9,21 @@ public class LaserSpawner : ProjectileSpawner
     [SerializeField] private float startCooldown = 0.2f;
     private float cooldown = 0f;
     private bool active = false;
+    [SerializeField] private float range = 200f;
+    private float length = 200f;
+    public string targetTag = "Enemy";
+    [SerializeField] private float dps = 75f;
     [SerializeField] private AudioSource audioSource;
  
 //-------- LASER RAY CODE --------------------
     [SerializeField] private GameObject laser;
-    private float distanceBetween = 0f;
-    private Vector3 newLaserLength, oldLaserLength;
+    //private float distanceBetween = 0f;
+    //private Vector3 newLaserLength, oldLaserLength;
     
     //Skapar laserRay som används i CastRay metod.
-    Ray laserRay;
+    //Ray laserRay;
     //laserThickness som bestämmer tjockleken på players lasers Rays 
-    [SerializeField] private float laserThickness = 0.7f;
+    //[SerializeField] private float laserThickness = 0.7f;
 
     
    // public float laserRayDistance = laser.transform.localScale 
@@ -33,20 +37,28 @@ public class LaserSpawner : ProjectileSpawner
     // Update is called once per frame
     void Update()
     {
-        
-       
-        //Timer tickar ned när duration större än 0
         if (duration > 0)
         {
-            
             duration -= Time.deltaTime;
+            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, range))
+            {
+                length = MathF.Abs(Vector3.Magnitude(hit.collider.gameObject.transform.position - transform.position));
+                if (hit.collider.gameObject.CompareTag(targetTag))
+                {
+                    hit.collider.gameObject.GetComponent<EnemyMovement>().Hurt(new Damage(dps * Time.deltaTime,1f,0.5f));
+                }
+            }
+            else
+            {
+                length = range;
+            }
+            laser.transform.localScale = new Vector3(1f,1f,length);
         }
-       //
         else
         {
             if (active)
             {
-                ResetLaserLength();
+                //ResetLaserLength();
                 active = false;
                 cooldown = startCooldown;
                 laser.SetActive(false);
@@ -61,21 +73,17 @@ public class LaserSpawner : ProjectileSpawner
     
     public override void Fire(Transform _)
     {
-        //Aktiverar laserRay
-        
         if (!active && cooldown <= 0)
         {
-            
-            Castray();
+            //Castray();
             laser.SetActive(true);
             active = true;
             duration = startDuration;
             audioSource.Play();
-            
         }
     }
 
-    void ResetLaserLength()
+    /*void ResetLaserLength()
     {
         oldLaserLength = new Vector3(1f, 1f, 200f);
         laser.transform.localScale = oldLaserLength;
@@ -103,11 +111,6 @@ public class LaserSpawner : ProjectileSpawner
                newLaserLength = new Vector3(1f,1f,distanceBetween);
                
                laser.transform.localScale = newLaserLength;
-
-              
-
-        }
-       
-            
-    }
+        }     
+    }*/
 }
