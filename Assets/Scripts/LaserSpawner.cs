@@ -11,7 +11,7 @@ public class LaserSpawner : ProjectileSpawner
     private bool active = false;
     [SerializeField] private float range = 200f;
     private float length = 200f;
-    public string targetTag = "Enemy";
+    [SerializeField] private string targetTag = "Enemy";
     [SerializeField] private float dps = 75f;
     [SerializeField] private AudioSource audioSource;
  
