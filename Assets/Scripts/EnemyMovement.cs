@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 using UnityEditor.ShaderGraph;
+using UnityEngine.Serialization;
 
 public class EnemyMovement : MonoBehaviour
 {
     private Transform currentEnemyTarget;
 
     //The player Gameobject 
-   // [SerializeField] public GameObject player;
+    // [SerializeField] public GameObject player;
 
     //What target the enemy will move towards
     [SerializeField] public Transform patrolTarget;
@@ -26,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
     //ENEMY RAY VARS AND ENEMY MOVEMENT
     //The default color
     private Color rayColor = Color.black;
-    
+
     private Color rayColorPatrol = Color.magenta;
     private Color rayColorChase = Color.red;
     private Color rayColorAvoidTerrain = Color.green;
@@ -37,6 +38,9 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] public float movementSpeed = 7f;
 
     //ENEMY PLAYER DETECTION DISTANCE VARS 
+    //Timer för hur lång tid player behöver vara inom "chasePlayerRange" för att enemy ska börja fokusera player
+    [SerializeField] public float chasePlayerTimerLength = 2.0f;
+    private bool chasePlayerTimer;
     //Hur nära player kan vara till enemyes börjar fokusera på player istället
     [SerializeField] public float maxChasePlayerRange = 150.0f;
     [SerializeField] public float chasePlayerRange = 100.0f;
@@ -49,37 +53,45 @@ public class EnemyMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    { 
+        Debug.Log(chasePlayerTimer);
+        Debug.Log(chasePlayerTimerLength);
         // Om spelaren är inom en vissa radie av enemy så ska enemy börja följa spelaren (enemyTarget = playerTarget)
-        
+        DecideTarget();
         Pathfinding();
         Move();
 
 
-        void Turn()
+        void TargetPatrol()
         {
             // if (currentEnemyTarget = patrolTarget)
             // {
+            rayColor = rayColorPatrol;
             Vector3 pos = patrolTarget.position - transform.position;
             Quaternion rotation = Quaternion.LookRotation(pos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationalDamp * Time.deltaTime);
         }
 
         // }// if (currentEnemyTarget = playerTarget)}
-            void TargetPlayer()
-            {
-                // THE ROTATE TOWARDS PLAYER FUNCTION
-                transform.LookAt(playerTarget);
-                //  transform.rotation = Quaternion.Slerp(transform.rotation, rotation2, rotationalDamp * Time.deltaTime)
-            }
-
+        void ChasePlayer()
+        {
+            rayColor = rayColorChase;
             
-              
-        
+        }
+        void TargetPlayer()
+        {
+            // THE ROTATE TOWARDS PLAYER FUNCTION
+            rayColor = rayColorChase;
+            transform.LookAt(playerTarget);
+            //  transform.rotation = Quaternion.Slerp(transform.rotation, rotation2, rotationalDamp * Time.deltaTime)
+        }
 
-        
-        
+
+
+
+
+
+
 
         void Move()
         {
@@ -88,11 +100,11 @@ public class EnemyMovement : MonoBehaviour
 
         void Pathfinding()
         {
-            
+
             //Kollar konstant avståndet emellan enemy till player
             distanceBetween = (playerTarget.transform.position - transform.position).magnitude;
-            
-            
+
+
 
             RaycastHit hit;
             Vector3 raycastOffset = Vector3.zero;
@@ -108,6 +120,9 @@ public class EnemyMovement : MonoBehaviour
             Debug.DrawRay(rightRay, transform.forward * detectionDistance, rayColor);
             Debug.DrawRay(upRay, transform.forward * detectionDistance, rayColor);
             Debug.DrawRay(downRay, transform.forward * detectionDistance, rayColor);
+
+
+
 
             //drive towards the target and turn left/right or up/down when ray detects a obstacale  
             if (Physics.Raycast(leftRay, transform.forward, out hit, detectionDistance))
@@ -127,12 +142,13 @@ public class EnemyMovement : MonoBehaviour
             {
                 raycastOffset -= Vector3.up;
                 rayColor = rayColorAvoidTerrain;
-
+                //avoidTerrain = true
             }
             else if (Physics.Raycast(downRay, transform.forward, out hit, detectionDistance))
             {
                 raycastOffset += Vector3.up;
                 rayColor = rayColorAvoidTerrain;
+                //avoidTerrain = true
 
             }
 
@@ -143,26 +159,54 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                Turn();
+                TargetPatrol();
                 //TargetPlayer();
             }
-            
-            if (distanceBetween < chasePlayerRange)
+        }
+
+        //Bestämmmer vilken "state" enemy byter till
+        void DecideTarget()
+        {
+            //CHECK IF TARGET IS PLAYER
+            if (distanceBetween < chasePlayerRange && !chasePlayerTimer)
+            {
+                chasePlayerTimerLength -= Time.deltaTime;
+                if (chasePlayerTimerLength <= 0.0f)
+                {
+                    
+                    chasePlayerTimer = true;
+                    
+                    
+                }
+
+
+            }
+            else if (distanceBetween < chasePlayerRange && chasePlayerTimer)
             {
                 TargetPlayer();
-                //currentEnemyTarget = playerTarget;
-                //rayColor = rayColorChase;
+               
+
             }
-            else 
+            //CHECK IF TARGET IS PATROLTAGET
+            else if (distanceBetween > chasePlayerRange && chasePlayerTimer)
             {
-                Turn();
-                //currentEnemyTarget = patrolTarget;
-               // rayColor = rayColorPatrol;
+                TargetPatrol();
+                //chasePlayerTimerLength += 2f;
+
             }
-            //Debugging medelanden 
-            Debug.Log("Enemies distance between player: "+distanceBetween);
-            Debug.Log("Enemies current target: " +currentEnemyTarget);
-           // Debug.Log(rayColor);
+            else if (distanceBetween > chasePlayerRange)
+            {
+                TargetPatrol();
+                //chasePlayerTimerLength += 2f;
+
+            }
+
+            //Debugging medelanden FÖR DECIDE TARGET
+           // Debug.Log("Enemies distance between player: " + distanceBetween);
+           // Debug.Log("Enemies current target: " + currentEnemyTarget);
+            // Debug.Log(rayColor);}
+
         }
     }
 }
+
