@@ -9,6 +9,7 @@ public class LaserSpawner : ProjectileSpawner
     [SerializeField] private float startCooldown = 0.2f;
     private float cooldown = 0f;
     private bool active = false;
+    [SerializeField] private AudioSource audioSource;
  
 //-------- LASER RAY CODE --------------------
     [SerializeField] private GameObject laser;
@@ -69,6 +70,7 @@ public class LaserSpawner : ProjectileSpawner
             laser.SetActive(true);
             active = true;
             duration = startDuration;
+            audioSource.Play();
             
         }
     }
