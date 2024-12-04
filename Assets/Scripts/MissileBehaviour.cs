@@ -23,6 +23,7 @@ public class MissileBehaviour : MonoBehaviour
     {
         if (other.CompareTag(targetTag))
         {
+            other.gameObject.GetComponent<EnemyMovement>().Hurt(new Damage(75f,0.5f,1f));
             Destroy(gameObject);
         }
     }
@@ -30,17 +31,21 @@ public class MissileBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Decrease lifetime
         if (lifeTime <= 0)
         {
             Destroy(gameObject);
             return;
         }
-
         lifeTime -= Time.deltaTime;
-        
-        Vector3 desired = (target.position - transform.position).normalized;
-        Vector3 rotationAmount = Vector3.Cross(transform.forward, desired);
-        rb.angularVelocity = rotationAmount * torque;
+
+        // Home in on target if it exists
+        if (target)
+        {
+            Vector3 desired = (target.position - transform.position).normalized;
+            Vector3 rotationAmount = Vector3.Cross(transform.forward, desired);
+            rb.angularVelocity = rotationAmount * torque;
+        }        
         rb.velocity = transform.forward * force;
     }
 }
