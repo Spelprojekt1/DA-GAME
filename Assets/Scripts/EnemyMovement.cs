@@ -1,9 +1,19 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 
 public class EnemyMovement : MonoBehaviour {
+    [SerializeField] private float health = 100f;
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float shield = 100f;
+    [SerializeField] private float maxShield = 100f;
+    [Tooltip("shield per second that's regenerated")]
+    [SerializeField] private float shieldRegen = 1f;
+    public float Health => health;
+    public float MaxHealth => maxHealth;
+    public float Shield => shield;
+    public float MaxShield => maxShield;
+    
     //What target the enemy will move towards
     [SerializeField]public Transform target;
     [SerializeField]public float movementSpeed = 7f;
@@ -12,16 +22,33 @@ public class EnemyMovement : MonoBehaviour {
     [SerializeField]public float rayCastOffset = 2.5f;
     [SerializeField] public float detectionDistance = 20f;
 
-
-   
-
     // Update is called once per frame
     void Update()
-    { 
+    {
+        if (shield < maxShield) shield += shieldRegen * Time.deltaTime;
+        if (shield > maxHealth) shield = maxHealth;
+        
         Pathfinding();
-     
+
         Move();
 
+    }
+
+    public void Hurt(Damage dam)
+    {
+        float damage = dam.Dam;
+        if (damage * dam.Smod < shield)
+        {
+            shield -= damage * dam.Smod;
+            return;
+        }
+        if (shield > 0)
+        {
+            damage -= shield / dam.Smod;
+            shield = 0;
+        }
+        health -= damage * dam.Amod;
+        if (health <= 0) Destroy(gameObject);
     }
 
     void Turn()
