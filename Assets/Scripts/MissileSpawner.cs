@@ -35,7 +35,7 @@ public class MissileSpawner : ProjectileSpawner
         }
         if (cooldown <= 0)
         {
-            GameObject missile = (GameObject)PrefabUtility.InstantiatePrefab(missilePrefab);
+            GameObject missile = Instantiate(missilePrefab);
             missile.transform.position = transform.position;
             missile.transform.rotation = transform.rotation;
             MissileBehaviour missileBehaviour = missile.GetComponent<MissileBehaviour>();

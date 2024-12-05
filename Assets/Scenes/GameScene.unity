@@ -2292,6 +2292,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2085944868193176127, guid: 3538bd78715fde64aab2b3246c486c36,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2278819420968633583, guid: 3538bd78715fde64aab2b3246c486c36,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2312,6 +2317,21 @@ PrefabInstance:
       propertyPath: maxDistance
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 4524997281814147387, guid: 3538bd78715fde64aab2b3246c486c36,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524997281814147387, guid: 3538bd78715fde64aab2b3246c486c36,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.656
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524997281814147387, guid: 3538bd78715fde64aab2b3246c486c36,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.656
+      objectReference: {fileID: 0}
     - target: {fileID: 4846432763236926934, guid: 3538bd78715fde64aab2b3246c486c36,
         type: 3}
       propertyPath: player
@@ -2326,6 +2346,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cockpit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6411045775420774565, guid: 3538bd78715fde64aab2b3246c486c36,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6874530638130314886, guid: 3538bd78715fde64aab2b3246c486c36,
         type: 3}
@@ -2376,6 +2401,35 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676845745958021257, guid: 3538bd78715fde64aab2b3246c486c36,
+        type: 3}
+      propertyPath: m_text
+      value: 'Mouse horizontal = Roll
+
+        Mouse vertical = Pitch
+
+        Q
+        and E = Yaw
+
+        Mouse wheel = Change weapons
+
+        Shift = Accelerate
+
+        CTRL
+        = Brake/Reverse
+
+        Fire weapons = Left click
+
+        Lock target =
+        Right click
+
+
+        MISSILES REQUIRE
+
+        A TARGET LOCK
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 7897640865478787439, guid: 3538bd78715fde64aab2b3246c486c36,
         type: 3}
