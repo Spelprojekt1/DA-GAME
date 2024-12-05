@@ -52,7 +52,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] public float repositionAwayFromPlayerRange = 20.0f;
     [SerializeField] public float smoothRotation = 1.0f;
 
-    private Coroutine LookCoroutine;
+    //private Coroutine LookCoroutine;
     //Hur långt det är emellan player och enemy
     public float distanceBetween = 0f;
 
@@ -60,12 +60,12 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     { 
         //Debugging medelanden FÖR DECIDE TARGET
-        Debug.Log("Enemies distance between player: " + distanceBetween);
+       // Debug.Log("Enemies distance between player: " + distanceBetween);
         // Debug.Log("Enemies current target: " + currentEnemyTarget);
         // Debug.Log(rayColor);}
         //Debug.Log(chasePlayerTimer);
-        Debug.Log("Enemy patrol mode: " + patrolMode);
-        Debug.Log("Chase player timer is " +chasePlayerTimer);
+       // Debug.Log("Enemy patrol mode: " + patrolMode);
+      // Debug.Log("Chase player timer is " +chasePlayerTimer);
         //Debug.Log(chasePlayerTimerLength);
         // Om spelaren är inom en vissa radie av enemy så ska enemy börja följa spelaren (enemyTarget = playerTarget)
         DecideTarget();
@@ -188,7 +188,7 @@ public class EnemyMovement : MonoBehaviour
 
             if (raycastOffset != Vector3.zero)
             {
-                Debug.Log("nu?");
+               // Debug.Log("nu?");
                 transform.Rotate(raycastOffset * 3f * Time.deltaTime);
             }
         }
@@ -219,7 +219,8 @@ public class EnemyMovement : MonoBehaviour
             //CHECK IF ENEMY NEED REPOSISTIONING
             else if (distanceBetween < repositionAwayFromPlayerRange)
             {
-                RepositionAway();
+                TargetPatrol();
+                //RepositionAway();
             }
         
 
