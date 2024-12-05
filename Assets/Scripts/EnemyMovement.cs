@@ -54,7 +54,7 @@ public class EnemyMovement : MonoBehaviour {
     void Turn()
     {
        //Debug.Log( "Target");
-        Vector3 pos = target.position - transform.position;
+       Vector3 pos = target.position - transform.position;
        Quaternion rotation = Quaternion.LookRotation(pos);
        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationalDamp * Time.deltaTime);
     }
@@ -76,10 +76,10 @@ public class EnemyMovement : MonoBehaviour {
         Vector3 downRay = transform.position - transform.up * rayCastOffset;
        
         //Ritar ut dom här 4 rays,
-        Debug.DrawRay(leftRay, transform.forward * detectionDistance, Color.magenta);
-        Debug.DrawRay(rightRay, transform.forward * detectionDistance, Color.magenta);
-        Debug.DrawRay(upRay, transform.forward * detectionDistance, Color.red);
-        Debug.DrawRay(downRay, transform.forward * detectionDistance, Color.red);
+        // Debug.DrawRay(leftRay, transform.forward * detectionDistance, Color.magenta);
+        // Debug.DrawRay(rightRay, transform.forward * detectionDistance, Color.magenta);
+        // Debug.DrawRay(upRay, transform.forward * detectionDistance, Color.red);
+        // Debug.DrawRay(downRay, transform.forward * detectionDistance, Color.red);
        
         //drive towards the target and turn left/right or up/down when ray detects a obstacale  
         if (Physics.Raycast(leftRay, transform.forward, out hit, detectionDistance))

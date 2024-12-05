@@ -49,9 +49,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 10
-  torque: 2
+  torque: 4
   target: {fileID: 0}
   lifeTime: 5
+  targetTag: Enemy
 --- !u!136 &3704055187123576613
 CapsuleCollider:
   m_ObjectHideFlags: 0
