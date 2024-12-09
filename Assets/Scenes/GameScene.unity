@@ -1741,6 +1741,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 923535954012606865, guid: 910feb5ff1c48714fb7d925e77a901b5,
+        type: 3}
+      propertyPath: playerRb
+      value: 
+      objectReference: {fileID: 660077685}
     - target: {fileID: 1533852188818959315, guid: 910feb5ff1c48714fb7d925e77a901b5,
         type: 3}
       propertyPath: m_Name
@@ -1751,6 +1756,11 @@ PrefabInstance:
       propertyPath: m_Cameras.Array.data[0]
       value: 
       objectReference: {fileID: 2119662936}
+    - target: {fileID: 4557379984031097226, guid: 910feb5ff1c48714fb7d925e77a901b5,
+        type: 3}
+      propertyPath: playerRb
+      value: 
+      objectReference: {fileID: 660077685}
     - target: {fileID: 5107921777337430171, guid: 910feb5ff1c48714fb7d925e77a901b5,
         type: 3}
       propertyPath: m_Volume

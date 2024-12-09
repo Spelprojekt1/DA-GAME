@@ -11,12 +11,13 @@ public class MissileBehaviour : MonoBehaviour
     public float lifeTime = 5f;
     private Rigidbody rb;
     public string targetTag = "Enemy";
+    public Vector3 startVelocity;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * force;
+        rb.velocity = startVelocity + transform.forward * force;
     }
 
     private void OnTriggerEnter(Collider other)
