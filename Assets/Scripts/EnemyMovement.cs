@@ -32,7 +32,8 @@ public class EnemyMovement : MonoBehaviour
     private Color rayColorChase = Color.red;
     private Color rayColorAvoidTerrain = Color.green;
 
-    [SerializeField] public float rotationalDamp = .5f;
+    [FormerlySerializedAs("rotationalDamp")] [SerializeField] public float patrolRotationalDamp = .5f;
+    [FormerlySerializedAs("rotationalDamp")] [SerializeField] public float playerRotationalDamp = .7f;
     [SerializeField] public float rayCastOffset = 2.5f;
     [SerializeField] public float detectionDistance = 20f;
     [SerializeField] public float movementSpeed = 7f;
@@ -81,14 +82,18 @@ public class EnemyMovement : MonoBehaviour
             rayColor = rayColorPatrol;
             Vector3 pos = patrolTarget.position - transform.position;
             Quaternion rotation = Quaternion.LookRotation(pos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationalDamp * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, patrolRotationalDamp * Time.deltaTime);
         }
         
         // }// if (currentEnemyTarget = playerTarget)}
         void RepositionAway()
         {
             rayColor = rayColorAvoidTerrain;
-            transform.rotation = patrolTarget.rotation;
+           
+            
+                Vector3 pos = patrolTarget.position - transform.position;
+                Quaternion rotation = Quaternion.LookRotation(pos);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, patrolRotationalDamp * Time.deltaTime);
 
             
 
@@ -106,6 +111,10 @@ public class EnemyMovement : MonoBehaviour
         {
             // THE ROTATE TOWARDS PLAYER FUNCTION
             rayColor = rayColorChase;
+            
+           // Vector3 pos = playerTarget.position - transform.position;
+          // Quaternion rotation = Quaternion.LookRotation(pos);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerRotationalDamp * Time.deltaTime);
             transform.LookAt(playerTarget);
             
             // Enemy kan inte följa sin egna target för äns player har åkt maxChasePlayerRange ifrån enemy
@@ -219,8 +228,8 @@ public class EnemyMovement : MonoBehaviour
             //CHECK IF ENEMY NEED REPOSISTIONING
             else if (distanceBetween < repositionAwayFromPlayerRange)
             {
-                TargetPatrol();
-                //RepositionAway();
+                
+                RepositionAway();
             }
         
 
