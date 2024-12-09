@@ -1,14 +1,14 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private const float axisMax = 1;
-    private const float axisMin = -1;
+    private const float AXIS_MAX = 1;
+    private const float AXIS_MIN = -1;
+
+    private Rigidbody rb;
     private float throttleAcceleration;
-    [SerializeField][Range(axisMin,axisMax)] private float thrust;
+    [SerializeField][Range(AXIS_MIN,AXIS_MAX)] private float thrust;
     [SerializeField] private float thrustStrength = 50f;
     [SerializeField] private Vector3 velocity = new(0, 0, 0);
     [SerializeField] private float drag = 1f;
@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        rb = GetComponent<Rigidbody>();
     }
     
     // Update is called once per frame
@@ -34,19 +35,23 @@ public class PlayerMovement : MonoBehaviour
         thrust += throttleAcceleration * Time.deltaTime;
         translationalVelocity += translationalAcceleration * Time.deltaTime;
         
-        thrust = Mathf.Clamp(thrust, axisMin, axisMax);
-        translationalVelocity.Clamp(axisMin, axisMax);
+        thrust = Mathf.Clamp(thrust, AXIS_MIN, AXIS_MAX);
+        translationalVelocity.Clamp(AXIS_MIN, AXIS_MAX);
         
-        transform.Rotate(Vector3.Scale(rotation, rotationStrength) * Time.deltaTime);
+        //transform.Rotate(Vector3.Scale(rotation, rotationStrength) * Time.deltaTime);
+        rb.angularVelocity = transform.rotation * Vector3.Scale(rotation, rotationStrength);
+        //rb.AddTorque(transform.rotation * Vector3.Scale(rotation, rotationStrength));
         
-        velocity += transform.forward * (Time.deltaTime * thrust * thrustStrength);
-        velocity += transform.rotation * translationalVelocity * (translationStrength * Time.deltaTime);
-        transform.position += velocity * Time.deltaTime;
+        //velocity += transform.forward * (Time.deltaTime * thrust * thrustStrength);
+        //velocity += transform.rotation * translationalVelocity * (translationStrength * Time.deltaTime);
+        //transform.position += velocity * Time.deltaTime;
+        rb.AddForce(transform.forward * (Time.deltaTime * thrust * thrustStrength));
+        rb.AddForce(transform.rotation * translationalVelocity * (translationStrength * Time.deltaTime));
+        
+        //translationalVelocity *= 1 - translationalDrag * Mathf.Min(Time.deltaTime,1);
+        //velocity *= 1 - drag * Mathf.Min(Time.deltaTime,1);
 
-        translationalVelocity *= 1 - translationalDrag * Mathf.Min(Time.deltaTime,1);
-        velocity *= 1 - drag * Mathf.Min(Time.deltaTime,1);
-
-        if (velocity.magnitude < 0.0001f) velocity = new Vector3(0,0,0);
+        //if (velocity.magnitude < 0.0001f) velocity = new Vector3(0,0,0);
     }
     public void OnTranslate(InputAction.CallbackContext context) =>
         translationalAcceleration = context.ReadValue<Vector3>();
@@ -59,8 +64,8 @@ public class PlayerMovement : MonoBehaviour
         Vector2 b = context.ReadValue<Vector2>();
         Vector2 c = primaryRotationSensitivity;
         
-        a.z = Mathf.Max(Mathf.Min(a.z -= b.x * c.x, axisMax), axisMin);
-        a.x = Mathf.Max(Mathf.Min(a.x -= b.y * c.y, axisMax), axisMin);
+        a.z = Mathf.Max(Mathf.Min(a.z -= b.x * c.x, AXIS_MAX), AXIS_MIN);
+        a.x = Mathf.Max(Mathf.Min(a.x -= b.y * c.y, AXIS_MAX), AXIS_MIN);
 
         rotation = a;
     }
