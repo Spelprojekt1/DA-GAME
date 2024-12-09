@@ -8,7 +8,12 @@ using UnityEngine.Serialization;
 public class EnemyMovement : MonoBehaviour
 {
     private Transform currentEnemyTarget;
-
+    [SerializeField] public bool projectileReload;
+    [SerializeField] private float projectileTimer  = 2f;
+    [SerializeField] public Rigidbody enemyLaser;
+    [SerializeField] public Transform rightProjectileSpawner;
+    [SerializeField] public Transform leftProjectileSpawner;
+    [SerializeField] private float projectileSpeed = 10f;
     //The player Gameobject 
     // [SerializeField] public GameObject player;
 
@@ -110,9 +115,19 @@ public class EnemyMovement : MonoBehaviour
         void TargetPlayer()
         {
             // SHOOT TOWARDS THE PLAYER
-            
+           // var projectile =Instantiate(enemyLaser, transform.position, transform.rotation);
+            //projectile.velocity = transform.forward * projectileSpeed;
             // THE ROTATE TOWARDS PLAYER FUNCTION
             rayColor = rayColorChase;
+            projectileTimer -= Time.deltaTime;
+            if (projectileTimer <= 0.0f)
+            {
+                projectileReload = true;
+                
+            }
+            if (projectileReload)
+            {ShootBullet();}
+            
             
            // Vector3 pos = playerTarget.position - transform.position;
           // Quaternion rotation = Quaternion.LookRotation(pos);
@@ -124,7 +139,17 @@ public class EnemyMovement : MonoBehaviour
             
             //  transform.rotation = Quaternion.Slerp(transform.rotation, rotation2, rotationalDamp * Time.deltaTime)
         }
-
+        void ShootBullet()
+        {
+        
+            var projectileRight = Instantiate(enemyLaser, rightProjectileSpawner.transform.position, transform.rotation);
+            //Shoots 2 Bullet forwards
+            projectileRight.velocity = transform.forward * projectileSpeed;
+            var projectileLeft = Instantiate(enemyLaser, leftProjectileSpawner.transform.position, transform.rotation);
+            projectileLeft.velocity = transform.forward * projectileSpeed;
+            projectileReload = false;
+            projectileTimer = 2f;
+        }
 
 
 

@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 469471634}
   m_Layer: 0
   m_Name: PlayerDummy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -513,7 +513,7 @@ Transform:
   m_GameObject: {fileID: 469471632}
   serializedVersion: 2
   m_LocalRotation: {x: -0.26615837, y: 0.6976346, z: -0.31825382, w: -0.58410645}
-  m_LocalPosition: {x: 70.3, y: 71.1, z: 9}
+  m_LocalPosition: {x: 55.78, y: 54.12, z: 6.41}
   m_LocalScale: {x: 5.02, y: 5.02, z: 5.02}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -609,6 +609,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy00 attackmode test
       objectReference: {fileID: 0}
+    - target: {fileID: 275400965252519364, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 619732120899506046, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -681,6 +686,12 @@ PrefabInstance:
       objectReference: {fileID: 896844947}
     - target: {fileID: 5191962522080340166, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
         type: 3}
+      propertyPath: enemyLaser
+      value: 
+      objectReference: {fileID: 6814527090098431667, guid: e8daa2dee06fa884199c74ac8456f122,
+        type: 3}
+    - target: {fileID: 5191962522080340166, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
+        type: 3}
       propertyPath: patrolTarget
       value: 
       objectReference: {fileID: 896844947}
@@ -693,6 +704,11 @@ PrefabInstance:
         type: 3}
       propertyPath: rotationalDamp
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191962522080340166, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
+        type: 3}
+      propertyPath: projectileSpeed
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5191962522080340166, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
         type: 3}
@@ -711,9 +727,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5191962522080340166, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
         type: 3}
+      propertyPath: leftProjectileSpawner
+      value: 
+      objectReference: {fileID: 2106697072}
+    - target: {fileID: 5191962522080340166, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
+        type: 3}
       propertyPath: chasePlayerTimerLength
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5191962522080340166, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
+        type: 3}
+      propertyPath: rightProjectileSpawner
+      value: 
+      objectReference: {fileID: 1487457169}
     - target: {fileID: 5191962522080340166, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
         type: 3}
       propertyPath: repositionAwayFromPlayerRange
@@ -997,6 +1023,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b339c2864e9407a4782c40df3cb51606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileReload: 0
+  projectileTimer: 2
+  enemyLaser: {fileID: 0}
+  rightProjectileSpawner: {fileID: 0}
+  leftProjectileSpawner: {fileID: 0}
+  projectileSpeed: 10
   patrolTarget: {fileID: 0}
   playerTarget: {fileID: 0}
   patrolRotationalDamp: 0.2
@@ -1475,6 +1507,7 @@ GameObject:
   - component: {fileID: 1487457172}
   - component: {fileID: 1487457171}
   - component: {fileID: 1487457170}
+  - component: {fileID: 1487457173}
   m_Layer: 0
   m_Name: Right Procetile Spawner
   m_TagString: Untagged
@@ -1491,7 +1524,7 @@ Transform:
   m_GameObject: {fileID: 1487457168}
   serializedVersion: 2
   m_LocalRotation: {x: -0.009861772, y: -0.62979865, z: 0.73597175, w: 0.24819757}
-  m_LocalPosition: {x: 0.0057586944, y: -0.0057087587, z: 0.0042718477}
+  m_LocalPosition: {x: 0.00586, y: -0.00537, z: 0.00717}
   m_LocalScale: {x: 0.0009999998, y: 0.0009999998, z: 0.001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1568,6 +1601,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487457168}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1487457173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487457168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6d36569d3a3c445b627ad951d5d52c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLaser: {fileID: 0}
+  shootSpeed: 300
 --- !u!1 &1508668072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,6 +1907,7 @@ GameObject:
   - component: {fileID: 2106697075}
   - component: {fileID: 2106697074}
   - component: {fileID: 2106697073}
+  - component: {fileID: 2106697076}
   m_Layer: 0
   m_Name: Left Projectile spawner
   m_TagString: Untagged
@@ -1876,7 +1924,7 @@ Transform:
   m_GameObject: {fileID: 2106697071}
   serializedVersion: 2
   m_LocalRotation: {x: -0.009861772, y: -0.62979865, z: 0.73597175, w: 0.24819757}
-  m_LocalPosition: {x: -0.0058598714, y: -0.005773718, z: 0.0053140274}
+  m_LocalPosition: {x: -0.00565, y: -0.00548, z: 0.00698}
   m_LocalScale: {x: 0.0009999998, y: 0.0009999998, z: 0.001}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1953,6 +2001,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106697071}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2106697076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106697071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6d36569d3a3c445b627ad951d5d52c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLaser: {fileID: 0}
+  shootSpeed: 300
 --- !u!1001 &122876710573884981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2021,6 +2083,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 896844947}
+    - target: {fileID: 5191962522080340166, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
+        type: 3}
+      propertyPath: projectileSpeed
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
