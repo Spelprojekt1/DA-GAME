@@ -695,6 +695,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5191962522080340166, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
         type: 3}
+      propertyPath: patrolRotationalDamp
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191962522080340166, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
+        type: 3}
+      propertyPath: playerRotationalDamp
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191962522080340166, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
+        type: 3}
       propertyPath: chasePlayerTimerLength
       value: 2
       objectReference: {fileID: 0}
@@ -975,7 +985,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolTarget: {fileID: 0}
   playerTarget: {fileID: 0}
-  rotationalDamp: 0.2
+  patrolRotationalDamp: 0.2
+  playerRotationalDamp: 0.2
   rayCastOffset: 8
   detectionDistance: 20
   movementSpeed: 7
