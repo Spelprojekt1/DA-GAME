@@ -109,6 +109,8 @@ public class EnemyMovement : MonoBehaviour
         }
         void TargetPlayer()
         {
+            // SHOOT TOWARDS THE PLAYER
+            
             // THE ROTATE TOWARDS PLAYER FUNCTION
             rayColor = rayColorChase;
             
