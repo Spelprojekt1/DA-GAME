@@ -14,7 +14,6 @@ public class LaserSpawner : ProjectileSpawner
     [SerializeField] private string targetTag = "Enemy";
     [SerializeField] private float dps = 75f;
     [SerializeField] private AudioSource audioSource;
- 
 //-------- LASER RAY CODE --------------------
     [SerializeField] private GameObject laser;
     //private float distanceBetween = 0f;
@@ -92,25 +91,23 @@ public class LaserSpawner : ProjectileSpawner
     {
         //skapar vart laserRay skickas ifrån och hurlångt den är. Lika lång som längden på laser objectets z scale (200)
         this.laserRay = new Ray(transform.position, transform.forward * laser.transform.localScale.z);
-       //ritar ut rayen Scenen för debugging
-       CheckForColliders();
+        //ritar ut rayen Scenen för debugging
+        CheckForColliders();
     }
     void CheckForColliders()
     {
         //träffar laser något object med någon Physics component händer x 
         if (Physics.SphereCast(this.laserRay,laserThickness, out RaycastHit hit))
         {
-           
             // om laserns ray träffar enemy, skriv ut det
             Debug.Log(hit.collider.gameObject.name + " was hit");
             Debug.Log(distanceBetween);
             
             //stänger av lasern när den träffar något object med Physics
             distanceBetween = (hit.collider.gameObject.transform.position - transform.position).magnitude;
-         
-               newLaserLength = new Vector3(1f,1f,distanceBetween);
-               
-               laser.transform.localScale = newLaserLength;
+            newLaserLength = new Vector3(1f,1f,distanceBetween);
+            
+            laser.transform.localScale = newLaserLength;
         }     
     }*/
 }
