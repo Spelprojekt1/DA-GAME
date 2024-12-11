@@ -10,12 +10,12 @@ public class PlayerMovement : MonoBehaviour
     private float throttleAcceleration;
     [SerializeField][Range(AXIS_MIN,AXIS_MAX)] private float thrust;
     [SerializeField] private float thrustStrength = 50f;
-    [SerializeField] private Vector3 velocity = new(0, 0, 0);
-    [SerializeField] private float drag = 1f;
+    // [SerializeField] private Vector3 velocity = new(0, 0, 0);
+    // [SerializeField] private float drag = 1f;
     [SerializeField] private float translationStrength = 5f;
     private Vector3 translationalAcceleration = new(0, 0, 0);
     private Vector3 translationalVelocity = new(0,0,0);
-    [SerializeField] private float translationalDrag = 4f;
+    // [SerializeField] private float translationalDrag = 4f;
     [SerializeField] private Vector3 rotation = new(0,0,0);
     [SerializeField] private Vector2 primaryRotationSensitivity = new(0.001f,0.001f);
     [SerializeField] private Vector3 rotationStrength = new(100, 100, 100);
