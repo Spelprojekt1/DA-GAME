@@ -8,6 +8,7 @@ public class PlayerBehaviour : MonoBehaviour
     private Transform target;
     private ProjectileSpawner[] missiles;
     private ProjectileSpawner[] lasers;
+    private ProjectileSpawner[] guns;
     private bool missileMode = false;
     [SerializeField] private float health;
     [SerializeField] private float maxHealth;
@@ -26,6 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         missiles = GetComponentsInChildren<MissileSpawner>();
         lasers = GetComponentsInChildren<LaserSpawner>();
+        guns = GetComponentsInChildren<BulletSpawner>();
     }
 
     // Update is called once per frame
@@ -36,7 +38,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
     public void OnPrimary()
     {
-        foreach (var spawner in missileMode? missiles : lasers)
+        foreach (var spawner in missileMode? guns : lasers)
         {
             spawner.Fire(target);
         }

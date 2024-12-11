@@ -4,7 +4,7 @@ using UnityEngine;
 public class MissileSpawner : ProjectileSpawner
 {
     [Tooltip("Missile will fly for this many seconds before exploding")]
-    [SerializeField] private float missileLifeTime = 3f;
+    [SerializeField] private float lifeTime = 3f;
     private float cooldown = 0f;
     [SerializeField] private float startCooldown = 5f;
     [SerializeField] private Rigidbody playerRb;
@@ -36,12 +36,12 @@ public class MissileSpawner : ProjectileSpawner
         }
         if (cooldown <= 0)
         {
-            GameObject missile = (GameObject)PrefabUtility.InstantiatePrefab(missilePrefab);
+            GameObject missile = Instantiate(missilePrefab);
             missile.transform.position = transform.position;
             missile.transform.rotation = transform.rotation;
             MissileBehaviour missileBehaviour = missile.GetComponent<MissileBehaviour>();
             missileBehaviour.target = target;
-            missileBehaviour.lifeTime = missileLifeTime;
+            missileBehaviour.lifeTime = lifeTime;
             missileBehaviour.targetTag = targetTag;
             missileBehaviour.startVelocity = playerRb.velocity; 
             cooldown = startCooldown;
