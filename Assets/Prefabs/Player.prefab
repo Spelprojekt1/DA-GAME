@@ -220,6 +220,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d8d40272-f06c-42fe-8259-0272829b507f
     m_ActionName: Player/WeaponSwitch[/Mouse/scroll/down,/Mouse/scroll/up]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: PausePressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5cd82e4e-e542-44d7-8bad-cc1b14e575a0
+    m_ActionName: Player/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -1349,17 +1365,17 @@ PrefabInstance:
     - target: {fileID: 1325246622803606671, guid: bcc409e582ab36442af8dd3ab7edc6ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.585
       objectReference: {fileID: 0}
     - target: {fileID: 1325246622803606671, guid: bcc409e582ab36442af8dd3ab7edc6ba,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.568
       objectReference: {fileID: 0}
     - target: {fileID: 1325246622803606671, guid: bcc409e582ab36442af8dd3ab7edc6ba,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.616
       objectReference: {fileID: 0}
     - target: {fileID: 1325246622803606671, guid: bcc409e582ab36442af8dd3ab7edc6ba,
         type: 3}
@@ -1512,17 +1528,17 @@ PrefabInstance:
     - target: {fileID: 1325246622803606671, guid: bcc409e582ab36442af8dd3ab7edc6ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.585
       objectReference: {fileID: 0}
     - target: {fileID: 1325246622803606671, guid: bcc409e582ab36442af8dd3ab7edc6ba,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.568
       objectReference: {fileID: 0}
     - target: {fileID: 1325246622803606671, guid: bcc409e582ab36442af8dd3ab7edc6ba,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.616
       objectReference: {fileID: 0}
     - target: {fileID: 1325246622803606671, guid: bcc409e582ab36442af8dd3ab7edc6ba,
         type: 3}
@@ -1559,6 +1575,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3744070929837029235, guid: bcc409e582ab36442af8dd3ab7edc6ba,
+        type: 3}
+      propertyPath: playerRb
+      value: 
+      objectReference: {fileID: 1470931142510808685}
     - target: {fileID: 8011241236718000290, guid: bcc409e582ab36442af8dd3ab7edc6ba,
         type: 3}
       propertyPath: m_Name
