@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 
-public class EnemyMovement : MonoBehaviour {
+public class OldEnemyMovement : MonoBehaviour {
     [SerializeField] private float health = 100f;
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float shield = 100f;

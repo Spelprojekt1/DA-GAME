@@ -17,7 +17,7 @@ public class CockpitBehaviour : MonoBehaviour
     [SerializeField] private GameObject targetPointer;
     [SerializeField] private TextMeshProUGUI weaponMode;
     [SerializeField] private TextMeshProUGUI hostilesCount;
-    private EnemyMovement target;
+    private OldEnemyMovement target;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +56,7 @@ public class CockpitBehaviour : MonoBehaviour
     {
         if (target)
         {
-            this.target = target.GetComponent<EnemyMovement>();
+            this.target = target.GetComponent<OldEnemyMovement>();
             targetHealth.gameObject.SetActive(true);
             targetShield.gameObject.SetActive(true);
             targetPointer.SetActive(true);
