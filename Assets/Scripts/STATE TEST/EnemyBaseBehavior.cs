@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyProjectileBehevior : MonoBehaviour
+public class EnemyBaseBehavior : MonoBehaviour
 {
-    [SerializeField] public float projectileSpeed = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +13,6 @@ public class EnemyProjectileBehevior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * projectileSpeed * Time.deltaTime;
+        
     }
 }

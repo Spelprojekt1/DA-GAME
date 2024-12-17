@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 public class EnemyMovement : MonoBehaviour
 {
     private Transform currentEnemyTarget;
+    [SerializeField] private Rigidbody rigidBody;
     [SerializeField] public bool projectileReload;
     [SerializeField] private float projectileTimer  = 2f;
     [SerializeField] public Rigidbody enemyLaser;
@@ -31,9 +32,9 @@ public class EnemyMovement : MonoBehaviour
     // [SerializeField]public float turningSpeed = 2f;
     //ENEMY RAY VARS AND ENEMY MOVEMENT
     //The default color
-    private Color rayColor = Color.black;
+    public Color rayColor = Color.black;
 
-    private Color rayColorPatrol = Color.magenta;
+    public Color rayColorPatrol = Color.magenta;
     private Color rayColorChase = Color.red;
     private Color rayColorAvoidTerrain = Color.green;
 
@@ -99,8 +100,11 @@ public class EnemyMovement : MonoBehaviour
                 Vector3 pos = patrolTarget.position - transform.position;
                 Quaternion rotation = Quaternion.LookRotation(pos);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotation, patrolRotationalDamp * Time.deltaTime);
+                //movementSpeed öker när Repostion Away är igång
+                //while(
+                //{movementSpeed = 180;}
 
-            
+
 
         }
         void ChasePlayer()
@@ -159,7 +163,9 @@ public class EnemyMovement : MonoBehaviour
 
         void Move()
         {
-            transform.position += transform.forward * movementSpeed * Time.deltaTime;
+            //Enemy rör sig frammåt hela tiden.
+            rigidBody.AddForce(transform.forward * (Time.deltaTime * movementSpeed));
+            //transform.position += transform.forward * movementSpeed * Time.deltaTime;
         }
 
         void Pathfinding()
