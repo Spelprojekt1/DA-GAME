@@ -17,6 +17,7 @@ public class CockpitBehaviour : MonoBehaviour
     [SerializeField] private Slider targetShield;
     [SerializeField] private Image pointer;
     [SerializeField] private GameObject targetPointer;
+    [SerializeField] private GameObject targetReticle;
     [SerializeField] private TextMeshProUGUI weaponMode;
     [SerializeField] private TextMeshProUGUI hostilesCount;
     private OldEnemyMovement target;
@@ -45,6 +46,9 @@ public class CockpitBehaviour : MonoBehaviour
             targetShield.value = target.Shield / target.MaxShield;
 
             targetPointer.transform.localRotation = Quaternion.Inverse(player.transform.rotation) * Quaternion.LookRotation(target.transform.position - player.transform.position);
+
+            targetReticle.transform.position =
+                Camera.main.WorldToScreenPoint(target.transform.position, Camera.MonoOrStereoscopicEye.Mono);
         }
         
         transform.rotation = player.transform.rotation;
@@ -62,6 +66,7 @@ public class CockpitBehaviour : MonoBehaviour
             targetHealth.gameObject.SetActive(true);
             targetShield.gameObject.SetActive(true);
             targetPointer.SetActive(true);
+            targetReticle.SetActive(true);
         }
         else
         {
@@ -69,6 +74,7 @@ public class CockpitBehaviour : MonoBehaviour
             targetHealth.gameObject.SetActive(false);
             targetShield.gameObject.SetActive(false);
             targetPointer.SetActive(false);
+            targetReticle.SetActive(false);
         }
     }
 }
