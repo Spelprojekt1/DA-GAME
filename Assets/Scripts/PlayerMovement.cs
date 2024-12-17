@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private float throttleAcceleration;
     [SerializeField][Range(AXIS_MIN,AXIS_MAX)] private float thrust;
     [SerializeField] private float thrustStrength = 50f;
+    private bool thrustBuffer = false;
     // [SerializeField] private Vector3 velocity = new(0, 0, 0);
     // [SerializeField] private float drag = 1f;
     [SerializeField] private float translationStrength = 5f;
@@ -32,7 +33,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        thrust += throttleAcceleration * Time.deltaTime;
+        float newThrust = thrust;
+        newThrust += throttleAcceleration * Time.deltaTime;
+        if (Mathf.Sign(thrust) != Mathf.Sign(newThrust) && thrust != 0f)
+        {
+            thrust = 0f;
+            thrustBuffer = true;
+        }
+        if (thrustBuffer && throttleAcceleration == 0) thrustBuffer = false;
+        if (!thrustBuffer) thrust = newThrust;
+        
         translationalVelocity += translationalAcceleration * Time.deltaTime;
         
         thrust = Mathf.Clamp(thrust, AXIS_MIN, AXIS_MAX);
