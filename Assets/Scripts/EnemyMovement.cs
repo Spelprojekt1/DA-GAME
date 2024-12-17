@@ -136,7 +136,7 @@ public class EnemyMovement : MonoBehaviour
            // Vector3 pos = playerTarget.position - transform.position;
           // Quaternion rotation = Quaternion.LookRotation(pos);
             //transform.rotation = Quaternion.Slerp(transform.rotation, rotation, playerRotationalDamp * Time.deltaTime);
-            transform.LookAt(playerTarget);
+            
             
             // Enemy kan inte följa sin egna target för äns player har åkt maxChasePlayerRange ifrån enemy
             

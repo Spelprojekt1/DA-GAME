@@ -603,6 +603,8 @@ MonoBehaviour:
   projectileSpeed: 10
   patrolTarget: {fileID: 896844947}
   playerTarget: {fileID: 469471633}
+  rayColor: {r: 0, g: 0, b: 0, a: 1}
+  rayColorPatrol: {r: 1, g: 0, b: 1, a: 1}
   patrolRotationalDamp: 0.5
   playerRotationalDamp: 0.7
   rayCastOffset: 2.5
@@ -630,7 +632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &447190366
 Transform:
   m_ObjectHideFlags: 0
@@ -649,7 +651,6 @@ Transform:
   - {fileID: 720449667}
   - {fileID: 1283838561}
   - {fileID: 1032502789}
-  - {fileID: 1069356994}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &469471632
@@ -680,7 +681,7 @@ Transform:
   m_GameObject: {fileID: 469471632}
   serializedVersion: 2
   m_LocalRotation: {x: -0.26615837, y: 0.6976346, z: -0.31825382, w: -0.58410645}
-  m_LocalPosition: {x: 55.78, y: 54.12, z: 6.41}
+  m_LocalPosition: {x: 120, y: 129.1, z: 17.8}
   m_LocalScale: {x: 5.02, y: 5.02, z: 5.02}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1204,6 +1205,8 @@ MonoBehaviour:
   projectileSpeed: 10
   patrolTarget: {fileID: 0}
   playerTarget: {fileID: 0}
+  rayColor: {r: 0, g: 0, b: 0, a: 1}
+  rayColorPatrol: {r: 1, g: 0, b: 1, a: 1}
   patrolRotationalDamp: 0.2
   playerRotationalDamp: 0.2
   rayCastOffset: 8
@@ -1277,7 +1280,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 447190366}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 275400965252519364, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
         type: 3}
@@ -1460,15 +1463,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 275400965252519364, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
         type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1069357002}
+    - targetCorrespondingSourceObject: {fileID: 275400965252519364, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
+        type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1069356998}
+      addedObject: {fileID: 1069357000}
   m_SourcePrefab: {fileID: 100100000, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d, type: 3}
---- !u!4 &1069356994 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 619732120899506046, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1069356993}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1069356995 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1076090803973547353, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
@@ -1487,7 +1488,7 @@ Rigidbody:
     type: 3}
   m_PrefabInstance: {fileID: 1069356993}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1069356998
+--- !u!114 &1069357000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1496,25 +1497,85 @@ MonoBehaviour:
   m_GameObject: {fileID: 1069356996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b339c2864e9407a4782c40df3cb51606, type: 3}
+  m_Script: {fileID: 11500000, guid: f05c0092af9d1434eb82a5981aaf0ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentEnemyTarget: {fileID: 0}
   rigidBody: {fileID: 1069356997}
   projectileReload: 0
-  projectileTimer: 4
+  projectileTimer: 2
   enemyLaser: {fileID: 6814527090098431667, guid: e8daa2dee06fa884199c74ac8456f122,
     type: 3}
   rightProjectileSpawner: {fileID: 2037426840}
   leftProjectileSpawner: {fileID: 259177866}
+  avoidTerrain: 0
+  patrol: 0
+  chasePlayer: 0
+  repositionAway: 0
+  doShootBulletMethod: 0
   projectileSpeed: 10
   patrolTarget: {fileID: 896844947}
   playerTarget: {fileID: 469471633}
+  rayColor: {r: 0, g: 0, b: 0, a: 1}
+  rayColorPatrol: {r: 1, g: 0, b: 1, a: 1}
+  rayColorChase: {r: 1, g: 0, b: 0, a: 1}
+  rayColorReposition: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  rayColorAvoidTerrain: {r: 0, g: 1, b: 0, a: 1}
+  playerRotationalDamp: 0.7
+  rayCastOffset: 2.5
+  detectionDistance: 20
+  movementSpeed: 7
   patrolRotationalDamp: 0.5
+  chasePlayerTimerLength: 2
+  chasePlayerTimer: 0
+  patrolMode: 0
+  maxChasePlayerRange: 150
+  chasePlayerRange: 100
+  fightPlayerRange: 35
+  repositionAwayFromPlayerRange: 20
+  smoothRotation: 1
+  distanceBetween: 0
+--- !u!114 &1069357002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069356996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d81026c2d7249a4d9a01548e831be6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentEnemyTarget: {fileID: 0}
+  rigidBody: {fileID: 1069356997}
+  projectileReload: 0
+  projectileTimer: 2
+  enemyLaser: {fileID: 6814527090098431667, guid: e8daa2dee06fa884199c74ac8456f122,
+    type: 3}
+  rightProjectileSpawner: {fileID: 2037426840}
+  leftProjectileSpawner: {fileID: 259177866}
+  avoidTerrain: 0
+  patrol: 0
+  chasePlayer: 0
+  repositionAway: 0
+  doShootBulletMethod: 0
+  projectileSpeed: 10
+  patrolTarget: {fileID: 896844947}
+  playerTarget: {fileID: 469471633}
+  rayColor: {r: 0, g: 0, b: 0, a: 1}
+  rayColorPatrol: {r: 1, g: 0, b: 1, a: 1}
+  rayColorChase: {r: 1, g: 0, b: 0, a: 1}
+  rayColorReposition: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  rayColorAvoidTerrain: {r: 0, g: 1, b: 0, a: 1}
   playerRotationalDamp: 0.7
   rayCastOffset: 2.5
   detectionDistance: 20
   movementSpeed: 120
+  patrolRotationalDamp: 0.5
   chasePlayerTimerLength: 2
+  chasePlayerTimer: 0
+  patrolMode: 0
   maxChasePlayerRange: 150
   chasePlayerRange: 100
   fightPlayerRange: 35
@@ -2723,3 +2784,4 @@ SceneRoots:
   - {fileID: 447190366}
   - {fileID: 1574427742}
   - {fileID: 1508668073}
+  - {fileID: 1069356993}
