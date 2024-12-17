@@ -21,19 +21,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector3 rotationalInput = new(0,0,0);
     [SerializeField] private Vector2 primaryRotationSensitivity = new(0.001f,0.001f);
     [SerializeField] private Vector3 rotationStrength = new(100, 100, 100);
-    private float thirdAxisSmoother = 0;
+    [Tooltip("How many seconds it takes for a binary input axis to change its input from min to max")]
+    [SerializeField] private float binaryAxisSmoother = 0.4f;
     private Vector3 rotationalOutput;
     public float Thrust => thrust;
     public Vector3 RotationalInput => rotationalOutput;
     
-    // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
     }
     
-    // Update is called once per frame
     void Update()
     {
         float newThrust = thrust;
@@ -50,11 +49,10 @@ public class PlayerMovement : MonoBehaviour
         
         thrust = Mathf.Clamp(thrust, AXIS_MIN, AXIS_MAX);
         translationalVelocity.Clamp(AXIS_MIN, AXIS_MAX);
-
-        thirdAxisSmoother = Mathf.Lerp(thirdAxisSmoother, rotationalInput.y, Mathf.Clamp(Time.deltaTime / 0.4f, -1, 1));
+        
         rotationalOutput = new Vector3(
             rotationalInput.x,
-            thirdAxisSmoother,
+            Mathf.Lerp(rotationalOutput.y, rotationalInput.y, Mathf.Clamp(Time.deltaTime / binaryAxisSmoother, -1, 1)),
             rotationalInput.z);
         
         //transform.Rotate(Vector3.Scale(rotation, rotationStrength) * Time.deltaTime);
