@@ -32,7 +32,7 @@ public class Dashboard : MonoBehaviour
         reverseThrust.fillAmount = Mathf.Lerp(lowerMargin, 0.5f - upperMargin, -playerMovement.Thrust);
         health.fillAmount = Mathf.Lerp(lowerMargin, 0.5f - upperMargin, playerBehaviour.Health / playerBehaviour.MaxHealth);
         shield.fillAmount = Mathf.Lerp(lowerMargin, 0.5f - upperMargin, playerBehaviour.Shield / playerBehaviour.MaxShield);
-        weaponMode.text = playerBehaviour.MissileMode ? "MISSILES" : "LASERS";
+        weaponMode.text = playerBehaviour.WeaponMode;
 
         if (target)
         {

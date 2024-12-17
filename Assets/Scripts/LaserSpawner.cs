@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LaserSpawner : ProjectileSpawner
 {
+    public override string Name => "lasers";
     [SerializeField] private float startDuration = 0.2f;
     private float duration = 0f;
     [SerializeField] private float startCooldown = 0.2f;

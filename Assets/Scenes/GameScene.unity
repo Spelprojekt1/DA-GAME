@@ -6433,6 +6433,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 517698776778060691, guid: 910feb5ff1c48714fb7d925e77a901b5,
+        type: 3}
+      propertyPath: weaponTypes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1533852188818959315, guid: 910feb5ff1c48714fb7d925e77a901b5,
         type: 3}
       propertyPath: m_Name
@@ -6448,6 +6453,16 @@ PrefabInstance:
       propertyPath: m_Cameras.Array.data[0]
       value: 
       objectReference: {fileID: 2119662936}
+    - target: {fileID: 4557379984031097226, guid: 910feb5ff1c48714fb7d925e77a901b5,
+        type: 3}
+      propertyPath: name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557379984031097226, guid: 910feb5ff1c48714fb7d925e77a901b5,
+        type: 3}
+      propertyPath: primary
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7041802918161981857, guid: 910feb5ff1c48714fb7d925e77a901b5,
         type: 3}
       propertyPath: TargetLocked.m_PersistentCalls.m_Calls.Array.size

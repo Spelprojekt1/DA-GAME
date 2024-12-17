@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class BulletSpawner : ProjectileSpawner
 {
+    public override string Name => "canons";
     [Tooltip("Bullet will fly for this many seconds before despawning")]
     [SerializeField] private float lifeTime = 2f;
     private float cooldown = 0f;
