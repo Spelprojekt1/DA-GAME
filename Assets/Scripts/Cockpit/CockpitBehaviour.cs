@@ -7,10 +7,12 @@ public class CockpitBehaviour : MonoBehaviour
     [SerializeField] private GameObject player;
     private PlayerMovement playerMovement;
     private PlayerBehaviour playerBehaviour;
-    [SerializeField] private Slider thrust;
-    [SerializeField] private Slider reverseThrust;
-    [SerializeField] private Slider health;
-    [SerializeField] private Slider shield;
+    [SerializeField] private Image thrust;
+    [SerializeField] private Image reverseThrust;
+    [SerializeField] private Image health;
+    [SerializeField] private Image shield;
+    [SerializeField] private float lowerMargin = 0.07f;
+    [SerializeField] private float upperMargin = 0.07f;
     [SerializeField] private Slider targetHealth;
     [SerializeField] private Slider targetShield;
     [SerializeField] private Image pointer;
@@ -29,10 +31,10 @@ public class CockpitBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        thrust.value = playerMovement.Thrust;
-        reverseThrust.value = -playerMovement.Thrust;
-        health.value = playerBehaviour.Health / playerBehaviour.MaxHealth;
-        shield.value = playerBehaviour.Shield / playerBehaviour.MaxShield;
+        thrust.fillAmount = Mathf.Lerp(lowerMargin, 0.5f - upperMargin, playerMovement.Thrust);
+        reverseThrust.fillAmount = Mathf.Lerp(lowerMargin, 0.5f - upperMargin, -playerMovement.Thrust);
+        health.fillAmount = Mathf.Lerp(lowerMargin, 0.5f - upperMargin, playerBehaviour.Health / playerBehaviour.MaxHealth);
+        shield.fillAmount = Mathf.Lerp(lowerMargin, 0.5f - upperMargin, playerBehaviour.Shield / playerBehaviour.MaxShield);
         weaponMode.text = playerBehaviour.MissileMode ? "MISSILES" : "LASERS";
 
         hostilesCount.text = GameObject.FindGameObjectsWithTag("Enemy").Length.ToString();
