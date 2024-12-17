@@ -7,7 +7,7 @@ public class CockpitBehaviour : MonoBehaviour
     private OldEnemyMovement target;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (target)
         {

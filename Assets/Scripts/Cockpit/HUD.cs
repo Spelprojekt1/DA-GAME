@@ -29,8 +29,8 @@ public class HUD : MonoBehaviour
         }
         
         pointer.rectTransform.localPosition = new Vector3(
-            playerMovement.Rotation.z * -200,
-            playerMovement.Rotation.x * -200,
+            playerMovement.RotationalInput.z * -200,
+            playerMovement.RotationalInput.x * -200,
             0);
     }
     

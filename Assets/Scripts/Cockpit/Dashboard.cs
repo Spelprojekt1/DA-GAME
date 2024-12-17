@@ -13,8 +13,9 @@ public class Dashboard : MonoBehaviour
     [SerializeField] private Image shield;
     [SerializeField] private float lowerMargin = 0.07f;
     [SerializeField] private float upperMargin = 0.07f;
-    [SerializeField] private Slider targetHealth;
-    [SerializeField] private Slider targetShield;
+    [SerializeField] private GameObject targetPanel;
+    [SerializeField] private Image targetHealth;
+    [SerializeField] private Image targetShield;
     [SerializeField] private TextMeshProUGUI weaponMode;
     private OldEnemyMovement target;
     // Start is called before the first frame update
@@ -35,8 +36,8 @@ public class Dashboard : MonoBehaviour
 
         if (target)
         {
-            targetHealth.value = target.Health / target.MaxHealth;
-            targetShield.value = target.Shield / target.MaxShield;
+            targetHealth.fillAmount = Mathf.Lerp(lowerMargin, 0.5f - upperMargin, target.Health / target.MaxHealth);
+            targetShield.fillAmount = Mathf.Lerp(lowerMargin, 0.5f - upperMargin, target.Shield / target.MaxShield);
         }
     }
     public void OnTargetLocked(GameObject target)
@@ -44,14 +45,12 @@ public class Dashboard : MonoBehaviour
         if (target)
         {
             this.target = target.GetComponent<OldEnemyMovement>();
-            targetHealth.gameObject.SetActive(true);
-            targetShield.gameObject.SetActive(true);
+            targetPanel.SetActive(true);
         }
         else
         {
             this.target = null;
-            targetHealth.gameObject.SetActive(false);
-            targetShield.gameObject.SetActive(false);
+            targetPanel.SetActive(false);
         }
     }
 }
