@@ -1512,7 +1512,6 @@ MonoBehaviour:
   patrol: 0
   chasePlayer: 0
   repositionAway: 0
-  doShootBulletMethod: 0
   projectileSpeed: 10
   patrolTarget: {fileID: 896844947}
   playerTarget: {fileID: 469471633}
@@ -1531,10 +1530,12 @@ MonoBehaviour:
   patrolMode: 0
   maxChasePlayerRange: 150
   chasePlayerRange: 100
+  startShootRange: 80
   fightPlayerRange: 35
   repositionAwayFromPlayerRange: 20
   smoothRotation: 1
   distanceBetween: 0
+  enemyBaseBehaviorScript: {fileID: 0}
 --- !u!114 &1069357002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1559,7 +1560,6 @@ MonoBehaviour:
   patrol: 0
   chasePlayer: 0
   repositionAway: 0
-  doShootBulletMethod: 0
   projectileSpeed: 10
   patrolTarget: {fileID: 896844947}
   playerTarget: {fileID: 469471633}
@@ -1578,6 +1578,7 @@ MonoBehaviour:
   patrolMode: 0
   maxChasePlayerRange: 150
   chasePlayerRange: 100
+  startShootRange: 80
   fightPlayerRange: 35
   repositionAwayFromPlayerRange: 20
   smoothRotation: 1
@@ -2697,6 +2698,94 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d, type: 3}
+--- !u!1001 &7746638857174893402
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.8997104
+      objectReference: {fileID: 0}
+    - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.43493184
+      objectReference: {fileID: 0}
+    - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.032902725
+      objectReference: {fileID: 0}
+    - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.016521808
+      objectReference: {fileID: 0}
+    - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4534884004803259410, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: m_Name
+      value: 'Enemy Missile state machine test '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032761266019738465, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: patrolTarget
+      value: 
+      objectReference: {fileID: 896844947}
+    - target: {fileID: 7032761266019738465, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: playerTarget
+      value: 
+      objectReference: {fileID: 469471633}
+    - target: {fileID: 7423891334195965929, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: patrolTarget
+      value: 
+      objectReference: {fileID: 896844947}
+    - target: {fileID: 7423891334195965929, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: playerTarget
+      value: 
+      objectReference: {fileID: 469471633}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c4dc4945f0824234688b4fdcbd3de050, type: 3}
 --- !u!1001 &8760093181369593908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2785,3 +2874,4 @@ SceneRoots:
   - {fileID: 1574427742}
   - {fileID: 1508668073}
   - {fileID: 1069356993}
+  - {fileID: 7746638857174893402}
