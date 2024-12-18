@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 public class PlayerBehaviour : MonoBehaviour
 {
     private Transform target;
@@ -14,7 +15,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private float maxShield;
     [Tooltip("shield per second that's regenerated")]
     [SerializeField] private float shieldRegen;
-    private const float SWITCH_COOLDOWN = 0.3f;
+    private const float SWITCH_COOLDOWN = 0.2f;
     private float switchCooldown = SWITCH_COOLDOWN;
     public float Health => health;
     public float MaxHealth => maxHealth;
@@ -56,11 +57,11 @@ public class PlayerBehaviour : MonoBehaviour
         if (!target) this.target = null;
         else this.target = target.transform;
     }
-    public void OnSwitchWeapon()
+    public void OnSwitchWeapon(InputAction.CallbackContext context)
     {
         if (switchCooldown <= 0)
         {
-            weaponMode = (weaponMode + 1) % weaponModes.Length;
+            weaponMode = (weaponMode + weaponModes.Length + (int)Mathf.Sign(context.ReadValue<float>())) % weaponModes.Length;
             switchCooldown = SWITCH_COOLDOWN;
         }
     }
