@@ -7,8 +7,10 @@ public class Dashboard : MonoBehaviour
     [SerializeField] private GameObject player;
     private PlayerBehaviour playerBehaviour;
     private PlayerMovement playerMovement;
+    private PlayerCargoManager playerCargoManager;
     [SerializeField] private Image thrust;
     [SerializeField] private Image reverseThrust;
+    [SerializeField] private Image cargo;
     [SerializeField] private Image health;
     [SerializeField] private Image shield;
     [SerializeField] private float lowerMargin = 0.07f;
@@ -23,6 +25,7 @@ public class Dashboard : MonoBehaviour
     {
         playerBehaviour = player.GetComponent<PlayerBehaviour>();
         playerMovement = player.GetComponent<PlayerMovement>();
+        playerCargoManager = player.GetComponent<PlayerCargoManager>();
     }
 
     // Update is called once per frame
@@ -30,6 +33,7 @@ public class Dashboard : MonoBehaviour
     {
         thrust.fillAmount = Mathf.Lerp(lowerMargin, 0.5f - upperMargin, playerMovement.Thrust);
         reverseThrust.fillAmount = Mathf.Lerp(lowerMargin, 0.5f - upperMargin, -playerMovement.Thrust);
+        cargo.fillAmount = Mathf.Lerp(lowerMargin, 0.5f - upperMargin, (float)playerCargoManager.Cargo / playerCargoManager.CargoCapacity);
         health.fillAmount = Mathf.Lerp(lowerMargin, 0.5f - upperMargin, playerBehaviour.Health / playerBehaviour.MaxHealth);
         shield.fillAmount = Mathf.Lerp(lowerMargin, 0.5f - upperMargin, playerBehaviour.Shield / playerBehaviour.MaxShield);
         weaponMode.text = playerBehaviour.WeaponMode;

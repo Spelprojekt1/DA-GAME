@@ -437,11 +437,12 @@ GameObject:
   - component: {fileID: 2530134470885707361}
   - component: {fileID: 169636208472503506}
   - component: {fileID: 517698776778060691}
+  - component: {fileID: 7847399438472030267}
   - component: {fileID: 5231694206798781318}
   - component: {fileID: 4165380480175017928}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -633,7 +634,7 @@ MonoBehaviour:
       - m_Target: {fileID: 517698776778060691}
         m_TargetAssemblyTypeName: PlayerBehaviour, Assembly-CSharp
         m_MethodName: OnSwitchWeapon
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -660,6 +661,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5cd82e4e-e542-44d7-8bad-cc1b14e575a0
     m_ActionName: Player/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7847399438472030267}
+        m_TargetAssemblyTypeName: PlayerCargoManager, Assembly-CSharp
+        m_MethodName: TransferCargo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ca27ba32-f854-439b-afb2-dfd3a4e0896b
+    m_ActionName: Player/CargoTransfer[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -751,6 +768,22 @@ MonoBehaviour:
   shield: 30
   maxShield: 100
   shieldRegen: 2
+--- !u!114 &7847399438472030267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533852188818959315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d58bec380d3324b9b2f30a84c0f1e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableSource: {fileID: 0}
+  availableDestination: {fileID: 0}
+  cargoCapacity: 50
+  cargo: 10
 --- !u!82 &5231694206798781318
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1026,7 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12054f4bdbacbd4694670393cbbf8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LockRange: 100
+  LockRange: 300
   lockedEnemy: {fileID: 0}
   TargetLocked:
     m_PersistentCalls:
