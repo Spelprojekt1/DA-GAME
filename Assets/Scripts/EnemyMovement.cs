@@ -123,6 +123,7 @@ public class EnemyMovement : MonoBehaviour
             //projectile.velocity = transform.forward * projectileSpeed;
             // THE ROTATE TOWARDS PLAYER FUNCTION
             rayColor = rayColorChase;
+            transform.LookAt(playerTarget);
             projectileTimer -= Time.deltaTime;
             if (projectileTimer <= 0.0f)
             {
@@ -178,6 +179,11 @@ public class EnemyMovement : MonoBehaviour
             Vector3 raycastOffset = Vector3.zero;
 
             //Med 4 Vector3 skapar formen för 4 raycast (leftRay,rightRay,upRay,downRay) kan öka rayCastOffset
+            //Vector3 leftRay = transform.position - transform.right * rayCastOffset;
+            //Vector3 rightRay = transform.position + transform.right * rayCastOffset;
+           // Vector3 upRay = transform.position + transform.up * rayCastOffset;
+            //Vector3 downRay = transform.position - transform.up * rayCastOffset;
+            
             Vector3 leftRay = transform.position - transform.right * rayCastOffset;
             Vector3 rightRay = transform.position + transform.right * rayCastOffset;
             Vector3 upRay = transform.position + transform.up * rayCastOffset;

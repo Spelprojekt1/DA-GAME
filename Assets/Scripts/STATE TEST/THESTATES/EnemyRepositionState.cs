@@ -4,7 +4,7 @@ public class EnemyRepositionState : EnemyBaseState
 {
     public override void EnterState(EnemyStateManager enemy)
     {
-        
+        enemy.enemyBaseBehaviorScript.movementSpeed = 400;
     }
 
     public override void UpdateState(EnemyStateManager enemy)
@@ -15,7 +15,9 @@ public class EnemyRepositionState : EnemyBaseState
         // GOING BACK TO THE CHASE STATE
         if (enemy.distanceBetween > enemy.fightPlayerRange)
         {
+            enemy.enemyBaseBehaviorScript.movementSpeed = 120;
             enemy.SwitchState(enemy.ChaseState);
+            
         }
     }
 

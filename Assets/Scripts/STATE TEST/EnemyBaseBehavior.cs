@@ -6,8 +6,9 @@ public class EnemyBaseBehavior : MonoBehaviour
 {
     public Transform currentEnemyTarget;
     [SerializeField] public Rigidbody rigidBody;
-    [SerializeField] public bool projectileReload;
+    [SerializeField] public bool projectileReload =false;
     [SerializeField] public float projectileTimer = 2f;
+    //[SerializeField] public float projectileTimerBaseValue = 2f;
     [SerializeField] public Rigidbody enemyLaser;
     [SerializeField] public Transform rightProjectileSpawner;
     [SerializeField] public Transform leftProjectileSpawner;
@@ -15,10 +16,9 @@ public class EnemyBaseBehavior : MonoBehaviour
     public bool patrol = false;
     public bool chasePlayer = false;
     public bool repositionAway = false;
-    //public bool  = false;
-    public bool doShootBulletMethod = false;
+  
     [SerializeField] public float projectileSpeed = 10f;
-    //The player Gameobject 
+   
     // [SerializeField] public GameObject player;
 
     //What target the enemy will move towards
@@ -30,10 +30,10 @@ public class EnemyBaseBehavior : MonoBehaviour
     //TEST TURN AGAINST PLAYER//
     //[SerializeField] private float enemyTurningSpeed = 1f;
 
-    //private Coroutine lookCoroutine;
+    
 
     // [SerializeField]public float turningSpeed = 2f;
-    //ENEMY RAY VARS AND ENEMY MOVEMENT
+    //---------ENEMY RAY VARS AND ENEMY MOVEMENT-----
     //The default color
     public Color rayColor = Color.black;
     //Colors for diffrent enemy states
@@ -58,6 +58,7 @@ public class EnemyBaseBehavior : MonoBehaviour
     //Hur nära player kan vara till enemyes börjar fokusera på player istället
     [SerializeField] public float maxChasePlayerRange = 150.0f;
     [SerializeField] public float chasePlayerRange = 100.0f;
+    [SerializeField] public float startShootRange = 80.0f;
     [SerializeField] public float fightPlayerRange = 35.0f;
 
     [SerializeField] public float repositionAwayFromPlayerRange = 20.0f;
@@ -67,19 +68,16 @@ public class EnemyBaseBehavior : MonoBehaviour
     //Hur långt det är emellan player och enemy
     public float distanceBetween = 0f;
 
-    // Update is called once per frame
-    void ShootBullet()
+    
+    public void ShootBullet()
     {
-        //Shoots 2 Bullet forwards
+        // Gets the enemyLaser prefab
         var projectileRight = Instantiate(enemyLaser, rightProjectileSpawner.transform.position, transform.rotation);
+        //Shoots 2 Bullet forwards
         projectileRight.velocity = transform.forward * projectileSpeed;
         var projectileLeft = Instantiate(enemyLaser, leftProjectileSpawner.transform.position, transform.rotation);
         projectileLeft.velocity = transform.forward * projectileSpeed;
-        //Reseting values ( reload cooldown ) 
-            
-        projectileReload = false;
-        projectileTimer = 2f;
-        doShootBulletMethod = false;
+        
     }
     void Update()
     {
@@ -93,14 +91,11 @@ public class EnemyBaseBehavior : MonoBehaviour
             rayColor = rayColorPatrol;
         }
 
-        if (doShootBulletMethod = true)
-        {
-            ShootBullet();
-        }
+        
 
 
 
-    
+        Move();
         
         RaycastHit hit;
         Vector3 raycastOffset = Vector3.zero;
@@ -110,6 +105,11 @@ public class EnemyBaseBehavior : MonoBehaviour
         Vector3 rightRay = transform.position + transform.right * rayCastOffset;
         Vector3 upRay = transform.position + transform.up * rayCastOffset;
         Vector3 downRay = transform.position - transform.up * rayCastOffset;
+        
+       // Vector3 leftRay =  - transform.right * rayCastOffset;
+       // Vector3 rightRay =  + transform.right * rayCastOffset;
+       // Vector3 upRay =  + transform.up * rayCastOffset;
+        //Vector3 downRay = transform.position - transform.up * rayCastOffset;
 
         //Ritar ut dom här 4 rays,
         Debug.DrawRay(leftRay, transform.forward * detectionDistance, rayColor);
@@ -121,6 +121,8 @@ public class EnemyBaseBehavior : MonoBehaviour
         {
             avoidTerrain = true;
             raycastOffset += Vector3.right;
+            rigidBody.AddForce(Vector3.left);
+            //rigidBody.AddForce(leftRay);
             //rayColor = rayColorAvoidTerrain;
 
         }
@@ -128,8 +130,11 @@ public class EnemyBaseBehavior : MonoBehaviour
         {
             avoidTerrain = true;
             raycastOffset -= Vector3.right;
-           // rayColor = rayColorAvoidTerrain;
-           
+            rigidBody.AddForce(Vector3.right);
+            // rigidBody.AddForce(rightRay);
+
+            // rayColor = rayColorAvoidTerrain;
+
 
         }
 
@@ -137,6 +142,8 @@ public class EnemyBaseBehavior : MonoBehaviour
         {
             avoidTerrain = true;
             raycastOffset -= Vector3.up;
+            rigidBody.AddForce(Vector3.down);
+            //rigidBody.AddForce(upRay);
             
             // rayColor = rayColorAvoidTerrain;
             //avoidTerrain = true
@@ -145,6 +152,7 @@ public class EnemyBaseBehavior : MonoBehaviour
         {
             avoidTerrain = true;
             raycastOffset += Vector3.up;
+            rigidBody.AddForce(Vector3.up);
            // rayColor = rayColorAvoidTerrain;
             //avoidTerrain = true
 
@@ -152,12 +160,12 @@ public class EnemyBaseBehavior : MonoBehaviour
 
         if (raycastOffset != Vector3.zero)
         {
-            // Debug.Log("nu?");
-            transform.Rotate(raycastOffset * 3f * Time.deltaTime);
+            Debug.Log("nu?");
+           transform.Rotate(raycastOffset * 5f * Time.deltaTime);
         }
         //DecideTarget();
         //Pathfinding();
-        Move();
+        
         //Kollar konstant avståndet emellan enemy till player
         distanceBetween = (playerTarget.transform.position - transform.position).magnitude;
         //distanceBetween = (playerTarget.transform.position - transform.position).magnitude;
