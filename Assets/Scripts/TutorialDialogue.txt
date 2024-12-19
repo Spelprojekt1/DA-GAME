@@ -1,0 +1,10 @@
+﻿Welcome cadet, you have been safely transported to the outpost. Now your flight lesson will begin. Going through the yellow portal ends the tutorial. Press "Enter" to progress the dialogue.
+Move your mouse horizontally to pitch your ship, move your mouse vertically to roll your ship. 
+Press Q and E to move your ship on the yaw axis. 
+Use WASD to move your ship on the X and Z axis, and press R and F to move your ship on the Y axis. 
+Press Shift to accelerate and CTRL to use the brakes or move backwards. Press ESC to pause. 
+Good job cadet! Now you are ready to begin your first mission.
+Press "M" to open the mission select menu, and every mission has a small text to quickly brief you on the mission.
+When you have picked a mission, you can then track it on your radar.
+Good luck cadet!
+To end the tutorial, go through the yellow portal.
