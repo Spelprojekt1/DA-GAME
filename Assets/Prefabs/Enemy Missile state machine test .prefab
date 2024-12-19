@@ -583,11 +583,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d81026c2d7249a4d9a01548e831be6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  shield: 100
+  maxShield: 100
+  shieldRegen: 1
   currentEnemyTarget: {fileID: 0}
   rigidBody: {fileID: 5825769730570450154}
   projectileReload: 0
   projectileTimer: 5
-  enemyLaser: {fileID: 6814527090098431667, guid: e8daa2dee06fa884199c74ac8456f122,
+  enemyLaser: {fileID: 1588369791628312577, guid: 94d403dae76038d46b0674cf34e54bcc,
     type: 3}
   rightProjectileSpawner: {fileID: 6723171795344940778}
   leftProjectileSpawner: {fileID: 7891758197784787035}
@@ -680,11 +685,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05c0092af9d1434eb82a5981aaf0ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  shield: 100
+  maxShield: 100
+  shieldRegen: 1
   currentEnemyTarget: {fileID: 0}
   rigidBody: {fileID: 5825769730570450154}
   projectileReload: 0
   projectileTimer: 5
-  enemyLaser: {fileID: 6814527090098431667, guid: e8daa2dee06fa884199c74ac8456f122,
+  enemyLaser: {fileID: 1588369791628312577, guid: 94d403dae76038d46b0674cf34e54bcc,
     type: 3}
   rightProjectileSpawner: {fileID: 6723171795344940778}
   leftProjectileSpawner: {fileID: 7891758197784787035}
