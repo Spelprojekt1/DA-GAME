@@ -3,7 +3,37 @@ guid: f603bd1cd43320a48b6fc56bc9d4dce9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Engine
+    second: {fileID: 2100000, guid: 04badde3640755e4a9af172a0ce50032, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grey
+    second: {fileID: 2100000, guid: 04badde3640755e4a9af172a0ce50032, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Outline
+    second: {fileID: 2100000, guid: 380869dc7dd0716408c1289502fd7f21, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ship
+    second: {fileID: 2100000, guid: 8f9aba2d799fb9e47b3e55b3dbcf6f0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White
+    second: {fileID: 2100000, guid: 9c8afb1282d2f24478ad73f58a66b5cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Windows
+    second: {fileID: 2100000, guid: 64bb6737dfdbf994fb0679f7543a875e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

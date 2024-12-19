@@ -29,7 +29,7 @@ public class MissileBehaviour : MonoBehaviour
     {
         if (other.CompareTag(targetTag))
         {
-            other.gameObject.GetComponent<OldEnemyMovement>().Hurt(new Damage(75f,0.5f,1f));
+            other.gameObject.GetComponent<EnemyBaseBehavior>().Hurt(new Damage(75f,0.5f,1f));
             Destroy(gameObject);
         }
     }

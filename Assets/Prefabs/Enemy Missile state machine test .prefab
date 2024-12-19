@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6340431836276682423}
   - component: {fileID: 5344827649690808652}
   - component: {fileID: 6858784461844331940}
-  - component: {fileID: 4653313406926860652}
   m_Layer: 0
   m_Name: Right Procetile Spawner
   m_TagString: Untagged
@@ -106,20 +105,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4653313406926860652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6282571782948213168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da6d36569d3a3c445b627ad951d5d52c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyLaser: {fileID: 0}
-  shootSpeed: 300
 --- !u!1 &8626381509167723296
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +117,6 @@ GameObject:
   - component: {fileID: 1136944722938816088}
   - component: {fileID: 6919285584604180015}
   - component: {fileID: 9207799120900960772}
-  - component: {fileID: 2724637657109248067}
   m_Layer: 0
   m_Name: Left Projectile spawner
   m_TagString: Untagged
@@ -226,20 +210,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2724637657109248067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8626381509167723296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da6d36569d3a3c445b627ad951d5d52c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyLaser: {fileID: 0}
-  shootSpeed: 300
 --- !u!1001 &609102782957454079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -374,22 +344,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.8997104
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.43493184
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.032902725
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.016521808
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
@@ -421,6 +391,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1076437026612328145, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f, type: 3}
@@ -428,6 +403,8 @@ PrefabInstance:
     - {fileID: 8416272007918961125, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f, type: 3}
     - {fileID: 4832492099466503464, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f, type: 3}
     - {fileID: 8196775832204846754, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f, type: 3}
+    - {fileID: -7146521406498821007, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f, type: 3}
+    - {fileID: -3238298500088487021, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
@@ -509,7 +486,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 3
+  m_Time: 1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -518,8 +495,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.07419205
-        value: 0.39479065
+        time: 0.24895096
+        value: 0.22251892
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -531,7 +508,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 0.9478605, b: 0.5235849, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -556,12 +533,12 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
-    alignment: 1
+    alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5

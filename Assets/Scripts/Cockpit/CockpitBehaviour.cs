@@ -4,7 +4,7 @@ public class CockpitBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject player;   
     [SerializeField] private GameObject targetPointer;
-    private OldEnemyMovement target;
+    private EnemyBaseBehavior target;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -21,7 +21,7 @@ public class CockpitBehaviour : MonoBehaviour
     {
         if (target)
         {
-            this.target = target.GetComponent<OldEnemyMovement>();
+            this.target = target.GetComponent<EnemyBaseBehavior>();
             targetPointer.SetActive(true);
         }
         else
