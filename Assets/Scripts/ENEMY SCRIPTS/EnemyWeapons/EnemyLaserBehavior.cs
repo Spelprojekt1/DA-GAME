@@ -2,26 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletBehaviour : MonoBehaviour
+public class EnemyLaserBehavior : MonoBehaviour
 {
-    [Header("Values filled by spawner")]
-    public float lifeTime;
-    private Rigidbody rb;
-    public string targetTag;
-    public Vector3 startVelocity;
-
-    // Start is called before the first frame update
+    
+    private float lifeTime = 4f;
+    private string targetTag = "Player";
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.velocity = startVelocity;
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(targetTag))
         {
-            other.gameObject.GetComponent<EnemyBaseBehavior>().Hurt(new Damage(5f,0.5f,1f));
+            other.gameObject.GetComponent<PlayerBehaviour>().Hurt(new Damage(10f,1f,0.5f));
             Destroy(gameObject);
         }
     }
