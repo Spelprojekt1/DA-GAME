@@ -6,6 +6,6 @@ public class CombatMission : AMission
 {
     private EnemyGroup enemyGroup;
     public override float Completion => 1 - (float)enemyGroup.EnemyCount / enemyGroup.MaxEnemyCount;
-    public override Vector3 Location => enemyGroup.transform.position;
+    public override GameObject Target => enemyGroup.gameObject;
 
 }

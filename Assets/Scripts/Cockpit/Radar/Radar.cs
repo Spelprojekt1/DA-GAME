@@ -10,6 +10,7 @@ public class Radar : MonoBehaviour
     [SerializeField] private Transform origin;
     [SerializeField] private GameObject RadarPing;
     [SerializeField] private LockTarget targetLocker;
+    private GameObject target;
     public void Ping()
     {
         // Remove all children
@@ -27,6 +28,7 @@ public class Radar : MonoBehaviour
             script.origin = origin;
             script.maxDistance = maxDistance;
             script.type = RadarPingType.ENEMY;
+            script.CheckLock(target);
             
             ping.transform.SetParent(transform, false);
         }
@@ -46,11 +48,13 @@ public class Radar : MonoBehaviour
 
     public void OnLock(GameObject target)
     {
+        this.target = target;
+        Ping();
         // For each child find the RadarPing script and run CheckLock
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            RadarPing script = transform.GetChild(i).GetComponent<RadarPing>();
-            script.CheckLock(target);
-        }
+        // for (int i = 0; i < transform.childCount; i++)
+        // {
+            // RadarPing script = transform.GetChild(i).GetComponent<RadarPing>();
+            // script.CheckLock(target);
+        // }
     }
 }
