@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CargoMission : AMission
@@ -9,9 +10,23 @@ public class CargoMission : AMission
     private int startCargo;
     private CargoEnd end;
     private int endCargo;
-    private Stack<(int,Vector3)> looseCargo;
+    private Stack<(int,GameObject)> looseCargo = new();
     public override float Completion => (float)endCargo / totalCargo;
-    public override Vector3 Location => start.transform.position;
+    public override GameObject Target
+    {
+        get
+        {
+            if (looseCargo.Count > 0)
+            {
+                return looseCargo.Last().Item2;
+            }
+            if (startCargo > 0)
+            {
+                return start.gameObject;
+            }
+            return end.gameObject;
+        }
+    }
 
     public CargoMission(CargoStart start, CargoEnd end, int cargo)
     {

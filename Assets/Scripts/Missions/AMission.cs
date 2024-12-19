@@ -6,7 +6,7 @@ public abstract class AMission
 {
     private string name;
     private string description;
-    public abstract Vector3 Location { get; }
+    public abstract GameObject Target { get; }
     private int reward;
     public abstract float Completion { get; }
     

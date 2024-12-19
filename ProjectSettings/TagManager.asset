@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Cargo Source
+  - Cargo Destination
+  - Cargo Loose
   layers:
   - Default
   - TransparentFX

@@ -42,4 +42,12 @@ public class LockTarget : MonoBehaviour
             }
         }
     }
+
+    public void SetLock(GameObject target)
+    {
+        Debug.Log("Locked " + target.name + " With position " + target.transform.position);
+        lockedEnemy = target;
+        TargetLocked.Invoke(lockedEnemy);
+        locked = true;
+    }
 }
