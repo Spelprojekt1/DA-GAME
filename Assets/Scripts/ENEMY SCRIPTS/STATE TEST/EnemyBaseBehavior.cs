@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class EnemyBaseBehavior : MonoBehaviour
 {
+    //HP AND SHIELD 
+    [SerializeField] private float health = 100f;
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float shield = 100f;
+    [SerializeField] private float maxShield = 100f;
+    [Tooltip("shield per second that's regenerated")]
+    [SerializeField] private float shieldRegen = 1f;
+    public float Health => health;
+    public float MaxHealth => maxHealth;
+    public float Shield => shield;
+    public float MaxShield => maxShield;
+    
+    
     public Transform currentEnemyTarget;
     [SerializeField] public Rigidbody rigidBody;
     [SerializeField] public bool projectileReload =false;
@@ -79,8 +92,27 @@ public class EnemyBaseBehavior : MonoBehaviour
         projectileLeft.velocity = transform.forward * projectileSpeed;
         
     }
+    public void Hurt(Damage dam)
+    {
+        float damage = dam.Dam;
+        if (damage * dam.Smod < shield)
+        {
+            shield -= damage * dam.Smod;
+            return;
+        }
+        if (shield > 0)
+        {
+            damage -= shield / dam.Smod;
+            shield = 0;
+        }
+        health -= damage * dam.Amod;
+        if (health <= 0) Destroy(gameObject);
+    }
     void Update()
     {
+        if (shield < maxShield) shield += shieldRegen * Time.deltaTime;
+        if (shield > maxHealth) shield = maxHealth;
+        
         if (avoidTerrain)
         {
             rayColor = rayColorAvoidTerrain;

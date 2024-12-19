@@ -561,8 +561,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469471632}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.26615837, y: 0.6976346, z: -0.31825382, w: -0.58410645}
-  m_LocalPosition: {x: 120, y: 129.1, z: 17.8}
+  m_LocalRotation: {x: 0.16570942, y: -0.7855823, z: 0.23808783, w: 0.5465483}
+  m_LocalPosition: {x: 24.118528, y: 52.608322, z: 65.600975}
   m_LocalScale: {x: 5.02, y: 5.02, z: 5.02}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2320,6 +2320,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7032761266019738465, guid: c4dc4945f0824234688b4fdcbd3de050,
         type: 3}
+      propertyPath: enemyLaser
+      value: 
+      objectReference: {fileID: 1588369791628312577, guid: 94d403dae76038d46b0674cf34e54bcc,
+        type: 3}
+    - target: {fileID: 7032761266019738465, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
       propertyPath: patrolTarget
       value: 
       objectReference: {fileID: 896844947}
@@ -2328,6 +2334,12 @@ PrefabInstance:
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 469471633}
+    - target: {fileID: 7423891334195965929, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: enemyLaser
+      value: 
+      objectReference: {fileID: 1588369791628312577, guid: 94d403dae76038d46b0674cf34e54bcc,
+        type: 3}
     - target: {fileID: 7423891334195965929, guid: c4dc4945f0824234688b4fdcbd3de050,
         type: 3}
       propertyPath: patrolTarget
