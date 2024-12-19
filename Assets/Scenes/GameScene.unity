@@ -5244,7 +5244,7 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 113443449}
+      objectReference: {fileID: 1321984117}
     - target: {fileID: 5191962522080340166, guid: 8ffe8ed0629c58b499bd7730ab4b2a6d,
         type: 3}
       propertyPath: maxHealth
@@ -5940,21 +5940,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cockpit
       objectReference: {fileID: 0}
-    - target: {fileID: 6030308675028172382, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6030308675028172382, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6695522913464193491, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 6874530638130314886, guid: 3538bd78715fde64aab2b3246c486c36,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6010,21 +5995,6 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 660077678}
-    - target: {fileID: 8826539568972442917, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8826539568972442917, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8826539568972442917, guid: 3538bd78715fde64aab2b3246c486c36,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6038,11 +6008,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 169636208472503506, guid: 910feb5ff1c48714fb7d925e77a901b5,
-        type: 3}
-      propertyPath: thrustStrength
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 372124107632595042, guid: 910feb5ff1c48714fb7d925e77a901b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6215,9 +6180,6 @@ SceneRoots:
   - {fileID: 937138735413153860}
   - {fileID: 1205946436}
   - {fileID: 326996511}
-  - {fileID: 1401279530}
-  - {fileID: 66004785}
-  - {fileID: 1205946436}
   - {fileID: 1322360227}
   - {fileID: 2000841988}
   - {fileID: 20383966}
