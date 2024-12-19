@@ -343,6 +343,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.97
       objectReference: {fileID: 0}
@@ -390,6 +405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
@@ -585,10 +605,10 @@ MonoBehaviour:
   rayColorAvoidTerrain: {r: 0, g: 1, b: 0, a: 1}
   playerRotationalDamp: 1
   rayCastOffset: 2.5
-  detectionDistance: 20
+  detectionDistance: 15
   movementSpeed: 80
   patrolRotationalDamp: 0.5
-  chasePlayerTimerLength: 2
+  chasePlayerTimerLength: 3
   chasePlayerTimer: 0
   patrolMode: 0
   maxChasePlayerRange: 150
