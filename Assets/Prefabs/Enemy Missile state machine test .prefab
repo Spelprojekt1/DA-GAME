@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6340431836276682423}
   - component: {fileID: 5344827649690808652}
   - component: {fileID: 6858784461844331940}
-  - component: {fileID: 4653313406926860652}
   m_Layer: 0
   m_Name: Right Procetile Spawner
   m_TagString: Untagged
@@ -106,20 +105,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4653313406926860652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6282571782948213168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da6d36569d3a3c445b627ad951d5d52c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyLaser: {fileID: 0}
-  shootSpeed: 300
 --- !u!1 &8626381509167723296
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +117,6 @@ GameObject:
   - component: {fileID: 1136944722938816088}
   - component: {fileID: 6919285584604180015}
   - component: {fileID: 9207799120900960772}
-  - component: {fileID: 2724637657109248067}
   m_Layer: 0
   m_Name: Left Projectile spawner
   m_TagString: Untagged
@@ -226,20 +210,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2724637657109248067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8626381509167723296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da6d36569d3a3c445b627ad951d5d52c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyLaser: {fileID: 0}
-  shootSpeed: 300
 --- !u!1001 &609102782957454079
 PrefabInstance:
   m_ObjectHideFlags: 0
