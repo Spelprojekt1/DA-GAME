@@ -13,15 +13,12 @@ public class CargoMission : AMission
     public override float Completion => (float)endCargo / totalCargo;
     public override Vector3 Location => start.transform.position;
 
-    // Start is called before the first frame update
-    void Start()
+    public CargoMission(CargoStart start, CargoEnd end, int cargo)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.start = start;
+        this.end = end;
+        totalCargo = cargo;
+        startCargo = cargo;
+        endCargo = 0;
     }
 }
