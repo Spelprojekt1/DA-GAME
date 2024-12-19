@@ -1,8 +1,25 @@
-using UnityEditor;
+using System;
+using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 public enum RadarPingType
 {
-    ENEMY
+    ENEMY,
+    CARGO_SOURCE,
+    CARGO_DESTINATION,
+    CARGO_LOOSE
+}
+
+[Serializable]
+struct PingType
+{
+    public string Tag;
+    public RadarPingType Type;
+    public PingType(string tag, RadarPingType type)
+    {
+        Tag = tag;
+        Type = type;
+    }
 }
 public class Radar : MonoBehaviour
 {
@@ -10,6 +27,7 @@ public class Radar : MonoBehaviour
     [SerializeField] private Transform origin;
     [SerializeField] private GameObject RadarPing;
     [SerializeField] private LockTarget targetLocker;
+    [SerializeField] private List<PingType> trackableTags;
     private GameObject target;
     public void Ping()
     {
@@ -19,18 +37,21 @@ public class Radar : MonoBehaviour
             DestroyImmediate(transform.GetChild(i).gameObject);
         }
 
-        // Get all objects with the tag "RadarEnemy"
-        foreach (GameObject o in GameObject.FindGameObjectsWithTag("Enemy"))
+        // Get all objects with pingable tags
+        foreach (var tag in trackableTags)
         {
-            GameObject ping = Instantiate(RadarPing);
-            RadarPing script = ping.GetComponent<RadarPing>();
-            script.target = o;
-            script.origin = origin;
-            script.maxDistance = maxDistance;
-            script.type = RadarPingType.ENEMY;
-            script.CheckLock(target);
-            
-            ping.transform.SetParent(transform, false);
+            foreach (GameObject o in GameObject.FindGameObjectsWithTag(tag.Tag))
+            {
+                GameObject ping = Instantiate(RadarPing);
+                RadarPing script = ping.GetComponent<RadarPing>();
+                script.target = o;
+                script.origin = origin;
+                script.maxDistance = maxDistance;
+                script.type = tag.Type;
+                script.CheckLock(target);
+                
+                ping.transform.SetParent(transform, false);
+            }
         }
     }
 
@@ -50,11 +71,5 @@ public class Radar : MonoBehaviour
     {
         this.target = target;
         Ping();
-        // For each child find the RadarPing script and run CheckLock
-        // for (int i = 0; i < transform.childCount; i++)
-        // {
-            // RadarPing script = transform.GetChild(i).GetComponent<RadarPing>();
-            // script.CheckLock(target);
-        // }
     }
 }

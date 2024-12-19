@@ -9,7 +9,7 @@ public class HUD : MonoBehaviour
     private PlayerCargoManager playerCargoManager;
     [SerializeField] private Image pointer;
     [SerializeField] private GameObject targetReticle;
-    private OldEnemyMovement target;
+    private GameObject target;
     [SerializeField] private TextMeshProUGUI hostilesCount;
     [SerializeField] private GameObject cargoTransfer;
     
@@ -48,15 +48,7 @@ public class HUD : MonoBehaviour
     
     public void OnTargetLocked(GameObject target)
     {
-        if (target)
-        {
-            this.target = target.GetComponent<OldEnemyMovement>();
-            targetReticle.SetActive(true);
-        }
-        else
-        {
-            this.target = null;
-            targetReticle.SetActive(false);
-        }
+        this.target = target;
+        targetReticle.SetActive(target != null);
     }
 }
