@@ -78,9 +78,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "DialogueContinue",
+                    "name": "CargoTransfer",
                     "type": "Button",
-                    "id": "3ad3e47e-b80f-494c-8a7f-016b8777a97a",
+                    "id": "ca27ba32-f854-439b-afb2-dfd3a4e0896b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenMissions",
+                    "type": "Button",
+                    "id": "40af4f54-8736-4730-89e3-f2624b0f285c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -321,12 +330,23 @@
                 },
                 {
                     "name": "",
-                    "id": "7e152405-d7dd-49bd-8e4e-753763a5473e",
-                    "path": "<Keyboard>/enter",
+                    "id": "a6811d63-009e-4c89-9d8b-2440692d21e1",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "DialogueContinue",
+                    "groups": "",
+                    "action": "CargoTransfer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b9107055-5d9c-4049-bd1b-ae23e014b1ac",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenMissions",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

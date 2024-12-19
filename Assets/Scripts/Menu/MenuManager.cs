@@ -1,34 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PauseMenu : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
     private bool isPaused = false;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject missionMenu;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void PausePressed()
     {
         if (isPaused) ResumeGame();
-        else PauseGame();
+        else PauseGame(pauseMenu);
+    }
+    public void MissionMenuPressed()
+    {
+        if (isPaused) ResumeGame();
+        else PauseGame(missionMenu);
     }
 
-    public void PauseGame()
+    public void PauseGame(GameObject menu)
     {
         Time.timeScale = 0;
-        pauseMenu.SetActive(true);
+        menu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
     }
 
@@ -36,6 +32,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
+        missionMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
     }
 
