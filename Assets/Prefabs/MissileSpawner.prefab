@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primary: 0
-  missileLifeTime: 30
+  lifeTime: 10
+  startCooldown: 5
+  playerRb: {fileID: 0}
   missilePrefab: {fileID: 4673174690642380363, guid: 94d403dae76038d46b0674cf34e54bcc,
     type: 3}
-  target: {fileID: 0}
+  targetTag: Enemy

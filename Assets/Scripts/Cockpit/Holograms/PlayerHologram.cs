@@ -16,6 +16,6 @@ public class PlayerHologram : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hologramTransform.localRotation = Quaternion.Euler(Vector3.Scale(playerMovement.Rotation, rotationExaggeration));
+        hologramTransform.localRotation = Quaternion.Euler(Vector3.Scale(playerMovement.RotationalInput, rotationExaggeration));
     }
 }
