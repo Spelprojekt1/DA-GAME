@@ -12,19 +12,21 @@ public class CargoMission : AMission
     private int endCargo;
     private Stack<(int,GameObject)> looseCargo = new();
     public override float Completion => (float)endCargo / totalCargo;
-    public override GameObject Target
+    public override List<WayPoint> WayPoints
     {
         get
         {
-            if (looseCargo.Count > 0)
+            List<WayPoint> wayPoints = new List<WayPoint>
             {
-                return looseCargo.Last().Item2;
-            }
-            if (startCargo > 0)
+                new WayPoint(start.gameObject, "Origin"),
+                new WayPoint(end.gameObject, "Destination")
+            };
+            
+            foreach (var cargo in looseCargo)
             {
-                return start.gameObject;
+                wayPoints.Add(new WayPoint(cargo.Item2, $"Loose Cargo {cargo.Item1}"));
             }
-            return end.gameObject;
+            return wayPoints;
         }
     }
 

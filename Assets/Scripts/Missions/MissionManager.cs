@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class MissionManager : MonoBehaviour
 {
     private List<CargoMission> cargoMissions;
@@ -12,6 +13,11 @@ public class MissionManager : MonoBehaviour
     [SerializeField] private List<CargoStart> cargoStarts;
     [SerializeField] private List<CargoEnd> cargoEnds;
     
+    void OnValidate()
+    {
+        Start();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
