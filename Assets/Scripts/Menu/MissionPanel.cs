@@ -28,9 +28,8 @@ public class MissionPanel : MonoBehaviour
             // Set button text
             button.GetComponentInChildren<TextMeshProUGUI>().text = wayPoints[i].name;
 
-            //button.GetComponentInChildren<Text>().text = wayPoints[i].name;
-
-            button.GetComponent<Button>().onClick.AddListener(() => targetLocker.SetLock(wayPoints[i].target));
+            GameObject target = wayPoints[i].target;
+            button.GetComponent<Button>().onClick.AddListener(() => targetLocker.SetLock(target));
         }
     }
 }
