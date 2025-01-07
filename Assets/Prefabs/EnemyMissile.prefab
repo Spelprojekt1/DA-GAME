@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 1588369791628312577}
   - component: {fileID: 1450973964669283006}
   - component: {fileID: 5369241674061859723}
-  - component: {fileID: 4744026420850676902}
-  - component: {fileID: 1718010169502740323}
   - component: {fileID: 2530736324134213538}
   m_Layer: 0
   m_Name: EnemyMissile
@@ -209,37 +207,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4744026420850676902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4673174690642380363}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c0c10c4689e8334684327e3e1afa2b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1718010169502740323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4673174690642380363}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f88890f230093f24b938454ff17ac178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 15
-  torque: 3
-  targetPositionOffset: 5
-  target: {fileID: 0}
-  lifeTime: 0
-  targetTag: Player
-  startVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &2530736324134213538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,10 +219,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a1baf7164d18841a06c28a56d3cfd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  shield: 100
+  maxShield: 100
+  shieldRegen: 1
+  currentEnemyTarget: {fileID: 0}
+  rigidBody: {fileID: 0}
+  projectileReload: 0
+  projectileTimer: 2
+  enemyLaser: {fileID: 0}
+  rightProjectileSpawner: {fileID: 0}
+  leftProjectileSpawner: {fileID: 0}
+  avoidTerrain: 0
+  patrol: 0
+  chasePlayer: 0
+  repositionAway: 0
+  projectileSpeed: 10
+  patrolTarget: {fileID: 0}
+  playerTarget: {fileID: 0}
+  rayColor: {r: 0, g: 0, b: 0, a: 1}
+  rayColorPatrol: {r: 1, g: 0, b: 1, a: 1}
+  rayColorChase: {r: 1, g: 0, b: 0, a: 1}
+  rayColorReposition: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  rayColorAvoidTerrain: {r: 0, g: 1, b: 0, a: 1}
+  playerRotationalDamp: 0.7
+  rayCastOffset: 2.5
+  detectionDistance: 20
+  movementSpeed: 7
+  patrolRotationalDamp: 0.5
+  chasePlayerTimerLength: 2
+  chasePlayerTimer: 0
+  patrolMode: 0
+  maxChasePlayerRange: 150
+  chasePlayerRange: 100
+  startShootRange: 80
+  fightPlayerRange: 35
+  repositionAwayFromPlayerRange: 20
+  smoothRotation: 1
+  distanceBetween: 0
   force: 10
   torque: 2
   targetPositionOffset: 5
-  playerTarget: {fileID: 0}
+  missileTarget: {fileID: 0}
   startVelocity: {x: 0, y: 0, z: 0}
 --- !u!1001 &5593779377256612511
 PrefabInstance:
