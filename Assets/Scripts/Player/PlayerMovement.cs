@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         rotationalOutput = new(
             Vector3.Scale(inputFilterPitch, rotationalInputSmoothed).magnitude,
             Vector3.Scale(inputFilterYaw, rotationalInputSmoothed).magnitude,
-            Vector3.Scale(inputFilterRoll, rotationalInputSmoothed).magnitude,
+            Vector3.Scale(inputFilterRoll, rotationalInputSmoothed).magnitude
         );
 
         //transform.Rotate(Vector3.Scale(rotation, rotationStrength) * Time.deltaTime);
