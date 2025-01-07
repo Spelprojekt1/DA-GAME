@@ -77,7 +77,7 @@ public class EnemyBaseBehavior : MonoBehaviour
     [SerializeField] public float repositionAwayFromPlayerRange = 20.0f;
     [SerializeField] public float smoothRotation = 1.0f;
 
-    //private Coroutine LookCoroutine;
+    
     //Hur långt det är emellan player och enemy
     public float distanceBetween = 0f;
 

@@ -329,17 +329,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.97
+      value: 148.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.01
+      value: -3.9127624
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.83
+      value: -156.01686
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
@@ -349,17 +349,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
@@ -569,7 +569,7 @@ MonoBehaviour:
   rigidBody: {fileID: 5825769730570450154}
   projectileReload: 0
   projectileTimer: 5
-  enemyLaser: {fileID: 1588369791628312577, guid: 94d403dae76038d46b0674cf34e54bcc,
+  enemyLaser: {fileID: 1588369791628312577, guid: 9d10665ea65809c40932ac34740aaaa6,
     type: 3}
   rightProjectileSpawner: {fileID: 6723171795344940778}
   leftProjectileSpawner: {fileID: 7891758197784787035}
@@ -671,7 +671,7 @@ MonoBehaviour:
   rigidBody: {fileID: 5825769730570450154}
   projectileReload: 0
   projectileTimer: 5
-  enemyLaser: {fileID: 1588369791628312577, guid: 94d403dae76038d46b0674cf34e54bcc,
+  enemyLaser: {fileID: 1588369791628312577, guid: 9d10665ea65809c40932ac34740aaaa6,
     type: 3}
   rightProjectileSpawner: {fileID: 6723171795344940778}
   leftProjectileSpawner: {fileID: 7891758197784787035}
