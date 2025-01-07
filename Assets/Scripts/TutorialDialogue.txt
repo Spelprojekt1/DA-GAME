@@ -1,17 +1,23 @@
-﻿Welcome cadet, you have been safely transported to the outpost. Now your flight lesson will begin. Going through the yellow portal ends the tutorial. Press "Enter" to progress the dialogue.
-Move your mouse vertically to pitch your ship, move your mouse horizontally to roll your ship. 
-Press Q and E to rotate your ship on the yaw axis. 
-Use the mouse scroll wheel to change between weapons (canons, missiles and lazers).
-Press left mouse button to shoot, and right mouse button to lock on target when the reticle is on an enemy.
-Missiles require a locked target.
-Press Shift to accelerate and CTRL to use the brakes and CTRL again to move backwards. 
-The blue circle map on the bottom and middle of the screen is a radar. Enemies and points of interest will be shown on there.
-The first gauge from the left is the thrust gauge, it will be yellow when you accelerate and yellow/orange when you move backwards. 
-The second gauge from the left is the cargo gauge, it is gray/blue, it shows you your cargo capacity and how much cargo you have picked up.
-The third gauge from the left is the health gauge, it is green, it shows you the hull's health.
-The last gauge from the left is the shield gauge, it is blue, it shows you the health of your sheild. Press ESC to pause. 
-Now you are ready to begin your first mission.
-Press "M" to open the mission select menu, and every mission has a small text to quickly brief you on the mission.
-When you have picked a mission, you can then track it on your radar.
-Good luck cadet!
-To end the tutorial, go through the yellow portal.
+﻿Welcome cadet to your exciting new career in CondrSupplies space program for the next couple of months. To continue, press "Enter".
+You are currently stationed at an outpost near the moon Z24BA.
+To get you started, you will get a short and simple flight lesson. Then you will start your first mission immediately. 
+Good luck cadet! And make sure not to die out there, CondrSupplies have invested a lot of money in you.
+The cadet will be held liable for destruction of property. CondrSupplies will not be held liable for injuries or death. If the cadet breaks the contract, CondrSupplies does no longer need to offer a way home.
+Now it is time for your flight lesson cadet.
+First let's look at the UI.
+The Blue circular map in the middle is the radar, you can see enemies and points of interest on it.
+The Yellow/orange gauge on the left is for your thrust, it tells you how fast you're flying or if you are going forwards or backwards.
+The blue gauge on the left tells you how much cargo you have picked up.
+The green bar on the right shows you the hull’s health.
+The blue bar on the right shows you the ship’s shield health.
+The red text shows you the weapon type you have equipped
+You can change weapons using the mouse scroll wheel, and you can lock on to a target using right click, and shoot with left click
+If you have a target locked, you will see that targets health and shield on the left side of the screen.
+Try to kill the enemy in front of you, lasers are good against shields and missiles are good against the hull.
+If you press "M" the mission select menu will pop up, there you can choose which mission you want to track on your radar.
+That's all about the UI, now it's time for the movement.
+Move around your mouse to look around.
+Press "Q" and "E" to move your ship on the YAW axis.
+Use "WASD" to move your ship on the X and Z axis, and "R" and "F" to move your ship on the Y axis.
+Press "Shift" to accelerate and "CTRL" to slow down and press "CTRL" again to accelerate backwards.
+That was it for the flight lesson, go through the yellow portal to end the tutorial after pressing "Enter".

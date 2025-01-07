@@ -65,6 +65,7 @@ public class Blabber : MonoBehaviour
             // Otherwise close the dialogue (no more lines left)
             else
             {
+                dialogueCanvas.enabled = false;
                 onDialogueEnded.Invoke();
             }
         }
