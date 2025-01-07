@@ -32,7 +32,7 @@ public class HUD : MonoBehaviour
         }
         
         pointer.rectTransform.localPosition = new Vector3(
-            playerMovement.RotationalInput.z * -200,
+            playerMovement.RotationalInput.y * 200,
             playerMovement.RotationalInput.x * -200,
             0);
 

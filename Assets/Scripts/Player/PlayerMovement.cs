@@ -29,8 +29,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector3 inputFilterYaw = new(1,0,0);
     [SerializeField] private Vector3 inputFilterRoll = new(0,0,1);
 
-    private Vector3 rotationalOutput;
-    private Vector3 rotationalInputSmoothed;
+    [SerializeField] private Vector3 rotationalOutput;
+    [SerializeField] private Vector3 rotationalInputSmoothed;
     public float Thrust => thrust;
     public Vector3 RotationalInput => rotationalOutput;
     
@@ -61,13 +61,13 @@ public class PlayerMovement : MonoBehaviour
         rotationalInputSmoothed = new(
             rotationalInput.x,
             rotationalInput.y,
-            Mathf.Lerp(rotationalOutput.z, rotationalInput.z, Mathf.Clamp(Time.deltaTime / binaryAxisSmoother, -1, 1)));
+            Mathf.Lerp(rotationalInputSmoothed.z, rotationalInput.z, Mathf.Clamp(Time.deltaTime / binaryAxisSmoother, -1, 1)));
         
         // Please check this, it was written on a boat on a low battery laptop :)
         rotationalOutput = new(
-            Vector3.Scale(inputFilterPitch, rotationalInputSmoothed).magnitude,
-            Vector3.Scale(inputFilterYaw, rotationalInputSmoothed).magnitude,
-            Vector3.Scale(inputFilterRoll, rotationalInputSmoothed).magnitude
+            inputFilterPitch.x * rotationalInputSmoothed.x + inputFilterPitch.y * rotationalInputSmoothed.y + inputFilterPitch.z * rotationalInputSmoothed.z,
+            -(inputFilterYaw.x * rotationalInputSmoothed.x + inputFilterYaw.y * rotationalInputSmoothed.y + inputFilterYaw.z * rotationalInputSmoothed.z),
+            -(inputFilterRoll.x * rotationalInputSmoothed.x + inputFilterRoll.y * rotationalInputSmoothed.y + inputFilterRoll.z * rotationalInputSmoothed.z)
         );
 
         //transform.Rotate(Vector3.Scale(rotation, rotationStrength) * Time.deltaTime);
@@ -96,8 +96,8 @@ public class PlayerMovement : MonoBehaviour
         Vector2 b = context.ReadValue<Vector2>();
         Vector2 c = primaryRotationSensitivity;
         
-        a.x = Mathf.Max(Mathf.Min(a.z -= b.x * c.x, AXIS_MAX), AXIS_MIN);
-        a.y = Mathf.Max(Mathf.Min(a.x -= b.y * c.y, AXIS_MAX), AXIS_MIN);
+        a.x = Mathf.Max(Mathf.Min(a.x -= b.x * c.x, AXIS_MAX), AXIS_MIN);
+        a.y = Mathf.Max(Mathf.Min(a.y -= b.y * c.y, AXIS_MAX), AXIS_MIN);
 
         rotationalInput = a;
     }
