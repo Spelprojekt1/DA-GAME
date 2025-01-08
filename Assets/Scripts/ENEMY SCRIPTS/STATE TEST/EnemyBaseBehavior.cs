@@ -15,8 +15,8 @@ public class EnemyBaseBehavior : MonoBehaviour
     public float MaxHealth => maxHealth;
     public float Shield => shield;
     public float MaxShield => maxShield;
-    
-    
+
+    public GameObject enemyMissile;
     public Transform currentEnemyTarget;
     [SerializeField] public Rigidbody rigidBody;
     [SerializeField] public bool projectileReload =false;
@@ -25,6 +25,7 @@ public class EnemyBaseBehavior : MonoBehaviour
     [SerializeField] public Rigidbody enemyLaser;
     [SerializeField] public Transform rightProjectileSpawner;
     [SerializeField] public Transform leftProjectileSpawner;
+    [SerializeField] public GameObject missilePrefab;
     public bool avoidTerrain = false;
     public bool patrol = false;
     public bool chasePlayer = false;
@@ -82,7 +83,7 @@ public class EnemyBaseBehavior : MonoBehaviour
     public float distanceBetween = 0f;
 
     
-    public void ShootBullet()
+    public void ShootLaser()
     {
         // Gets the enemyLaser prefab
         var projectileRight = Instantiate(enemyLaser, rightProjectileSpawner.transform.position, transform.rotation);
@@ -91,6 +92,27 @@ public class EnemyBaseBehavior : MonoBehaviour
         var projectileLeft = Instantiate(enemyLaser, leftProjectileSpawner.transform.position, transform.rotation);
         projectileLeft.velocity = transform.forward * projectileSpeed;
         
+    }
+
+    public void ShootMissile()
+    {
+        
+       
+        Debug.Log("missile test");
+        GameObject missile = Instantiate(missilePrefab);
+        missile.transform.position = transform.position;
+        missile.transform.rotation = transform.rotation;
+        EnemyMissileBehaviour missileBehaviour = missile.GetComponent<EnemyMissileBehaviour>();
+        missileBehaviour.target = playerTarget;
+        
+        
+        
+        
+        //var projectileRight = Instantiate(enemyLaser, rightProjectileSpawner.transform.position, transform.rotation);
+        //Shoots 2 Bullet forwards
+        //projectileRight.velocity = transform.forward * projectileSpeed;
+        //var projectileLeft = Instantiate(enemyLaser, leftProjectileSpawner.transform.position, transform.rotation);
+        //projectileLeft.velocity = transform.forward * projectileSpeed;
     }
     public void Hurt(Damage dam)
     {

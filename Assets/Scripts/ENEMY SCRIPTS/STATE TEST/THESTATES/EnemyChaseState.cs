@@ -14,14 +14,12 @@ public class EnemyChaseState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
     {
         // THE ROTATE TOWARDS PLAYER FUNCTION
-        //enemy.transform.LookAt(enemy.playerTarget); OLD ROTATION 
         
-        // NEW ROTATE TOWARDS PLAYER ATTEMPT
         Vector3 pos1 = enemy.playerTarget.position - enemy.transform.position;
         Quaternion rotation1 = Quaternion.LookRotation(pos1);
         enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, rotation1, enemy.playerRotationalDamp * Time.deltaTime);
        
-        //enemy.rayColor = enemy.rayColorChase;
+        
         // ENEMY SHOOTING CODE
         if (enemy.distanceBetween < enemy.startShootRange)
         {
@@ -36,7 +34,7 @@ public class EnemyChaseState : EnemyBaseState
         if (enemy.projectileReload)
         {
             // the enemy fires the bullets now in the EnemyBaseBehavior Script.
-            enemy.enemyBaseBehaviorScript.ShootBullet();
+            enemy.enemyBaseBehaviorScript.ShootMissile();
             enemy.projectileTimer = 5f;
             enemy.projectileReload = false;
 

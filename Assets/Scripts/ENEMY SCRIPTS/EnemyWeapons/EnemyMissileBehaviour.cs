@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class EnemyMissileBehaviour : EnemyBaseBehavior
+public class EnemyMissileBehaviour : MonoBehaviour
 {
     [Tooltip("Acceleration of the missile")]
     [SerializeField] private float force = 10f;
@@ -10,10 +10,10 @@ public class EnemyMissileBehaviour : EnemyBaseBehavior
     [Tooltip("How far in front of the target the missile should aim. Setting the value to 0 will result in the missile orbiting the target.")]
     [SerializeField] private float targetPositionOffset = 5f;
 
-    private GameObject player;
+    
     [Header("Values filled by spawner")]
     // Target to home in on
-    [SerializeField] public Transform missileTarget;
+    public Transform target;
     private float lifeTime = 5f;
     private Rigidbody rb;
     //private Transform = enemy.playerTarget.position;
@@ -32,7 +32,7 @@ public class EnemyMissileBehaviour : EnemyBaseBehavior
     {
         if (other.CompareTag(targetTag))
         {
-            other.gameObject.GetComponent<PlayerBehaviour>().Hurt(new Damage(75f,0.5f,1f));
+            other.gameObject.GetComponent<PlayerBehaviour>().Hurt(new Damage(20f,0.5f,1f));
             Destroy(gameObject);
         }
     }
@@ -52,7 +52,7 @@ public class EnemyMissileBehaviour : EnemyBaseBehavior
         // Home in on target if it exists
         
         
-            Vector3 desired = (playerTarget.position - (transform.forward * targetPositionOffset) - transform.position).normalized;
+            Vector3 desired = (target.position - (transform.forward * targetPositionOffset) - transform.position).normalized;
             Vector3 rotationAmount = Vector3.Cross(transform.forward, desired);
             rb.angularVelocity = rotationAmount * torque;
                 

@@ -597,6 +597,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy00 state machine test  (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4539833647153573550, guid: d0283cf2c183ee94496abc00e7efb641,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6461326151213600357, guid: d0283cf2c183ee94496abc00e7efb641,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -796,37 +801,37 @@ PrefabInstance:
     - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 148.4
+      value: 13.467236
       objectReference: {fileID: 0}
     - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.9127624
+      value: -1.2868581
       objectReference: {fileID: 0}
     - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -156.01686
+      value: -252.88518
       objectReference: {fileID: 0}
     - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7706651
       objectReference: {fileID: 0}
     - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.04190307
       objectReference: {fileID: 0}
     - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.6349242
       objectReference: {fileID: 0}
     - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.034507293
       objectReference: {fileID: 0}
     - target: {fileID: 3865483026659440296, guid: c4dc4945f0824234688b4fdcbd3de050,
         type: 3}
@@ -860,6 +865,12 @@ PrefabInstance:
       objectReference: {fileID: 660077678}
     - target: {fileID: 7423891334195965929, guid: c4dc4945f0824234688b4fdcbd3de050,
         type: 3}
+      propertyPath: enemyMissile
+      value: 
+      objectReference: {fileID: 4673174690642380363, guid: 9d10665ea65809c40932ac34740aaaa6,
+        type: 3}
+    - target: {fileID: 7423891334195965929, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
       propertyPath: patrolTarget
       value: 
       objectReference: {fileID: 705087166}
@@ -868,6 +879,12 @@ PrefabInstance:
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 660077678}
+    - target: {fileID: 7423891334195965929, guid: c4dc4945f0824234688b4fdcbd3de050,
+        type: 3}
+      propertyPath: missilePrefab
+      value: 
+      objectReference: {fileID: 4673174690642380363, guid: 9d10665ea65809c40932ac34740aaaa6,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2481,6 +2498,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy00 state machine test  (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4539833647153573550, guid: d0283cf2c183ee94496abc00e7efb641,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6461326151213600357, guid: d0283cf2c183ee94496abc00e7efb641,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3582,6 +3604,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy00 state machine test  (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4539833647153573550, guid: d0283cf2c183ee94496abc00e7efb641,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6461326151213600357, guid: d0283cf2c183ee94496abc00e7efb641,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3934,6 +3961,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy00 state machine test  (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4539833647153573550, guid: d0283cf2c183ee94496abc00e7efb641,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6461326151213600357, guid: d0283cf2c183ee94496abc00e7efb641,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4217,6 +4249,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Enemy00 state machine test '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539833647153573550, guid: d0283cf2c183ee94496abc00e7efb641,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6461326151213600357, guid: d0283cf2c183ee94496abc00e7efb641,
         type: 3}
@@ -7462,6 +7499,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy00 state machine test  (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539833647153573550, guid: d0283cf2c183ee94496abc00e7efb641,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6461326151213600357, guid: d0283cf2c183ee94496abc00e7efb641,
         type: 3}
