@@ -18,6 +18,5 @@ If you press "M" the mission select menu will pop up, there you can choose which
 That's all about the UI, now it's time for the movement.
 Move around your mouse to look around.
 Press "Q" and "E" to move your ship on the YAW axis.
-Use "WASD" to move your ship on the X and Z axis, and "R" and "F" to move your ship on the Y axis.
 Press "Shift" to accelerate and "CTRL" to slow down and press "CTRL" again to accelerate backwards.
 That was it for the flight lesson, go through the yellow portal to end the tutorial after pressing "Enter".
