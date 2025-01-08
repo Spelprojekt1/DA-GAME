@@ -20,7 +20,7 @@ public class EnemyStateManager : EnemyBaseBehavior
         enemyBaseBehaviorScript = GetComponent<EnemyBaseBehavior>();
         //The state that the enemy always starts in the patrolState
         currentState = PatrolState;
-        currentState.EnterState(this); 
+        currentState.EnterState(this);
         
     }
 

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyBaseBehavior : MonoBehaviour
 {
+    //WHAT TYPE OFF ENEMY IT IS
+   [SerializeField] public string weaponType;
+  
     //HP AND SHIELD 
     [SerializeField] private float health = 100f;
     [SerializeField] private float maxHealth = 100f;
@@ -91,23 +94,31 @@ public class EnemyBaseBehavior : MonoBehaviour
         projectileRight.velocity = transform.forward * projectileSpeed;
         var projectileLeft = Instantiate(enemyLaser, leftProjectileSpawner.transform.position, transform.rotation);
         projectileLeft.velocity = transform.forward * projectileSpeed;
+
         
     }
 
     public void ShootMissile()
     {
-        
+
        
-        Debug.Log("missile test");
-        GameObject missile = Instantiate(missilePrefab);
-        missile.transform.position = transform.position;
-        missile.transform.rotation = transform.rotation;
-        EnemyMissileBehaviour missileBehaviour = missile.GetComponent<EnemyMissileBehaviour>();
-        missileBehaviour.target = playerTarget;
-        
-        
-        
-        
+            
+            GameObject rightMissile = Instantiate(missilePrefab);
+            rightMissile.transform.position = rightProjectileSpawner.transform.position;
+            rightMissile.transform.rotation = rightProjectileSpawner.transform.rotation;
+            EnemyMissileBehaviour rightMissileBehaviour = rightMissile.GetComponent<EnemyMissileBehaviour>();
+            rightMissileBehaviour.target = playerTarget;
+            
+            GameObject leftMissile = Instantiate(missilePrefab);
+            leftMissile.transform.position = leftProjectileSpawner.transform.position;
+            leftMissile.transform.rotation = leftProjectileSpawner.transform.rotation;
+            EnemyMissileBehaviour leftMissileBehaviour = leftMissile.GetComponent<EnemyMissileBehaviour>();
+            leftMissileBehaviour.target = playerTarget;
+            
+
+
+
+
         //var projectileRight = Instantiate(enemyLaser, rightProjectileSpawner.transform.position, transform.rotation);
         //Shoots 2 Bullet forwards
         //projectileRight.velocity = transform.forward * projectileSpeed;

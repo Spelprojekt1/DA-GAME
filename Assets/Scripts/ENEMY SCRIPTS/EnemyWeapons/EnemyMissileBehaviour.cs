@@ -4,9 +4,9 @@ using UnityEngine.Serialization;
 public class EnemyMissileBehaviour : MonoBehaviour
 {
     [Tooltip("Acceleration of the missile")]
-    [SerializeField] private float force = 10f;
+    [SerializeField] private float force = 15f;
     [Tooltip("How fast the missile can turn")]
-    [SerializeField] private float torque = 2f;
+    [SerializeField] private float torque = 5f;
     [Tooltip("How far in front of the target the missile should aim. Setting the value to 0 will result in the missile orbiting the target.")]
     [SerializeField] private float targetPositionOffset = 5f;
 
@@ -14,18 +14,18 @@ public class EnemyMissileBehaviour : MonoBehaviour
     [Header("Values filled by spawner")]
     // Target to home in on
     public Transform target;
-    private float lifeTime = 5f;
+    private float lifeTime = 10f;
     private Rigidbody rb;
     //private Transform = enemy.playerTarget.position;
        
     private string targetTag = "Player";
-    public Vector3 startVelocity;
+    //public Vector3 startVelocity =;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.velocity = startVelocity + transform.forward * force;
+        rb.velocity = transform.forward * force;
     }
 
     private void OnTriggerEnter(Collider other)
