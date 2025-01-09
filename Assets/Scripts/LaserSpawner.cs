@@ -46,6 +46,7 @@ public class LaserSpawner : ProjectileSpawner
                 if (hit.collider.gameObject.CompareTag(targetTag))
                 {
                     hit.collider.gameObject.GetComponent<EnemyBaseBehavior>().Hurt(new Damage(dps * Time.deltaTime,1f,0.5f));
+                    hit.collider.gameObject.GetComponent<AudioPlay>().PlayAudio();
                 }
             }
             else

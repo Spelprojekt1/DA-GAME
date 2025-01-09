@@ -8,6 +8,9 @@ TagManager:
   - Cargo Source
   - Cargo Destination
   - Cargo Loose
+  - Laser
+  - Missile
+  - Cannons
   layers:
   - Default
   - TransparentFX
