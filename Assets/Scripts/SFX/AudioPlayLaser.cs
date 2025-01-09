@@ -110,6 +110,7 @@ public class AudioPlayLaser : MonoBehaviour
                 source.volume = Random.Range(minVolume, maxVolume);
             source.pitch = Random.Range(minPitch, maxPitch);
             source.Play();
+           // source.PlayClipAtPoint(clipsToPlay, transform.position, source.volume);
             float timeTaken = 0f;
             if (playWithFade)
             {
