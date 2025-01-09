@@ -1,0 +1,11 @@
+﻿Now let’s look at the UI.
+The Blue circular map in the middle is the radar, you can see enemies and points of interest on it.
+The Yellow/orange gauge on the left is for your thrust, it tells you how fast you're flying or if you are going forwards or backwards.
+The blue gauge on the left tells you how much cargo you have picked up.
+The green bar on the right shows you the hull’s health.
+The blue bar on the right shows you the ship’s shield health.
+The red text shows you the weapon type you have equipped
+You can change weapons using the mouse scroll wheel, and you can lock on to a target using right click, and shoot with left click
+If you have a target locked, you will see that targets health and shield on the left side of the screen. Using the missiles requires a locked target.
+Try to kill the enemy in front of you, lasers are good against shields and missiles are good against the hull.
+That was it for the flight lesson, go through the yellow portal to end the tutorial after pressing "Enter".
