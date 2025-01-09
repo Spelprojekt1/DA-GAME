@@ -14,7 +14,11 @@ public class LaserSpawner : ProjectileSpawner
     private float length = 200f;
     [SerializeField] private string targetTag = "Enemy";
     [SerializeField] private float dps = 75f;
+    //AUDIO VARS
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private GameObject enemyHitByLaserPrefab;
+    private bool hitSoundCooldown;
+    
 //-------- LASER RAY CODE --------------------
     [SerializeField] private GameObject laser;
     //private float distanceBetween = 0f;
@@ -39,14 +43,30 @@ public class LaserSpawner : ProjectileSpawner
     {
         if (duration > 0)
         {
+            
             duration -= Time.deltaTime;
+           
             if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, range))
             {
                 length = MathF.Abs(Vector3.Magnitude(hit.collider.gameObject.transform.position - transform.position));
                 if (hit.collider.gameObject.CompareTag(targetTag))
                 {
                     hit.collider.gameObject.GetComponent<EnemyBaseBehavior>().Hurt(new Damage(dps * Time.deltaTime,1f,0.5f));
-                    hit.collider.gameObject.GetComponent<AudioPlay>().PlayAudio();
+                    //hit.collider.gameObject.GetComponent<AudioPlay>().PlayAudio();
+                    
+                    //Hit SFX spawns at the enemy thats been hit
+                    if (hitSoundCooldown)
+                    {
+                        GameObject laserHitEnemySound = Instantiate(enemyHitByLaserPrefab);
+                        laserHitEnemySound.transform.position = hit.collider.gameObject.transform.position;
+
+                        hitSoundCooldown = false;
+                    }
+                    
+                    
+                    
+
+
                 }
             }
             else
@@ -63,6 +83,8 @@ public class LaserSpawner : ProjectileSpawner
                 active = false;
                 cooldown = startCooldown;
                 laser.SetActive(false);
+                
+                
             }
 
             if (cooldown > 0)
@@ -76,11 +98,16 @@ public class LaserSpawner : ProjectileSpawner
     {
         if (!active && cooldown <= 0)
         {
+            //AUDIO RESETS
+            hitSoundCooldown = true;
             //Castray();
             laser.SetActive(true);
             active = true;
             duration = startDuration;
             audioSource.Play();
+            //Plays an impact sound at the enemey
+            
+            
         }
     }
 
