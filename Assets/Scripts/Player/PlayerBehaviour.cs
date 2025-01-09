@@ -37,6 +37,22 @@ public class PlayerBehaviour : MonoBehaviour
         }
         weaponModes = spawners.Keys.ToArray();
     }
+    public void Hurt(Damage dam)
+    {
+        float damage = dam.Dam;
+        if (damage * dam.Smod < shield)
+        {
+            shield -= damage * dam.Smod;
+            return;
+        }
+        if (shield > 0)
+        {
+            damage -= shield / dam.Smod;
+            shield = 0;
+        }
+        health -= damage * dam.Amod;
+        if (health <= 0) Destroy(gameObject);
+    }
 
     // Update is called once per frame
     void Update()

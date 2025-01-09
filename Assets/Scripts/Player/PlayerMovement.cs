@@ -23,7 +23,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector3 rotationStrength = new(100, 100, 100);
     [Tooltip("How many seconds it takes for a binary input axis to change its input from min to max")]
     [SerializeField] private float binaryAxisSmoother = 0.4f;
-    private Vector3 rotationalOutput;
+
+    // Ugly fix for changing keybinds
+    [SerializeField] private Vector3 inputFilterPitch = new(0,1,0);
+    [SerializeField] private Vector3 inputFilterYaw = new(1,0,0);
+    [SerializeField] private Vector3 inputFilterRoll = new(0,0,1);
+
+    [SerializeField] private Vector3 rotationalOutput;
+    [SerializeField] private Vector3 rotationalInputSmoothed;
     public float Thrust => thrust;
     public Vector3 RotationalInput => rotationalOutput;
     
@@ -50,11 +57,19 @@ public class PlayerMovement : MonoBehaviour
         thrust = Mathf.Clamp(thrust, AXIS_MIN, AXIS_MAX);
         translationalVelocity.Clamp(AXIS_MIN, AXIS_MAX);
         
-        rotationalOutput = new Vector3(
+
+        rotationalInputSmoothed = new(
             rotationalInput.x,
-            Mathf.Lerp(rotationalOutput.y, rotationalInput.y, Mathf.Clamp(Time.deltaTime / binaryAxisSmoother, -1, 1)),
-            rotationalInput.z);
+            rotationalInput.y,
+            Mathf.Lerp(rotationalInputSmoothed.z, rotationalInput.z, Mathf.Clamp(Time.deltaTime / binaryAxisSmoother, -1, 1)));
         
+        // Please check this, it was written on a boat on a low battery laptop :)
+        rotationalOutput = new(
+            inputFilterPitch.x * rotationalInputSmoothed.x + inputFilterPitch.y * rotationalInputSmoothed.y + inputFilterPitch.z * rotationalInputSmoothed.z,
+            -(inputFilterYaw.x * rotationalInputSmoothed.x + inputFilterYaw.y * rotationalInputSmoothed.y + inputFilterYaw.z * rotationalInputSmoothed.z),
+            -(inputFilterRoll.x * rotationalInputSmoothed.x + inputFilterRoll.y * rotationalInputSmoothed.y + inputFilterRoll.z * rotationalInputSmoothed.z)
+        );
+
         //transform.Rotate(Vector3.Scale(rotation, rotationStrength) * Time.deltaTime);
         rb.angularVelocity = transform.rotation * Vector3.Scale(rotationalOutput, rotationStrength);
         //rb.AddTorque(transform.rotation * Vector3.Scale(rotation, rotationStrength));
@@ -81,11 +96,13 @@ public class PlayerMovement : MonoBehaviour
         Vector2 b = context.ReadValue<Vector2>();
         Vector2 c = primaryRotationSensitivity;
         
-        a.z = Mathf.Max(Mathf.Min(a.z -= b.x * c.x, AXIS_MAX), AXIS_MIN);
-        a.x = Mathf.Max(Mathf.Min(a.x -= b.y * c.y, AXIS_MAX), AXIS_MIN);
+        a.x = Mathf.Max(Mathf.Min(a.x -= b.x * c.x, AXIS_MAX), AXIS_MIN);
+        a.y = Mathf.Max(Mathf.Min(a.y -= b.y * c.y, AXIS_MAX), AXIS_MIN);
 
         rotationalInput = a;
     }
     public void OnYaw(InputAction.CallbackContext context) => 
-        rotationalInput.y = context.ReadValue<float>();
+        rotationalInput.z = context.ReadValue<float>();
 }
+
+    

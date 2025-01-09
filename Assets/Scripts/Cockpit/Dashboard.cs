@@ -19,7 +19,7 @@ public class Dashboard : MonoBehaviour
     [SerializeField] private Image targetHealth;
     [SerializeField] private Image targetShield;
     [SerializeField] private TextMeshProUGUI weaponMode;
-    private OldEnemyMovement target;
+    private EnemyBaseBehavior target;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +48,7 @@ public class Dashboard : MonoBehaviour
     {
         if (target)
         {
-            this.target = target.GetComponent<OldEnemyMovement>();
+            this.target = target.GetComponent<EnemyBaseBehavior>();
             targetPanel.SetActive(true);
         }
         else

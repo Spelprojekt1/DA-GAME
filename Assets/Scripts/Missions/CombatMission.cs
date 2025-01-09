@@ -6,6 +6,6 @@ public class CombatMission : AMission
 {
     private EnemyGroup enemyGroup;
     public override float Completion => 1 - (float)enemyGroup.EnemyCount / enemyGroup.MaxEnemyCount;
-    public override Vector3 Location => enemyGroup.transform.position;
+    public override List<WayPoint> WayPoints => new List<WayPoint> { new WayPoint(enemyGroup.gameObject, "Enemy Group") };
 
 }

@@ -1,8 +1,8 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class MissionMenu : MonoBehaviour
 {
     [SerializeField] private GameObject missionPanelPrefab;
@@ -22,7 +22,8 @@ public class MissionMenu : MonoBehaviour
         {
             GameObject panel = Instantiate(missionPanelPrefab);
             panel.transform.SetParent(transform, false);
-            panel.transform.position += i * new Vector3(350,0,0);
+            panel.transform.position += i * new Vector3(420,0,0);
+            panel.GetComponent<MissionPanel>().mission = missionManager.activeMissions[i];
         }
     }
 }

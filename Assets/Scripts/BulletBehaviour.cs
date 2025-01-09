@@ -21,7 +21,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         if (other.CompareTag(targetTag))
         {
-            other.gameObject.GetComponent<OldEnemyMovement>().Hurt(new Damage(5f,0.5f,1f));
+            other.gameObject.GetComponent<EnemyBaseBehavior>().Hurt(new Damage(5f,0.5f,1f));
             Destroy(gameObject);
         }
     }

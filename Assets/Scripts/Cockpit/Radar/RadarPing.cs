@@ -98,6 +98,7 @@ public class RadarPing : MonoBehaviour
         {
             switch (type)
             {
+                default:
                 case RadarPingType.ENEMY:
                     ping.GetComponent<MeshRenderer>().material = materials.EnemyPrimary;
                     XZ.GetComponent<MeshRenderer>().material = materials.EnemySecondary;

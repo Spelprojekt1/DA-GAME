@@ -4,7 +4,7 @@ public class CockpitBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject player;   
     [SerializeField] private GameObject targetPointer;
-    private OldEnemyMovement target;
+    private GameObject target;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -19,15 +19,7 @@ public class CockpitBehaviour : MonoBehaviour
 
     public void OnTargetLocked(GameObject target)
     {
-        if (target)
-        {
-            this.target = target.GetComponent<OldEnemyMovement>();
-            targetPointer.SetActive(true);
-        }
-        else
-        {
-            this.target = null;
-            targetPointer.SetActive(false);
-        }
+        this.target = target;
+        targetPointer.SetActive(target != null);
     }
 }
