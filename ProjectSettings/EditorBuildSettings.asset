@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Start Menu.unity
     guid: 288a1253a96c52747adf8ff109de5cdc
   - enabled: 1
+    path: Assets/Scenes/SkipTutorial.unity
+    guid: 119be47ae003f714c9e769ab7d601a0c
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: d7e0e0f7967706f4fbd149865a03c354
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 1920ff01f1ca7174d962007e570303cd
   m_configObjects: {}
