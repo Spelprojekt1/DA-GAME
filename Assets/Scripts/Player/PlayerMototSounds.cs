@@ -21,7 +21,7 @@ public class PlayerMototSounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // playerMovementScirpt.Thrust = 10;
+       //playerMovementScirpt.Thrust = 10;
        // if(player.GetComponent<PlayerMovement>()Thrust)
         {
             
