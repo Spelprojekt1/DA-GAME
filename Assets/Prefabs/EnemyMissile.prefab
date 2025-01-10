@@ -220,10 +220,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 10
-  torque: 2
+  torque: 5
   targetPositionOffset: 5
   target: {fileID: 0}
-  startVelocity: {x: 0, y: 0, z: 0}
 --- !u!1001 &5593779377256612511
 PrefabInstance:
   m_ObjectHideFlags: 0
