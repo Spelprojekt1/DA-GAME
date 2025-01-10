@@ -1079,7 +1079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &95748248
 Transform:
   m_ObjectHideFlags: 0
@@ -6276,6 +6276,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy00VilleAudioTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539833647153573550, guid: d0283cf2c183ee94496abc00e7efb641,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9080165287296077573, guid: d0283cf2c183ee94496abc00e7efb641,
         type: 3}
