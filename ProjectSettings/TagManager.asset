@@ -11,6 +11,8 @@ TagManager:
   - Laser
   - Missile
   - Cannons
+  - AstroidCollision
+  - SpawnedObject
   layers:
   - Default
   - TransparentFX
