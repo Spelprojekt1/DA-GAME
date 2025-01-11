@@ -211,7 +211,7 @@ public class EnemyBaseBehavior : MonoBehaviour
 
         if (raycastOffset != Vector3.zero)
         {
-            Debug.Log("nu?");
+            // Debug.Log("nu?");
            transform.Rotate(raycastOffset * 5f * Time.deltaTime);
         }
         //DecideTarget();
