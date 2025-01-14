@@ -45,6 +45,7 @@ public class AudioPlayMissileImpact : MonoBehaviour
     [Range(0.0f, 3.0f)]
     public float maxPitch = 1f;
 
+    private float lifeTime = 15f;
     private void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -52,6 +53,16 @@ public class AudioPlayMissileImpact : MonoBehaviour
         source.loop = false;
         if (playOnStart)
             PlayAudio();
+    }
+    private void Update()
+    {
+        //Gör sönder sitt gameobject efter en viss tid
+        if (lifeTime <= 0)
+        {
+            Destroy(gameObject);
+            
+        }
+        lifeTime -= Time.deltaTime;
     }
 
     public void PlayAudio()

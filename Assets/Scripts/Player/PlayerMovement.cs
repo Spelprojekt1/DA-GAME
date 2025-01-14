@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector3 rotationalOutput;
     [SerializeField] private Vector3 rotationalInputSmoothed;
     public float Thrust => thrust;
+    public float InterpolateAudioValue => thrust;
     public Vector3 RotationalInput => rotationalOutput;
     
     void Start()

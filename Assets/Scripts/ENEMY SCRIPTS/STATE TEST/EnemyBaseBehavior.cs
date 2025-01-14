@@ -16,7 +16,7 @@ public class EnemyBaseBehavior : MonoBehaviour
     public float Shield => shield;
     public float MaxShield => maxShield;
     
-    
+    public GameObject enemyMissile;
     public Transform currentEnemyTarget;
     [SerializeField] public Rigidbody rigidBody;
     [SerializeField] public bool projectileReload =false;
@@ -25,6 +25,7 @@ public class EnemyBaseBehavior : MonoBehaviour
     [SerializeField] public Rigidbody enemyLaser;
     [SerializeField] public Transform rightProjectileSpawner;
     [SerializeField] public Transform leftProjectileSpawner;
+    [SerializeField] public GameObject missilePrefab;
     public bool avoidTerrain = false;
     public bool patrol = false;
     public bool chasePlayer = false;
@@ -82,7 +83,7 @@ public class EnemyBaseBehavior : MonoBehaviour
     public float distanceBetween = 0f;
 
     
-    public void ShootBullet()
+    public void ShootLaser()
     {
         // Gets the enemyLaser prefab
         var projectileRight = Instantiate(enemyLaser, rightProjectileSpawner.transform.position, transform.rotation);
@@ -90,6 +91,24 @@ public class EnemyBaseBehavior : MonoBehaviour
         projectileRight.velocity = transform.forward * projectileSpeed;
         var projectileLeft = Instantiate(enemyLaser, leftProjectileSpawner.transform.position, transform.rotation);
         projectileLeft.velocity = transform.forward * projectileSpeed;
+        
+    }
+    public void ShootMissile()
+    {
+
+       
+            
+        GameObject rightMissile = Instantiate(missilePrefab);
+        rightMissile.transform.position = rightProjectileSpawner.transform.position;
+        rightMissile.transform.rotation = rightProjectileSpawner.transform.rotation;
+        EnemyMissileBehaviour rightMissileBehaviour = rightMissile.GetComponent<EnemyMissileBehaviour>();
+        rightMissileBehaviour.target = playerTarget;
+            
+        GameObject leftMissile = Instantiate(missilePrefab);
+        leftMissile.transform.position = leftProjectileSpawner.transform.position;
+        leftMissile.transform.rotation = leftProjectileSpawner.transform.rotation;
+        EnemyMissileBehaviour leftMissileBehaviour = leftMissile.GetComponent<EnemyMissileBehaviour>();
+        leftMissileBehaviour.target = playerTarget;
         
     }
     public void Hurt(Damage dam)
@@ -192,7 +211,7 @@ public class EnemyBaseBehavior : MonoBehaviour
 
         if (raycastOffset != Vector3.zero)
         {
-            Debug.Log("nu?");
+            // Debug.Log("nu?");
            transform.Rotate(raycastOffset * 5f * Time.deltaTime);
         }
         //DecideTarget();
