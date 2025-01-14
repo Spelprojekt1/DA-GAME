@@ -73,7 +73,6 @@ public class InterpolateAudio : MonoBehaviour
                 );
             }
         }
-        audioPoints.Sort((a, b) => a.FadeInAt.CompareTo(b.FadeInAt));
     }
 
     // Update is called once per frame
