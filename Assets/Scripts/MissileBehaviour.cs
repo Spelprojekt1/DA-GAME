@@ -9,7 +9,8 @@ public class MissileBehaviour : MonoBehaviour
     [SerializeField] private float torque = 3f;
     [Tooltip("How far in front of the target the missile should aim. Setting the value to 0 will result in the missile orbiting the target.")]
     [SerializeField] private float targetPositionOffset = 5f;
-    
+    //AUDIO VARS
+    [SerializeField] private GameObject enemyHitByMissilePrefab;
     [Header("Values filled by spawner")]
     // Target to home in on
     public Transform target;
@@ -31,6 +32,11 @@ public class MissileBehaviour : MonoBehaviour
         {
             other.gameObject.GetComponent<EnemyBaseBehavior>().Hurt(new Damage(75f,0.5f,1f));
             Destroy(gameObject);
+            //Hit SFX spawns at the enemy thats been hit
+            GameObject laserHitEnemySound = Instantiate(enemyHitByMissilePrefab);
+            laserHitEnemySound.transform.position = other.gameObject.transform.position;
+            
+            
         }
     }
 

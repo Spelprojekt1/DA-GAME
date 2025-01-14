@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //använd raden nedan för att komma åt t.ex. AudioMixer och AudioMixerSnapshots!
 using UnityEngine.Audio;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioPlayLaser : MonoBehaviour
@@ -44,7 +46,8 @@ public class AudioPlayLaser : MonoBehaviour
     public float minPitch = 1f;
     [Range(0.0f, 3.0f)]
     public float maxPitch = 1f;
-
+    
+    private float lifeTime = 15f;
     private void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -52,6 +55,17 @@ public class AudioPlayLaser : MonoBehaviour
         source.loop = false;
         if (playOnStart)
             PlayAudio();
+    }
+
+    private void Update()
+    {
+        //Gör sönder sitt gameobject efter en viss tid
+        if (lifeTime <= 0)
+        {
+            Destroy(gameObject);
+            
+        }
+        lifeTime -= Time.deltaTime;
     }
 
     public void PlayAudio()
@@ -110,6 +124,7 @@ public class AudioPlayLaser : MonoBehaviour
                 source.volume = Random.Range(minVolume, maxVolume);
             source.pitch = Random.Range(minPitch, maxPitch);
             source.Play();
+           // source.PlayClipAtPoint(clipsToPlay, transform.position, source.volume);
             float timeTaken = 0f;
             if (playWithFade)
             {
