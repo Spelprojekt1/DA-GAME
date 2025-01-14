@@ -7,11 +7,6 @@ public class DistanceBasedSoundSpeed : MonoBehaviour
     public List<string> targetTags; // List of tags to look for
     public AudioSource audioSource; // The AudioSource component to play the sound effect
     public AudioClip defaultAudioClip; // Default audio clip to use if no AudioSource exists
-
-    public AnimationCurve loopTimeCurve; // Curve to define loop time based on normalized distance
-    public float minDistance = 1f; // Minimum distance to consider
-    public float maxDistance = 10f; // Maximum distance to consider
-    public float cutOffDistance = 15f; // Distance beyond which the sound does not play
     public float delayBetweenLoops = 0.5f; // Delay between the end and start of audio clip
 
     private float loopTimer = 0f; // Timer to handle looping
@@ -62,7 +57,7 @@ public class DistanceBasedSoundSpeed : MonoBehaviour
                 {
                     float distance = Vector3.Distance(source.transform.position, obj.transform.position);
 
-                    if (distance < closestDistance && distance <= cutOffDistance)
+                    if (distance < closestDistance)
                     {
                         closestDistance = distance;
                         closestObject = obj;
@@ -71,7 +66,7 @@ public class DistanceBasedSoundSpeed : MonoBehaviour
             }
         }
 
-        // If no object is within the cutoff distance, stop playing the sound
+        // If no object is close, stop playing the sound
         if (closestObject == null)
         {
             if (audioSource.isPlaying)
@@ -81,18 +76,15 @@ public class DistanceBasedSoundSpeed : MonoBehaviour
             return;
         }
 
-        // Normalize the distance to a 0-1 range
-        float normalizedDistance = Mathf.InverseLerp(minDistance, maxDistance, closestDistance);
+        // Adjust the volume based on the closest distance
+        audioSource.volume = 1f - Mathf.Clamp01(closestDistance / 10f); // Volume decreases as distance increases
 
-        // Evaluate the loop time from the curve based on the normalized distance
-        float loopTime = loopTimeCurve.Evaluate(normalizedDistance) + delayBetweenLoops;
-
-        // Handle looping based on calculated loop time
+        // Handle looping based on a fixed delay
         loopTimer -= Time.deltaTime;
         if (loopTimer <= 0f)
         {
             audioSource.Play();
-            loopTimer = loopTime;
+            loopTimer = audioSource.clip.length + delayBetweenLoops;
         }
     }
 }
