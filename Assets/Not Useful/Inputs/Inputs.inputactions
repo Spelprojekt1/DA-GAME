@@ -7,12 +7,12 @@
             "actions": [
                 {
                     "name": "PrimaryAction",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "f5bddd2e-4a90-4f23-856f-780f069e7c58",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Digital",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "SecondaryAction",

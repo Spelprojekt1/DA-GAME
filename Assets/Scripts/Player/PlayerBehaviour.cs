@@ -61,8 +61,8 @@ public class PlayerBehaviour : MonoBehaviour
         if (shield < maxShield) shield += shieldRegen * Time.deltaTime;
         if (switchCooldown > 0) switchCooldown -= Time.deltaTime;
     }
-    public void OnPrimary()
-    {
+    public void OnPrimary(InputAction.CallbackContext context)
+    {        
         foreach (var spawner in spawners[weaponModes[weaponMode]])
         {
             spawner.Fire(target);
