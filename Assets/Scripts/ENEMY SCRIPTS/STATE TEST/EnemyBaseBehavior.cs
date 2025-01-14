@@ -15,6 +15,9 @@ public class EnemyBaseBehavior : MonoBehaviour
     public float MaxHealth => maxHealth;
     public float Shield => shield;
     public float MaxShield => maxShield;
+    [SerializeField] private float visualShieldDuration = 0.5f;
+    private float visualShieldTimer = 0f;
+    [SerializeField] private GameObject visualShield;
     
     public GameObject enemyMissile;
     public Transform currentEnemyTarget;
@@ -117,6 +120,7 @@ public class EnemyBaseBehavior : MonoBehaviour
         if (damage * dam.Smod < shield)
         {
             shield -= damage * dam.Smod;
+            visualShieldTimer = visualShieldDuration;
             return;
         }
         if (shield > 0)
@@ -131,6 +135,17 @@ public class EnemyBaseBehavior : MonoBehaviour
     {
         if (shield < maxShield) shield += shieldRegen * Time.deltaTime;
         if (shield > maxHealth) shield = maxHealth;
+
+        if (visualShieldTimer > 0)
+        {
+            visualShield.SetActive(true);
+            visualShieldTimer -= Time.deltaTime;
+            if (visualShieldTimer <= 0)
+            {
+                visualShield.SetActive(false);
+                visualShieldTimer = 0;
+            }
+        }
         
         if (avoidTerrain)
         {

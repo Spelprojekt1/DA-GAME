@@ -27,8 +27,17 @@ public class HUD : MonoBehaviour
         
         if (target)
         {
-            targetReticle.transform.position =
-                Camera.main.WorldToScreenPoint(target.transform.position, Camera.MonoOrStereoscopicEye.Mono);
+            // If target is in front of player
+            if (Vector3.Dot(player.transform.forward, target.transform.position - player.transform.position) > 0)
+            {
+                targetReticle.SetActive(true);
+                targetReticle.transform.position =
+                    Camera.main.WorldToScreenPoint(target.transform.position, Camera.MonoOrStereoscopicEye.Mono);
+            }
+            else
+            {
+                targetReticle.SetActive(false);
+            }
         }
         
         pointer.rectTransform.localPosition = new Vector3(
