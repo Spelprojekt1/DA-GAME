@@ -2238,32 +2238,32 @@ PrefabInstance:
         type: 3}
       propertyPath: voiceLines.Array.data[5]
       value: 
-      objectReference: {fileID: 8300000, guid: 1114d9e5674b9c4458dda5f8a5667b03, type: 3}
+      objectReference: {fileID: 8300000, guid: a4afb805eff50d24ab8edd37271738a0, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[6]
       value: 
-      objectReference: {fileID: 8300000, guid: 8b57ed16c233f5e4098dadfdb16093af, type: 3}
+      objectReference: {fileID: 8300000, guid: 36a774281c693de42aa6b713b6a7d879, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[7]
       value: 
-      objectReference: {fileID: 8300000, guid: ec7b12c4bb31d5a47b752093a7f0be0c, type: 3}
+      objectReference: {fileID: 8300000, guid: e4c99c4acd53df74d9449527dd565caa, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[8]
       value: 
-      objectReference: {fileID: 8300000, guid: 045bab2912d27564b86c2b3229264ffd, type: 3}
+      objectReference: {fileID: 8300000, guid: f12ee5f263819c54b9d34735ca13b1a7, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[9]
       value: 
-      objectReference: {fileID: 8300000, guid: 21e18b82ad4b03a4b9775103ccca7a38, type: 3}
+      objectReference: {fileID: 8300000, guid: 68aec11bdd5cc0a468835147b59dca58, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[10]
       value: 
-      objectReference: {fileID: 8300000, guid: 4748f5f044e6e0f4fa6c4db9ad66030d, type: 3}
+      objectReference: {fileID: 8300000, guid: 991adb97865e20a4b8ff65a972b65deb, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: onDialogueEnded.m_PersistentCalls.m_Calls.Array.size
@@ -2948,57 +2948,57 @@ PrefabInstance:
         type: 3}
       propertyPath: voiceLines.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 829ad1c4fbb3c774bb93879eaeb8056e, type: 3}
+      objectReference: {fileID: 8300000, guid: b226168acc6d81c4e84e30056e556901, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: c31a1a55ea8d7df42883d416740add23, type: 3}
+      objectReference: {fileID: 8300000, guid: 5d838c688028f844fabdc0dad7166bfa, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 9645a96d11f5bcc4895dbe2eb856c094, type: 3}
+      objectReference: {fileID: 8300000, guid: b4d09b6038fc52a448a1c8c1b49ad83d, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[3]
       value: 
-      objectReference: {fileID: 8300000, guid: f04401c4d677ce44dbb86d3114055063, type: 3}
+      objectReference: {fileID: 8300000, guid: caced854e1876d14aa642e17207cdce5, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[4]
       value: 
-      objectReference: {fileID: 8300000, guid: 3a18402d42162584bad2a0e598ff3e0c, type: 3}
+      objectReference: {fileID: 8300000, guid: 7454afa83beb2284992e5fec03cbe496, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[5]
       value: 
-      objectReference: {fileID: 8300000, guid: 2e90680879060e84e8ebe377c1844844, type: 3}
+      objectReference: {fileID: 8300000, guid: 38d59057f1ebc8645aac48fa3c9b2330, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[6]
       value: 
-      objectReference: {fileID: 8300000, guid: 124e2c186805b6a4e83dca4e531b55ee, type: 3}
+      objectReference: {fileID: 8300000, guid: cafda7de329c59c44b8f775b11256726, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[7]
       value: 
-      objectReference: {fileID: 8300000, guid: 4eee2e94ed28c054abe925f40c70d3cb, type: 3}
+      objectReference: {fileID: 8300000, guid: dcedd1d6a0760374faaa6ab918d25d76, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[8]
       value: 
-      objectReference: {fileID: 8300000, guid: bd4a67991c3f94145baad14978271544, type: 3}
+      objectReference: {fileID: 8300000, guid: e0d4b3270be62cf4db14836480c0f8d1, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[9]
       value: 
-      objectReference: {fileID: 8300000, guid: b5dc86ce3fefa3545ab8a7355decbfd8, type: 3}
+      objectReference: {fileID: 8300000, guid: f0bc87beab66fd441a96277d60529113, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: voiceLines.Array.data[10]
       value: 
-      objectReference: {fileID: 8300000, guid: 6779e3aea089c754b9f796904e559cca, type: 3}
+      objectReference: {fileID: 8300000, guid: c38f5a51c7cd41843b2408b4d5aec344, type: 3}
     - target: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
       propertyPath: onDialogueEnded.m_PersistentCalls.m_Calls.Array.size

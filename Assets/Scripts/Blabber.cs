@@ -79,6 +79,7 @@ public class Blabber : MonoBehaviour
         {
             audioSource.clip = voiceLines[currentLineIndex];
             audioSource.Play();
+            audioSource.loop = false;
         }
         currentLineIndex++;
     }
