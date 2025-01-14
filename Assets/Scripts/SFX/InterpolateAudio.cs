@@ -8,7 +8,10 @@ using UnityEngine;
 [Serializable]
 struct AudioPoint
 {
+    [Tooltip("The audio source to interpolate")]
     public AudioSource AudioSource;
+    [Tooltip("The maximum volume of the audio source")]
+    [Range(0,1)]public float MaxVolume;
     [Tooltip("The value at which the audio will start to fade in")]
     [Range(0,1)]public float FadeInAt;
     [Tooltip("The length of the fade before max volume is reached")]
@@ -17,9 +20,10 @@ struct AudioPoint
     [Range(0,1)]public float FadeOutAt;
     [Tooltip("The length of the fade before the audio stops playing")]
     [Range(0,1)]public float FadeOutLength;
-    public AudioPoint(AudioSource audioSource, float fadeInAt, float fadeInLength, float fadeOutAt, float fadeOutLength)
+    public AudioPoint(AudioSource audioSource, float maxVolume, float fadeInAt, float fadeInLength, float fadeOutAt, float fadeOutLength)
     {
         AudioSource = audioSource;
+        MaxVolume = maxVolume;
         FadeInAt = fadeInAt;
         FadeInLength = fadeInLength;
         FadeOutAt = fadeOutAt;
@@ -46,6 +50,7 @@ public class InterpolateAudio : MonoBehaviour
             {
                 audioPoints[i] = new AudioPoint(
                     audioPoints[i].AudioSource,
+                    audioPoints[i].MaxVolume,
                     audioPoints[i].FadeInAt,
                     audioPoints[i].FadeInLength,
                     audioPoints[i].FadeInAt,
@@ -56,6 +61,7 @@ public class InterpolateAudio : MonoBehaviour
             {
                 audioPoints[i] = new AudioPoint(
                     audioPoints[i].AudioSource,
+                    audioPoints[i].MaxVolume,
                     audioPoints[i].FadeInAt,
                     audioPoints[i].FadeInLength,
                     audioPoints[i].FadeOutAt,
@@ -66,6 +72,7 @@ public class InterpolateAudio : MonoBehaviour
             {
                 audioPoints[i] = new AudioPoint(
                     audioPoints[i].AudioSource,
+                    audioPoints[i].MaxVolume,
                     audioPoints[i].FadeInAt,
                     audioPoints[i].FadeOutAt - audioPoints[i].FadeInAt,
                     audioPoints[i].FadeOutAt,
@@ -84,11 +91,11 @@ public class InterpolateAudio : MonoBehaviour
         
         foreach (AudioPoint audio in audioPoints)
         {
-            audio.AudioSource.volume = Mathf.Min(
+            audio.AudioSource.volume = Mathf.Lerp(0, audio.MaxVolume, Mathf.Min(
                 audio.FadeInAt + audio.FadeInLength == 0 ? 1 :
                 Mathf.InverseLerp(audio.FadeInAt, audio.FadeInAt + audio.FadeInLength, currentValue),   
                 1 - Mathf.InverseLerp(audio.FadeOutAt, audio.FadeOutAt + audio.FadeOutLength, currentValue)
-            );
+            ));
             
         }
     }
