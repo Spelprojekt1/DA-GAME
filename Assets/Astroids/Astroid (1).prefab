@@ -4835,7 +4835,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 04badde3640755e4a9af172a0ce50032, type: 2}
+  - {fileID: 2100000, guid: 8d3d043dee4f6aa479c2a358c8db103f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4936,7 +4936,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4031198072190388127}
-  m_Mesh: {fileID: 1707336476807158865, guid: 64ffd421e1e9837418b2d959665ff458, type: 3}
+  m_Mesh: {fileID: 6361344491114963472, guid: 64ffd421e1e9837418b2d959665ff458, type: 3}
 --- !u!23 &6548316536099815654
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5196,7 +5196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d46776b20b77949a565b3cc8380e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angularVelocity: {x: 0.1, y: 0.1, z: 0.1}
+  angularVelocityMagnitude: 1
 --- !u!54 &5427474796764802208
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -4835,7 +4835,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f09c9cd1014e8a34a917bdef42fcaa61, type: 2}
+  - {fileID: 2100000, guid: 8d3d043dee4f6aa479c2a358c8db103f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4879,9 +4879,9 @@ ParticleSystemRenderer:
   m_VertexStreams: 00010304
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
-  m_Mesh: {fileID: 2623912201386115563, guid: a31760384df6d81478166a5985eed5b6, type: 3}
-  m_Mesh1: {fileID: 1810286585215163043, guid: a31760384df6d81478166a5985eed5b6, type: 3}
-  m_Mesh2: {fileID: 4853482815332473816, guid: a31760384df6d81478166a5985eed5b6, type: 3}
+  m_Mesh: {fileID: 1810286585215163043, guid: 4f2179f7682a0594e9591ed03f1fd818, type: 3}
+  m_Mesh1: {fileID: 2623912201386115563, guid: 4f2179f7682a0594e9591ed03f1fd818, type: 3}
+  m_Mesh2: {fileID: 4853482815332473816, guid: 4f2179f7682a0594e9591ed03f1fd818, type: 3}
   m_Mesh3: {fileID: 0}
   m_MeshWeighting: 1
   m_MeshWeighting1: 1
