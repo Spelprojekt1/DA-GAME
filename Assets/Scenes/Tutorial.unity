@@ -2116,6 +2116,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150909165354788380, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 421368572486e7840870efc1bcbc8959,
+        type: 2}
+    - target: {fileID: 1150909165354788380, guid: 4003887ee09348341944a7f587be3d97,
+        type: 3}
       propertyPath: m_fontColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -2136,8 +2142,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150909165354788380, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5435920930866337167, guid: 421368572486e7840870efc1bcbc8959,
+        type: 2}
+    - target: {fileID: 1150909165354788380, guid: 4003887ee09348341944a7f587be3d97,
+        type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967190
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150909165354788380, guid: 4003887ee09348341944a7f587be3d97,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1790367076117571635, guid: 4003887ee09348341944a7f587be3d97,
         type: 3}
@@ -3794,18 +3811,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1187026293 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7041802918161981857, guid: 910feb5ff1c48714fb7d925e77a901b5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1562931644}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b12054f4bdbacbd4694670393cbbf8f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1188907372 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7881812339856738882, guid: 4003887ee09348341944a7f587be3d97,
@@ -5701,7 +5706,6 @@ MonoBehaviour:
   missionPanelPrefab: {fileID: 3085072401621551796, guid: e4fbdcd80347fcc4aa692dd2b449cbeb,
     type: 3}
   missionManager: {fileID: 1776520687}
-  targetLocker: {fileID: 1187026293}
 --- !u!223 &1763731286
 Canvas:
   m_ObjectHideFlags: 0
@@ -6902,10 +6906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5994bd7117620394e8fc116c2b5d455e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomMax: 10
-  randomMin: -10
-  timerMax: 100
-  timerMin: 80
 --- !u!1001 &2002343079
 PrefabInstance:
   m_ObjectHideFlags: 0
