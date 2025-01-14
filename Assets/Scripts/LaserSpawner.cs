@@ -14,6 +14,8 @@ public class LaserSpawner : ProjectileSpawner
     private float length = 200f;
     [SerializeField] private string targetTag = "Enemy";
     [SerializeField] private float dps = 75f;
+    [SerializeField] private GameObject smoke;
+
     //AUDIO VARS
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject enemyHitByLaserPrefab;
@@ -54,6 +56,10 @@ public class LaserSpawner : ProjectileSpawner
                     hit.collider.gameObject.GetComponent<EnemyBaseBehavior>().Hurt(new Damage(dps * Time.deltaTime,1f,0.5f));
                     //hit.collider.gameObject.GetComponent<AudioPlay>().PlayAudio();
                     
+                    smoke.SetActive(true);
+                    smoke.transform.position = hit.point;
+                    smoke.transform.forward = hit.normal;
+
                     //Hit SFX spawns at the enemy thats been hit
                     if (hitSoundCooldown)
                     {
@@ -62,15 +68,11 @@ public class LaserSpawner : ProjectileSpawner
 
                         hitSoundCooldown = false;
                     }
-                    
-                    
-                    
-
-
                 }
             }
             else
             {
+                smoke.SetActive(false);
                 length = range;
             }
             laser.transform.localScale = new Vector3(1f,1f,length);
