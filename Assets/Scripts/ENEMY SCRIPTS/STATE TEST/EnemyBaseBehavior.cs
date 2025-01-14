@@ -16,8 +16,11 @@ public class EnemyBaseBehavior : MonoBehaviour
     public float Shield => shield;
     public float MaxShield => maxShield;
     [SerializeField] private float visualShieldDuration = 0.5f;
+    [Tooltip("How much shield the enemy has to have to be visible")]
+    [SerializeField][Range(0,1)] private float visualShieldThreshold = 0.1f;
     private float visualShieldTimer = 0f;
     [SerializeField] private GameObject visualShield;
+    [SerializeField] private GameObject explosionPrefab;
     
     public GameObject enemyMissile;
     public Transform currentEnemyTarget;
@@ -117,10 +120,12 @@ public class EnemyBaseBehavior : MonoBehaviour
     public void Hurt(Damage dam)
     {
         float damage = dam.Dam;
+        
+        if (maxShield > 0 && shield / maxShield > visualShieldThreshold) visualShieldTimer = visualShieldDuration;
+
         if (damage * dam.Smod < shield)
         {
             shield -= damage * dam.Smod;
-            visualShieldTimer = visualShieldDuration;
             return;
         }
         if (shield > 0)
@@ -129,7 +134,12 @@ public class EnemyBaseBehavior : MonoBehaviour
             shield = 0;
         }
         health -= damage * dam.Amod;
-        if (health <= 0) Destroy(gameObject);
+        if (health <= 0) 
+        {
+            GameObject explosion = Instantiate(explosionPrefab);
+            explosion.transform.position = transform.position;
+            Destroy(gameObject);
+        }
     }
     void Update()
     {
