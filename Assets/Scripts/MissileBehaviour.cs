@@ -11,6 +11,8 @@ public class MissileBehaviour : MonoBehaviour
     [SerializeField] private float targetPositionOffset = 5f;
     //AUDIO VARS
     [SerializeField] private GameObject enemyHitByMissilePrefab;
+    // VFX
+    [SerializeField] private GameObject explosionPrefab;
     [Header("Values filled by spawner")]
     // Target to home in on
     public Transform target;
@@ -31,12 +33,16 @@ public class MissileBehaviour : MonoBehaviour
         if (other.CompareTag(targetTag))
         {
             other.gameObject.GetComponent<EnemyBaseBehavior>().Hurt(new Damage(75f,0.5f,1f));
-            Destroy(gameObject);
+
+            // VFX spawns
+            GameObject explosion = Instantiate(explosionPrefab);
+            explosion.transform.position = transform.position;
+
             //Hit SFX spawns at the enemy thats been hit
             GameObject laserHitEnemySound = Instantiate(enemyHitByMissilePrefab);
             laserHitEnemySound.transform.position = other.gameObject.transform.position;
             
-            
+            Destroy(gameObject);
         }
     }
 

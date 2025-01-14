@@ -55,6 +55,8 @@ MonoBehaviour:
   targetPositionOffset: 5
   enemyHitByMissilePrefab: {fileID: 652216381419410880, guid: d4925a08a8f0dce4c8ac52cabb609444,
     type: 3}
+  explosionPrefab: {fileID: 2063167978626781089, guid: 63b2d6d0108109d4393397dfef484ee7,
+    type: 3}
   target: {fileID: 0}
   lifeTime: 0
   targetTag: 
