@@ -25,10 +25,12 @@ public class EnemyStateManager : EnemyBaseBehavior
     }
 
    
-    void Update()
+    protected override void Update()
     {
         currentState.UpdateState(this);
         distanceBetween = (playerTarget.transform.position - transform.position).magnitude;
+
+        base.Update();
     }
 
     public void SwitchState(EnemyBaseState state)
