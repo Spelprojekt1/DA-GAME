@@ -32,6 +32,8 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _HighColor_Power: 0.039
+    - _Is_SpecularToHighColor: 1
     - _OUTLINE: 1
     - _Outline_Width: 2
     m_Colors:
