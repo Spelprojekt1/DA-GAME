@@ -9,6 +9,10 @@ public class RandomMeshChanger : MonoBehaviour
     public Mesh[] meshes; // Array of meshes to choose from
     private MeshFilter meshFilter; // Reference to the MeshFilter component
 
+    // Track assignment counts
+    private static int[] meshAssignmentCounts;
+    private static int totalMeshes;
+
     private void Awake()
     {
         // Initialize the MeshFilter reference
@@ -16,6 +20,11 @@ public class RandomMeshChanger : MonoBehaviour
         if (meshFilter == null)
         {
             Debug.LogError("No MeshFilter found on the GameObject.");
+        }
+
+        if (meshes != null && meshAssignmentCounts == null)
+        {
+            InitializeMeshAssignmentCounts();
         }
     }
 
@@ -29,7 +38,7 @@ public class RandomMeshChanger : MonoBehaviour
 
 #if UNITY_EDITOR
         // Delay mesh assignment to avoid triggering restricted calls
-        EditorApplication.delayCall += SafeAssignRandomMeshEditor;
+        EditorApplication.delayCall += SafeAssignBalancedMeshEditor;
 #endif
     }
 
@@ -37,13 +46,17 @@ public class RandomMeshChanger : MonoBehaviour
     {
         if (Application.isPlaying && meshes.Length > 0)
         {
-            // Assign a random mesh at runtime
-            AssignRandomMeshRuntime();
+            if (meshAssignmentCounts == null)
+            {
+                InitializeMeshAssignmentCounts();
+            }
+
+            AssignBalancedMeshRuntime();
         }
     }
 
 #if UNITY_EDITOR
-    private void SafeAssignRandomMeshEditor()
+    private void SafeAssignBalancedMeshEditor()
     {
         // Ensure the object is still valid before proceeding
         if (this == null || meshFilter == null)
@@ -51,10 +64,10 @@ public class RandomMeshChanger : MonoBehaviour
             return;
         }
 
-        AssignRandomMeshEditor();
+        AssignBalancedMeshEditor();
     }
 
-    private void AssignRandomMeshEditor()
+    private void AssignBalancedMeshEditor()
     {
         // Ensure the MeshFilter is initialized
         if (meshFilter == null)
@@ -64,20 +77,46 @@ public class RandomMeshChanger : MonoBehaviour
 
         if (meshFilter != null && meshes.Length > 0)
         {
-            // Assign a random mesh in editor mode safely
-            int randomIndex = Random.Range(0, meshes.Length);
-            meshFilter.sharedMesh = meshes[randomIndex]; // Use sharedMesh for editor changes
+            int balancedIndex = GetBalancedMeshIndex();
+            meshFilter.sharedMesh = meshes[balancedIndex]; // Use sharedMesh for editor changes
         }
     }
 #endif
 
-    private void AssignRandomMeshRuntime()
+    private void AssignBalancedMeshRuntime()
     {
         if (meshFilter != null && meshes.Length > 0)
         {
-            // Assign a random mesh at runtime
-            int randomIndex = Random.Range(0, meshes.Length);
-            meshFilter.mesh = meshes[randomIndex]; // Use mesh for runtime changes
+            int balancedIndex = GetBalancedMeshIndex();
+            meshFilter.mesh = meshes[balancedIndex]; // Use mesh for runtime changes
         }
+    }
+
+    private int GetBalancedMeshIndex()
+    {
+        int minCount = int.MaxValue;
+        int balancedIndex = 0;
+
+        // Find the mesh with the least assignments
+        for (int i = 0; i < meshes.Length; i++)
+        {
+            if (meshAssignmentCounts[i] < minCount)
+            {
+                minCount = meshAssignmentCounts[i];
+                balancedIndex = i;
+            }
+        }
+
+        // Increment the count for the selected mesh
+        meshAssignmentCounts[balancedIndex]++;
+        totalMeshes++;
+
+        return balancedIndex;
+    }
+
+    private void InitializeMeshAssignmentCounts()
+    {
+        meshAssignmentCounts = new int[meshes.Length];
+        totalMeshes = 0;
     }
 }
