@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class EnemyGroup : MonoBehaviour
 {
-    private List<Enemy> enemies;
-    public int EnemyCount => enemies.Count;
-    public readonly int MaxEnemyCount = 10;
+    public int EnemyCount { get; set; }
+    public int MaxEnemyCount { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
-        
+        MaxEnemyCount = transform.childCount;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        EnemyCount = transform.childCount;
     }
 }

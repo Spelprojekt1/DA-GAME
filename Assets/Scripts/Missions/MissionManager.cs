@@ -12,6 +12,7 @@ public class MissionManager : MonoBehaviour
     // TEMPORARY
     [SerializeField] private List<CargoStart> cargoStarts;
     [SerializeField] private List<CargoEnd> cargoEnds;
+    [SerializeField] private List<EnemyGroup> enemyGroups;
     
     void OnValidate()
     {
@@ -22,12 +23,17 @@ public class MissionManager : MonoBehaviour
     void Start()
     {
         activeMissions = new List<AMission>();
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < cargoStarts.Count; i++)
         {
             CargoStart start = cargoStarts[i];
             CargoEnd end = cargoEnds[i];
             
             activeMissions.Add(new CargoMission(start, end, 50));
+        }
+        for (int i = 0; i < enemyGroups.Count; i++)
+        {
+            EnemyGroup enemyGroup = enemyGroups[i];
+            activeMissions.Add(new CombatMission(enemyGroup));
         }
     }
 
