@@ -7,7 +7,8 @@ public class EnemyBaseBehavior : MonoBehaviour
     //HP AND SHIELD 
     [SerializeField] private float health = 100f;
     [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float shield = 100f;
+    [SerializeField] public float shield = 100f;
+    public bool shieldOn;
     [SerializeField] private float maxShield = 100f;
     [Tooltip("shield per second that's regenerated")]
     [SerializeField] private float shieldRegen = 1f;
@@ -143,6 +144,15 @@ public class EnemyBaseBehavior : MonoBehaviour
     }
     protected virtual void Update()
     {
+        if (shield <= 10)
+        {
+            shieldOn = true;
+        }
+        else
+        {
+            shieldOn = false;
+
+        }
         if (shield < maxShield) shield += shieldRegen * Time.deltaTime;
         if (shield > maxHealth) shield = maxHealth;
 

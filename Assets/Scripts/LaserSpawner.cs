@@ -17,10 +17,13 @@ public class LaserSpawner : ProjectileSpawner
     //AUDIO VARS
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject enemyHitByLaserPrefab;
+    [SerializeField] private GameObject enemyHitByLaserShieldsUpPrefab;
     private bool hitSoundCooldown;
+    //private float shield;
     
 //-------- LASER RAY CODE --------------------
     [SerializeField] private GameObject laser;
+    
     //private float distanceBetween = 0f;
     //private Vector3 newLaserLength, oldLaserLength;
     
@@ -55,10 +58,19 @@ public class LaserSpawner : ProjectileSpawner
                     //hit.collider.gameObject.GetComponent<AudioPlay>().PlayAudio();
                     
                     //Hit SFX spawns at the enemy thats been hit
-                    if (hitSoundCooldown)
+                    if (hitSoundCooldown && hit.collider.gameObject.GetComponent<EnemyBaseBehavior>().shieldOn )
                     {
                         GameObject laserHitEnemySound = Instantiate(enemyHitByLaserPrefab);
                         laserHitEnemySound.transform.position = hit.collider.gameObject.transform.position;
+
+                        hitSoundCooldown = false;
+                    }
+                    //else if (hitSoundCooldown && hit.collider.gameObject.GetComponent<EnemyBaseBehavior>().shieldOn )
+                    else
+                    {
+                        Debug.Log("shield impact");
+                        GameObject laserHitEnemySoundShieldsUp = Instantiate(enemyHitByLaserShieldsUpPrefab);
+                        laserHitEnemySoundShieldsUp.transform.position = hit.collider.gameObject.transform.position;
 
                         hitSoundCooldown = false;
                     }
