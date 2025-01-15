@@ -747,6 +747,7 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   shield: 100
+  shieldOn: 0
   maxShield: 100
   shieldRegen: 1
   visualShieldDuration: 0.5
@@ -780,7 +781,7 @@ MonoBehaviour:
   playerRotationalDamp: 1
   rayCastOffset: 2.5
   detectionDistance: 20
-  movementSpeed: 7
+  movementSpeed: 120
   patrolRotationalDamp: 0.5
   chasePlayerTimerLength: 2
   chasePlayerTimer: 0
