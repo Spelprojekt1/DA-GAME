@@ -148,6 +148,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   target: {fileID: 0}
   type: 0
+  locked: 0
   XZ: {fileID: 2371165611956413991}
   ping: {fileID: 8267326690144386337}
   positiveY: {fileID: 7305259161213675344}
