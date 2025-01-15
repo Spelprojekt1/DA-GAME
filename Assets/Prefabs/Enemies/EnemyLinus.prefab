@@ -163,13 +163,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6049962176689105683}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6829672, y: -0.066647634, z: 0.0062924502, w: -0.727375}
-  m_LocalPosition: {x: -0.76500124, y: -0.9350012, z: 0.0039960146}
+  m_LocalRotation: {x: 0.004804102, y: -0.03402713, z: 0.00020722023, w: 0.9994094}
+  m_LocalPosition: {x: -1.3808649, y: -0.26059777, z: 5.669365}
   m_LocalScale: {x: 0.09999999, y: 0.09999996, z: 0.099999994}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8599471141482702216}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.551, y: -3.9, z: 0.005}
 --- !u!33 &1875631742668781441
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -268,13 +268,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7969886154441807367}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6828986, y: 0.06651154, z: -0.0074011963, w: 0.7274414}
-  m_LocalPosition: {x: 0.7570004, y: -0.9700017, z: 0.003994441}
+  m_LocalRotation: {x: -0.04977838, y: 0.021702971, z: -0.0011254137, w: -0.99852383}
+  m_LocalPosition: {x: 1.3554868, y: -0.23168123, z: 5.8287115}
   m_LocalScale: {x: 0.100000024, y: 0.099999994, z: 0.10000005}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8599471141482702216}
-  m_LocalEulerAnglesHint: {x: 84, y: 56, z: 50}
+  m_LocalEulerAnglesHint: {x: 5.708, y: 357.51, z: 0.005}
 --- !u!33 &2873433028385302536
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -747,6 +747,7 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   shield: 100
+  shieldOn: 0
   maxShield: 100
   shieldRegen: 1
   visualShieldDuration: 0.5
@@ -780,7 +781,7 @@ MonoBehaviour:
   playerRotationalDamp: 1
   rayCastOffset: 2.5
   detectionDistance: 20
-  movementSpeed: 7
+  movementSpeed: 120
   patrolRotationalDamp: 0.5
   chasePlayerTimerLength: 2
   chasePlayerTimer: 0

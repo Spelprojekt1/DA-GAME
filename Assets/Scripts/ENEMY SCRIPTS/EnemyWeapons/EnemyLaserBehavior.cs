@@ -16,6 +16,7 @@ public class EnemyLaserBehavior : MonoBehaviour
     {
         if (other.CompareTag(targetTag))
         {
+           
             other.gameObject.GetComponent<PlayerBehaviour>().Hurt(new Damage(10f,1f,0.5f));
             Destroy(gameObject);
         }
