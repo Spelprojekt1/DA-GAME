@@ -23,12 +23,16 @@ struct PingMaterials
     public Material LockedSecondary;
     public Material EnemyPrimary;
     public Material EnemySecondary;
-    public PingMaterials(Material lockedPrimary, Material lockedSecondary, Material enemyPrimary, Material enemySecondary)
+    public Material FriendlyPrimary;
+    public Material FriendlySecondary;
+    public PingMaterials(Material lockedPrimary, Material lockedSecondary, Material enemyPrimary, Material enemySecondary, Material friendlyPrimary, Material friendlySecondary)
     {
         LockedPrimary = lockedPrimary;
         LockedSecondary = lockedSecondary;
         EnemyPrimary = enemyPrimary;
         EnemySecondary = enemySecondary;
+        FriendlyPrimary = friendlyPrimary;
+        FriendlySecondary = friendlySecondary;
     }
 }
 
@@ -36,7 +40,7 @@ struct PingMaterials
 public class RadarPing : MonoBehaviour
 {
     [SerializeField] private QBezier bezier = new(0f, 0.8f, 1f, 0f);
-    [SerializeField] private PingMaterials materials = new(null, null, null, null);
+    [SerializeField] private PingMaterials materials = new(null, null, null, null, null, null);
     public float maxDistance = 200.0f;
     public Transform origin;
     public GameObject target;
@@ -104,6 +108,12 @@ public class RadarPing : MonoBehaviour
                     XZ.GetComponent<MeshRenderer>().material = materials.EnemySecondary;
                     positiveY.GetComponent<MeshRenderer>().material = materials.EnemySecondary;
                     negativeY.GetComponent<MeshRenderer>().material = materials.EnemySecondary;
+                    break;
+                case RadarPingType.FRIENDLY:
+                    ping.GetComponent<MeshRenderer>().material = materials.FriendlyPrimary;
+                    XZ.GetComponent<MeshRenderer>().material = materials.FriendlySecondary;
+                    positiveY.GetComponent<MeshRenderer>().material = materials.FriendlySecondary;
+                    negativeY.GetComponent<MeshRenderer>().material = materials.FriendlySecondary;
                     break;
             }
         }

@@ -139,6 +139,8 @@ MonoBehaviour:
     LockedSecondary: {fileID: 2100000, guid: 616f540ce18755f4da76a1b9f148c8a1, type: 2}
     EnemyPrimary: {fileID: 2100000, guid: cdd981bd2e9e9db4daea2cbfb20d0385, type: 2}
     EnemySecondary: {fileID: 2100000, guid: e941280e11cfb884ea7ca756628feeaa, type: 2}
+    FriendlyPrimary: {fileID: 2100000, guid: d4335e1eea0ee3648bf08258598ad58e, type: 2}
+    FriendlySecondary: {fileID: 2100000, guid: 963e66bd2365eda47b3af463a723ebdb, type: 2}
   maxDistance: 500
   origin: {fileID: 0}
   target: {fileID: 0}

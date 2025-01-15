@@ -5,9 +5,7 @@ using UnityEngine;
 public enum RadarPingType
 {
     ENEMY,
-    CARGO_SOURCE,
-    CARGO_DESTINATION,
-    CARGO_LOOSE
+    FRIENDLY
 }
 
 [Serializable]
