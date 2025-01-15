@@ -46,7 +46,7 @@ public class Dashboard : MonoBehaviour
     }
     public void OnTargetLocked(GameObject target)
     {
-        if (target)
+        if (target && target.CompareTag("Enemy"))
         {
             this.target = target.GetComponent<EnemyBaseBehavior>();
             targetPanel.SetActive(true);
