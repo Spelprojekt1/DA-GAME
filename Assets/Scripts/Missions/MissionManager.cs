@@ -25,10 +25,13 @@ struct CombatMissionParams
 [ExecuteInEditMode]
 public class MissionManager : MonoBehaviour
 {
+    [SerializeField] private int startDebt;
+    [SerializeField] private int debt;
     public List<AMission> activeMissions { get; private set; }
     [SerializeField] private List<CargoMissionParams> cargoMissionsList;
     [SerializeField] private List<CombatMissionParams> combatMissionsList;
-    
+
+    public int Debt => debt;
     void OnValidate()
     {
         Start();
@@ -58,11 +61,20 @@ public class MissionManager : MonoBehaviour
                 combatMissionsList[i].EnemyGroup
             ));
         }
+
+        debt = startDebt;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        foreach (var mission in activeMissions)
+        {
+            if (mission.Completion >= 1)
+            {
+                debt -= mission.Reward;
+                activeMissions.Remove(mission);
+            }
+        }
     }
 }

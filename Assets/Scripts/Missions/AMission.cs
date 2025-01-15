@@ -2,16 +2,16 @@ using System.Collections.Generic;
 
 public abstract class AMission
 {
-    private string name;
-    private string description;
+    public readonly string Name;
+    public readonly string Description;
     public abstract List<WayPoint> WayPoints { get; }
-    private int reward;
+    public readonly int Reward;
     public abstract float Completion { get; }
 
     public AMission(string name, string description, int reward)
     {
-        this.name = name;
-        this.description = description;
-        this.reward = reward;
+        Name = name;
+        Description = description;
+        Reward = reward;
     }
 }
