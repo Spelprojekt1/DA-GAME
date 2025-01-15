@@ -6,6 +6,8 @@ public class CargoStart : MonoBehaviour
 {
     public int cargo = 10;
     private PlayerCargoManager playerCargoManager;
+    [SerializeField] private GameObject cargoEnd;
+    [SerializeField] private LockTarget targetLocker;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class CargoStart : MonoBehaviour
     }
     public int TransferCargo(int amount)
     {
+        targetLocker.SetLock(cargoEnd);
         if (cargo >= amount)
         {
             cargo -= amount;
