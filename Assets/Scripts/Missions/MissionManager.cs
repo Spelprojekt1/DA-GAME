@@ -25,6 +25,7 @@ struct CombatMissionParams
 [ExecuteInEditMode]
 public class MissionManager : MonoBehaviour
 {
+    [SerializeField] private ApplicationHandler appHandler;
     [SerializeField] private int startDebt;
     [SerializeField] private int debt;
     [SerializeField] public List<AMission> activeMissions { get; private set; }
@@ -79,6 +80,13 @@ public class MissionManager : MonoBehaviour
                 debt -= activeMissions[i].Reward;
                 activeMissions.Remove(activeMissions[i]);
             }
+        }
+
+        if (debt <= 0)
+        {
+            // Load the scene named "WinScene" and unlock cursor
+            Cursor.lockState = CursorLockMode.None;
+            appHandler.ChangeScene("WinScene");
         }
     }
 }

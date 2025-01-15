@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerBehaviour : MonoBehaviour
 {
+    [SerializeField] private ApplicationHandler appHandler;
     private Transform target;
     private Dictionary<string,Stack<ProjectileSpawner>> spawners;
     private int weaponMode;
@@ -51,7 +52,11 @@ public class PlayerBehaviour : MonoBehaviour
             shield = 0;
         }
         health -= damage * dam.Amod;
-        if (health <= 0) Destroy(gameObject);
+        if (health <= 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            appHandler.ChangeScene("GameOver");
+        }
     }
 
     // Update is called once per frame
