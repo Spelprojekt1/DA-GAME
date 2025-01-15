@@ -9,6 +9,7 @@ public class EnemyMissileBehaviour : MonoBehaviour
     [SerializeField] private float torque = 5f;
     [Tooltip("How far in front of the target the missile should aim. Setting the value to 0 will result in the missile orbiting the target.")]
     [SerializeField] private float targetPositionOffset = 5f;
+    [SerializeField] private GameObject playerHitByProjectilePrefab;
 
     
     [Header("Values filled by spawner")]
@@ -32,6 +33,10 @@ public class EnemyMissileBehaviour : MonoBehaviour
     {
         if (other.CompareTag(targetTag))
         {
+            // Plays a impact sound at the player
+            GameObject playerHitByProjectileSound = Instantiate(playerHitByProjectilePrefab);
+            playerHitByProjectileSound.transform.position = other.gameObject.transform.position;
+            
             other.gameObject.GetComponent<PlayerBehaviour>().Hurt(new Damage(20f,0.5f,1f));
             Destroy(gameObject);
         }

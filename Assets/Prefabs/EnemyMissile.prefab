@@ -225,6 +225,8 @@ MonoBehaviour:
   force: 8
   torque: 5
   targetPositionOffset: 5
+  playerHitByProjectilePrefab: {fileID: 3041792852407685940, guid: 4874bdcc57025dc4ea096bd7511be01a,
+    type: 3}
   target: {fileID: 0}
 --- !u!96 &1467184317973464475
 TrailRenderer:
@@ -348,57 +350,6 @@ MonoBehaviour:
   - Player
   audioSource: {fileID: -5212519014277283388}
   defaultAudioClip: {fileID: 8300000, guid: b1663046e9784624e9aea82f9f12c131, type: 3}
-  loopTimeCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  volumeCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  minDistance: 0
-  maxDistance: 10
-  cutOffDistance: 10
   delayBetweenLoops: 0.15
 --- !u!82 &-5212519014277283388
 AudioSource:

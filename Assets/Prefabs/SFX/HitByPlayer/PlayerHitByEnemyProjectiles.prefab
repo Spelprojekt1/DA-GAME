@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7844218023849783463}
   - component: {fileID: 8263983799757085079}
   m_Layer: 0
-  m_Name: PlayerHitByMissile
+  m_Name: PlayerHitByEnemyProjectiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 129
+  Priority: 60
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -146,11 +146,11 @@ MonoBehaviour:
   oneShot: 1
   startDelay: 0
   playWithFade: 0
-  targetVolume: 0.819
+  targetVolume: 0.818
   fadeSpeed: 0
   clipsToPlay:
-  - {fileID: 8300000, guid: f685977a0f3f4dc45ba37c352801d7f8, type: 3}
-  - {fileID: 8300000, guid: ce7164108fca010409cd601e5a3fb671, type: 3}
+  - {fileID: 8300000, guid: 17a77cc0f0293db409c81481459280e0, type: 3}
+  - {fileID: 8300000, guid: b56872a8808039e40a608e1f38c1e742, type: 3}
   minTime: 0
   maxTime: 0
   minVolume: 1

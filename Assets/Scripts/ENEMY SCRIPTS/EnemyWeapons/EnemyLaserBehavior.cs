@@ -7,6 +7,7 @@ public class EnemyLaserBehavior : MonoBehaviour
     
     private float lifeTime = 4f;
     private string targetTag = "Player";
+    [SerializeField] private GameObject playerHitByProjectilePrefab;
     void Start()
     {
         
@@ -16,9 +17,14 @@ public class EnemyLaserBehavior : MonoBehaviour
     {
         if (other.CompareTag(targetTag))
         {
-           
+            // Plays a impact sound at the player
+            GameObject playerHitByProjectileSound = Instantiate(playerHitByProjectilePrefab);
+            playerHitByProjectileSound.transform.position = other.gameObject.transform.position;
+            
+            // Does damage to the player
             other.gameObject.GetComponent<PlayerBehaviour>().Hurt(new Damage(10f,1f,0.5f));
             Destroy(gameObject);
+            
         }
     }
 

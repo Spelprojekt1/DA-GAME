@@ -74,6 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c0c10c4689e8334684327e3e1afa2b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHitByProjectilePrefab: {fileID: 3041792852407685940, guid: 4874bdcc57025dc4ea096bd7511be01a,
+    type: 3}
 --- !u!136 &7412112034778391301
 CapsuleCollider:
   m_ObjectHideFlags: 0
