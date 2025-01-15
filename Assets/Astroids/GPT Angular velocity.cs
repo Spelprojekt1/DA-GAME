@@ -1,3 +1,4 @@
+//Written by AI
 using UnityEngine;
 
 public class ApplyAngularVelocityToParent : MonoBehaviour
