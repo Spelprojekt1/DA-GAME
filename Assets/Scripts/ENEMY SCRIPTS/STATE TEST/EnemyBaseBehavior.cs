@@ -141,7 +141,7 @@ public class EnemyBaseBehavior : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void Update()
+    protected virtual void Update()
     {
         if (shield < maxShield) shield += shieldRegen * Time.deltaTime;
         if (shield > maxHealth) shield = maxHealth;
