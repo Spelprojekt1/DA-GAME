@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8231694009550660042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7448352766936986362}
+  - component: {fileID: 8641045272951452642}
+  m_Layer: 0
+  m_Name: DeadShip Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7448352766936986362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8231694009550660042}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -112.69486, y: 15.546783, z: 69.0584}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8641045272951452642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8231694009550660042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8759150fa9386404cb4efea49f67ce7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereRadius: 180
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  objectsToPlace:
+  - {fileID: 6831848068431061540, guid: e0991767bace2a54fb5bb4a71eab61b5, type: 3}
+  - {fileID: 9201313049079554347, guid: d2b8dccb26a2a2347b6f56ade710baaf, type: 3}
+  - {fileID: 5553076668424334533, guid: 614c4a62221f4494abe182b85bdb7d4f, type: 3}
+  - {fileID: 2804726828556580938, guid: a8ea42de44b211249a31f18de7e28077, type: 3}
+  - {fileID: 8861547500239615262, guid: 9fec4836981830b439bac86be0115d2c, type: 3}
+  - {fileID: 410615525468534619, guid: 766d64e308629e44cb84db8ea5b8e8ba, type: 3}
+  - {fileID: 8104398652017773412, guid: 04b687a32bf197c4286164848f918207, type: 3}
+  - {fileID: 7356728427677238535, guid: 220436e271182024fa84037fcb80f40a, type: 3}
+  - {fileID: 4784940397617313185, guid: fedbc11b8677bf84d9be498b868bb5fa, type: 3}
+  - {fileID: 6567811471351283552, guid: 6345568945d443a44b48a0eb075693a6, type: 3}
+  - {fileID: 5984410049956688422, guid: 4bf252c1db895a349b72a3d3ac552101, type: 3}
+  - {fileID: 8887304489995606085, guid: 706675e51bfb0054ca1fce15d283bf6e, type: 3}
+  - {fileID: 1912619402422817013, guid: 55dfc6a757ac74344ad3e3044f02fe4c, type: 3}
+  numberOfObjects: 90
+  rotationSpeed: 10
