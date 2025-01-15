@@ -20,18 +20,18 @@ public class Blabber : MonoBehaviour
     public TextMeshProUGUI lineUI;
 
     [Tooltip("Audio clips for each dialogue line.")]
-    public List<AudioClip> voiceLines;  // Lägger till stöd för voicelines
+    public List<AudioClip> voiceLines;  
 
-    public AudioSource audioSource;  // AudioSource för att spela upp ljud
+    public AudioSource audioSource;  
 
     public UnityEvent onDialogueStarted, onDialogueEnded;
 
     private Canvas dialogueCanvas;
     private Queue<string> upcomingLines;
     [SerializeField] private TextAsset tutorialText;
-    private int currentLineIndex = 0;  // För att spåra aktuell dialoglinje
-    private bool isPaused = false;     // Spårar om spelet är pausat
-    private float pausedTime = 0f;    // Tidsmärkning när ljudet pausas
+    private int currentLineIndex = 0; 
+    private bool isPaused = false;     
+    private float pausedTime = 0f;    
 
     void Start()
     {
