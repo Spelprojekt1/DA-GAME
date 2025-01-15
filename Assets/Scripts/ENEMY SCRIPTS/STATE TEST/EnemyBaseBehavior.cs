@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyBaseBehavior : MonoBehaviour
 {
     //HP AND SHIELD 
-    [SerializeField] private float health = 100f;
-    [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float shield = 100f;
-    [SerializeField] private float maxShield = 100f;
+    [SerializeField] protected float health = 100f;
+    [SerializeField] protected float maxHealth = 100f;
+    [SerializeField] protected float shield = 100f;
+    [SerializeField] protected float maxShield = 100f;
     [Tooltip("shield per second that's regenerated")]
-    [SerializeField] private float shieldRegen = 1f;
+    [SerializeField] protected float shieldRegen = 1f;
     public float Health => health;
     public float MaxHealth => maxHealth;
     public float Shield => shield;

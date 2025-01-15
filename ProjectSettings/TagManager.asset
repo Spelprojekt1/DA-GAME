@@ -13,6 +13,7 @@ TagManager:
   - Cannons
   - AstroidCollision
   - SpawnedObject
+  - Mission Manager
   layers:
   - Default
   - TransparentFX

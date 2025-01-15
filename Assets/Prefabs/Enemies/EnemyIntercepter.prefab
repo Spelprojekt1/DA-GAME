@@ -951,10 +951,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5181076585648200129}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4355711483278151105}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ffdb365b2a7f34a46a3cfe3dc2e82e0f,
         type: 3}
@@ -1081,65 +1077,6 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
---- !u!114 &5181076585648200129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5188235271075541730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d81026c2d7249a4d9a01548e831be6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
-  shield: 100
-  maxShield: 100
-  shieldRegen: 1
-  visualShieldDuration: 0.5
-  visualShieldThreshold: 0.1
-  visualShield: {fileID: 5310211187382207502}
-  explosionPrefab: {fileID: 1917098528938079486, guid: 72ecb84ec9cb1fd4683e1d749b8e2033,
-    type: 3}
-  enemyMissile: {fileID: 0}
-  currentEnemyTarget: {fileID: 0}
-  rigidBody: {fileID: 4355711483278151105}
-  projectileReload: 0
-  projectileTimer: 5
-  enemyLaser: {fileID: 6814527090098431667, guid: e8daa2dee06fa884199c74ac8456f122,
-    type: 3}
-  rightProjectileSpawner: {fileID: 1818257855128879646}
-  leftProjectileSpawner: {fileID: 634295158598603231}
-  missilePrefab: {fileID: 0}
-  avoidTerrain: 0
-  patrol: 0
-  chasePlayer: 0
-  repositionAway: 0
-  projectileSpeed: 15
-  patrolTarget: {fileID: 0}
-  playerTarget: {fileID: 0}
-  rayColor: {r: 0, g: 0, b: 0, a: 1}
-  rayColorPatrol: {r: 1, g: 0, b: 1, a: 1}
-  rayColorChase: {r: 1, g: 0, b: 0, a: 1}
-  rayColorReposition: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  rayColorAvoidTerrain: {r: 0, g: 1, b: 0, a: 1}
-  playerRotationalDamp: 1
-  rayCastOffset: 2.5
-  detectionDistance: 15
-  movementSpeed: 120
-  patrolRotationalDamp: 0.5
-  chasePlayerTimerLength: 2
-  chasePlayerTimer: 0
-  patrolMode: 0
-  maxChasePlayerRange: 150
-  chasePlayerRange: 100
-  startShootRange: 80
-  fightPlayerRange: 35
-  repositionAwayFromPlayerRange: 20
-  smoothRotation: 1
-  distanceBetween: 0
 --- !u!54 &4355711483278151105
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1209,8 +1146,9 @@ MonoBehaviour:
   shieldRegen: 1
   visualShieldDuration: 0.5
   visualShieldThreshold: 0
-  visualShield: {fileID: 0}
-  explosionPrefab: {fileID: 0}
+  visualShield: {fileID: 5310211187382207502}
+  explosionPrefab: {fileID: 1917098528938079486, guid: 72ecb84ec9cb1fd4683e1d749b8e2033,
+    type: 3}
   enemyMissile: {fileID: 0}
   currentEnemyTarget: {fileID: 0}
   rigidBody: {fileID: 4355711483278151105}

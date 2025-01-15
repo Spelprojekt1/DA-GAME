@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CargoStart : MonoBehaviour
 {
-    [SerializeField] private int cargo = 10;
+    public int cargo = 10;
+    private PlayerCargoManager playerCargoManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,14 +29,16 @@ public class CargoStart : MonoBehaviour
         {
             int temp = cargo;
             cargo = 0;
+            playerCargoManager.SetSource(null);
             return temp;
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (cargo > 0 && other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerCargoManager>().SetSource(this);
+            playerCargoManager = other.GetComponent<PlayerCargoManager>();
+            playerCargoManager.SetSource(this);
         }
     }
 
