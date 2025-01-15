@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CargoEnd : MonoBehaviour
 {
-    [SerializeField] private int cargo = 0;
+    public int cargo = 0;
+    public int desiredCargo = 10;
+    private PlayerCargoManager playerCargoManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +28,11 @@ public class CargoEnd : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerCargoManager>().SetDestination(this);
+            playerCargoManager = other.GetComponent<PlayerCargoManager>();
+            if (playerCargoManager.Cargo > 0)
+            {
+                playerCargoManager.SetDestination(this);
+            }
         }
     }
 

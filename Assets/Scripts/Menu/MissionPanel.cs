@@ -8,6 +8,10 @@ public class MissionPanel : MonoBehaviour
 {
     [SerializeField] private GameObject buttonPrefab;
     [SerializeField] private GameObject buttonPanel;
+    [SerializeField] private GameObject missionName;
+    [SerializeField] private GameObject description;
+    [SerializeField] private GameObject reward;
+    [SerializeField] private string currency;
     [SerializeField] private LockTarget targetLocker;
     [SerializeField] private float buttonSpacing;
     public AMission mission;
@@ -16,6 +20,9 @@ public class MissionPanel : MonoBehaviour
     {
         targetLocker = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<LockTarget>();
 
+        missionName.GetComponent<TextMeshProUGUI>().text = mission.Name;
+        description.GetComponent<TextMeshProUGUI>().text = mission.Description;
+        reward.GetComponent<TextMeshProUGUI>().text = $"{currency} {mission.Completion}";
         
         List<WayPoint> wayPoints = mission.WayPoints;
 

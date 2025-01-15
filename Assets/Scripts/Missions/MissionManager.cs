@@ -27,18 +27,24 @@ public class MissionManager : MonoBehaviour
 {
     [SerializeField] private int startDebt;
     [SerializeField] private int debt;
-    public List<AMission> activeMissions { get; private set; }
+    [SerializeField] public List<AMission> activeMissions { get; private set; }
     [SerializeField] private List<CargoMissionParams> cargoMissionsList;
     [SerializeField] private List<CombatMissionParams> combatMissionsList;
 
     public int Debt => debt;
     void OnValidate()
     {
-        Start();
+        RefreshActiveMissions();
     }
 
     // Start is called before the first frame update
     void Start()
+    {
+        RefreshActiveMissions();
+        debt = startDebt;
+    }
+
+    void RefreshActiveMissions()
     {
         activeMissions = new List<AMission>();
         for (int i = 0; i < cargoMissionsList.Count; i++)
@@ -61,19 +67,17 @@ public class MissionManager : MonoBehaviour
                 combatMissionsList[i].EnemyGroup
             ));
         }
-
-        debt = startDebt;
     }
 
     // Update is called once per frame
     void Update()
     {
-        foreach (var mission in activeMissions)
+        for (int i = 0; i < activeMissions.Count; i++)
         {
-            if (mission.Completion >= 1)
+            if (activeMissions[i].Completion >= 1)
             {
-                debt -= mission.Reward;
-                activeMissions.Remove(mission);
+                debt -= activeMissions[i].Reward;
+                activeMissions.Remove(activeMissions[i]);
             }
         }
     }

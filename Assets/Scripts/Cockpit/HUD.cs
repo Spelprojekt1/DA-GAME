@@ -7,11 +7,13 @@ public class HUD : MonoBehaviour
     [SerializeField] private GameObject player;
     private PlayerMovement playerMovement;
     private PlayerCargoManager playerCargoManager;
+    [SerializeField] private MissionManager missionManager;
     [SerializeField] private Image pointer;
     [SerializeField] private GameObject targetReticle;
     private GameObject target;
-    [SerializeField] private TextMeshProUGUI hostilesCount;
+    [SerializeField] private TextMeshProUGUI debt;
     [SerializeField] private GameObject cargoTransfer;
+    [SerializeField] private string currency;
     
     // Start is called before the first frame update
     void Start()
@@ -22,9 +24,7 @@ public class HUD : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {
-        hostilesCount.text = GameObject.FindGameObjectsWithTag("Enemy").Length.ToString();
-        
+    {        
         if (target)
         {
             // If target is in front of player
@@ -53,6 +53,8 @@ public class HUD : MonoBehaviour
         {
             cargoTransfer.SetActive(false);
         }
+
+        debt.text = $"{currency} {missionManager.Debt}";
     }
     
     public void OnTargetLocked(GameObject target)

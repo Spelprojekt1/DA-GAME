@@ -9,12 +9,12 @@ public class EnemyGroup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MaxEnemyCount = transform.childCount;
+        MaxEnemyCount = transform.childCount -1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        EnemyCount = transform.childCount;
+        EnemyCount = transform.childCount -1;
     }
 }

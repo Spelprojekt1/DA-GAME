@@ -5,11 +5,9 @@ public class CargoMission : AMission
 {
     private int totalCargo;
     private CargoStart start;
-    private int startCargo;
     private CargoEnd end;
-    private int endCargo;
     private Stack<(int,GameObject)> looseCargo = new();
-    public override float Completion => (float)endCargo / totalCargo;
+    public override float Completion => (float)end.cargo / totalCargo;
     public override List<WayPoint> WayPoints
     {
         get
@@ -33,7 +31,8 @@ public class CargoMission : AMission
         this.start = start;
         this.end = end;
         totalCargo = cargo;
-        startCargo = cargo;
-        endCargo = 0;
+        start.cargo = cargo;
+        end.desiredCargo = cargo;
+        end.cargo = 0;
     }
 }
