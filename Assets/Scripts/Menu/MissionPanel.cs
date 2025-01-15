@@ -22,7 +22,7 @@ public class MissionPanel : MonoBehaviour
 
         missionName.GetComponent<TextMeshProUGUI>().text = mission.Name;
         description.GetComponent<TextMeshProUGUI>().text = mission.Description;
-        reward.GetComponent<TextMeshProUGUI>().text = $"{currency} {mission.Completion}";
+        reward.GetComponent<TextMeshProUGUI>().text = $"{currency} {mission.Reward}";
         
         List<WayPoint> wayPoints = mission.WayPoints;
 
