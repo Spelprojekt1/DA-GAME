@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public abstract class AMission
 {
@@ -10,5 +7,11 @@ public abstract class AMission
     public abstract List<WayPoint> WayPoints { get; }
     private int reward;
     public abstract float Completion { get; }
-    
+
+    public AMission(string name, string description, int reward)
+    {
+        this.name = name;
+        this.description = description;
+        this.reward = reward;
+    }
 }

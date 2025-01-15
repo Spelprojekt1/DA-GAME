@@ -1,18 +1,33 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+
+[Serializable]
+struct CargoMissionParams
+{
+    public string Name;
+    public string Description;
+    public int Reward;
+    public CargoStart Start;
+    public CargoEnd End;
+    public int Cargo;
+}
+
+[Serializable]
+struct CombatMissionParams
+{
+    public string Name;
+    public string Description;
+    public int Reward;
+    public EnemyGroup EnemyGroup;
+}
 
 [ExecuteInEditMode]
 public class MissionManager : MonoBehaviour
 {
-    private List<CargoMission> cargoMissions;
-    private List<CombatMission> combatMissions;
     public List<AMission> activeMissions { get; private set; }
-
-    // TEMPORARY
-    [SerializeField] private List<CargoStart> cargoStarts;
-    [SerializeField] private List<CargoEnd> cargoEnds;
-    [SerializeField] private List<EnemyGroup> enemyGroups;
+    [SerializeField] private List<CargoMissionParams> cargoMissionsList;
+    [SerializeField] private List<CombatMissionParams> combatMissionsList;
     
     void OnValidate()
     {
@@ -23,17 +38,25 @@ public class MissionManager : MonoBehaviour
     void Start()
     {
         activeMissions = new List<AMission>();
-        for (int i = 0; i < cargoStarts.Count; i++)
+        for (int i = 0; i < cargoMissionsList.Count; i++)
         {
-            CargoStart start = cargoStarts[i];
-            CargoEnd end = cargoEnds[i];
-            
-            activeMissions.Add(new CargoMission(start, end, 50));
+            activeMissions.Add(new CargoMission(
+                cargoMissionsList[i].Name,
+                cargoMissionsList[i].Description,
+                cargoMissionsList[i].Reward,
+                cargoMissionsList[i].Start,
+                cargoMissionsList[i].End,
+                cargoMissionsList[i].Cargo
+            ));
         }
-        for (int i = 0; i < enemyGroups.Count; i++)
+        for (int i = 0; i < combatMissionsList.Count; i++)
         {
-            EnemyGroup enemyGroup = enemyGroups[i];
-            activeMissions.Add(new CombatMission(enemyGroup));
+            activeMissions.Add(new CombatMission(
+                combatMissionsList[i].Name,
+                combatMissionsList[i].Description,
+                combatMissionsList[i].Reward,
+                combatMissionsList[i].EnemyGroup
+            ));
         }
     }
 

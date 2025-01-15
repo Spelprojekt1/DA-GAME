@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class CargoMission : AMission
@@ -30,7 +28,7 @@ public class CargoMission : AMission
         }
     }
 
-    public CargoMission(CargoStart start, CargoEnd end, int cargo)
+    public CargoMission(string name, string description, int reward, CargoStart start, CargoEnd end, int cargo) : base(name, description, reward)
     {
         this.start = start;
         this.end = end;
