@@ -46,6 +46,7 @@ public class Radar : MonoBehaviour
                 script.origin = origin;
                 script.maxDistance = maxDistance;
                 script.type = tag.Type;
+                script.LoadMaterials();
                 script.CheckLock(target);
                 
                 ping.transform.SetParent(transform, false);

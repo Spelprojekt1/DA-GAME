@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -17,22 +18,29 @@ struct QBezier
     }
 }
 [Serializable]
-struct PingMaterials
+struct PingMaterial
 {
-    public Material LockedPrimary;
-    public Material LockedSecondary;
-    public Material EnemyPrimary;
-    public Material EnemySecondary;
-    public Material FriendlyPrimary;
-    public Material FriendlySecondary;
-    public PingMaterials(Material lockedPrimary, Material lockedSecondary, Material enemyPrimary, Material enemySecondary, Material friendlyPrimary, Material friendlySecondary)
+    public Material Primary;
+    public Material Secondary;
+    public PingMaterial(Material Primary, Material Secondary)
     {
-        LockedPrimary = lockedPrimary;
-        LockedSecondary = lockedSecondary;
-        EnemyPrimary = enemyPrimary;
-        EnemySecondary = enemySecondary;
-        FriendlyPrimary = friendlyPrimary;
-        FriendlySecondary = friendlySecondary;
+        this.Primary = Primary;
+        this.Secondary = Secondary;
+    }
+}
+
+[Serializable]
+struct PingMaterialTyped
+{
+    public RadarPingType Type;
+    
+    public Material Primary;
+    public Material Secondary;
+    public PingMaterialTyped(RadarPingType type, Material primary, Material secondary)
+    {
+        Type = type;
+        Primary = primary;
+        Secondary = secondary;
     }
 }
 
@@ -40,16 +48,39 @@ struct PingMaterials
 public class RadarPing : MonoBehaviour
 {
     [SerializeField] private QBezier bezier = new(0f, 0.8f, 1f, 0f);
-    [SerializeField] private PingMaterials materials = new(null, null, null, null, null, null);
+    [SerializeField] private PingMaterial lockedTargetMaterials;
+
+    // UNITY CAN'T SERIALIZABLE DICTIONARIES ARGH!! >:(
+    [SerializeField] private List<PingMaterialTyped> materials;
+    private Dictionary<RadarPingType, PingMaterial> materialsDictionary = new();
     public float maxDistance = 200.0f;
     public Transform origin;
     public GameObject target;
     public RadarPingType type;
+    [SerializeField] private bool locked = false;
     [SerializeField] private GameObject XZ;
     [SerializeField] private Transform ping;
     [SerializeField] private Transform positiveY;
     [SerializeField] private Transform negativeY;
-    // Update is called once per frame
+
+    void OnValidate()
+    {
+        LoadMaterials();
+    }
+    public void LoadMaterials()
+    {
+        materialsDictionary.Clear();
+        foreach (var material in materials)
+        {
+            materialsDictionary.Add(material.Type, new PingMaterial(material.Primary, material.Secondary));
+        }
+
+        if (!materialsDictionary.ContainsKey(type)) Debug.LogError($"No material for ping type {type}");
+        ping.GetComponent<MeshRenderer>().material = materialsDictionary[type].Primary;
+        XZ.GetComponent<MeshRenderer>().material = materialsDictionary[type].Secondary;
+        positiveY.GetComponent<MeshRenderer>().material = materialsDictionary[type].Secondary;
+        negativeY.GetComponent<MeshRenderer>().material = materialsDictionary[type].Secondary;
+    }
     void Update()
     {
         if (!target)
@@ -85,37 +116,52 @@ public class RadarPing : MonoBehaviour
         }
         else
         {
-            // Set ping to not active
-            XZ.SetActive(false);
+            if (locked)
+            {
+                // Set ping to active
+                XZ.SetActive(true);
+
+                Vector3 rPingVector = (targetPos - originPos).normalized;
+
+                // Rotate rPingVector opposite to origin's rotation
+                rPingVector = Quaternion.Inverse(origin.transform.rotation) * rPingVector;
+                XZ.transform.localPosition = new Vector3(rPingVector.x, 0, rPingVector.z);
+                ping.transform.localPosition = new Vector3(0, rPingVector.y, 0);
+                positiveY.transform.localScale = new Vector3(1, Mathf.Max(0,rPingVector.y), 1);
+                negativeY.transform.localScale = new Vector3(1, Mathf.Max(0,-rPingVector.y), 1);
+            }
+            else
+            {
+                // Set ping to not active
+                XZ.SetActive(false);
+            }
         }
     }
     public void CheckLock(GameObject target)
     {
         if (this.target == target)
         {
-            ping.GetComponent<MeshRenderer>().material = materials.LockedPrimary;
-            XZ.GetComponent<MeshRenderer>().material = materials.LockedSecondary;
-            positiveY.GetComponent<MeshRenderer>().material = materials.LockedSecondary;
-            negativeY.GetComponent<MeshRenderer>().material = materials.LockedSecondary;
+            // if (!locked)
+            // {
+                ping.GetComponent<MeshRenderer>().material = lockedTargetMaterials.Primary;
+                XZ.GetComponent<MeshRenderer>().material = lockedTargetMaterials.Secondary;
+                positiveY.GetComponent<MeshRenderer>().material = lockedTargetMaterials.Secondary;
+                negativeY.GetComponent<MeshRenderer>().material = lockedTargetMaterials.Secondary;
+            // }
+            locked = true;
         }
         else
         {
-            switch (type)
-            {
-                default:
-                case RadarPingType.ENEMY:
-                    ping.GetComponent<MeshRenderer>().material = materials.EnemyPrimary;
-                    XZ.GetComponent<MeshRenderer>().material = materials.EnemySecondary;
-                    positiveY.GetComponent<MeshRenderer>().material = materials.EnemySecondary;
-                    negativeY.GetComponent<MeshRenderer>().material = materials.EnemySecondary;
-                    break;
-                case RadarPingType.FRIENDLY:
-                    ping.GetComponent<MeshRenderer>().material = materials.FriendlyPrimary;
-                    XZ.GetComponent<MeshRenderer>().material = materials.FriendlySecondary;
-                    positiveY.GetComponent<MeshRenderer>().material = materials.FriendlySecondary;
-                    negativeY.GetComponent<MeshRenderer>().material = materials.FriendlySecondary;
-                    break;
-            }
+            // if (locked)
+            // {
+                if (!materialsDictionary.ContainsKey(type)) Debug.LogError($"No material for ping type {type}");
+
+                ping.GetComponent<MeshRenderer>().material = materialsDictionary[type].Primary;
+                XZ.GetComponent<MeshRenderer>().material = materialsDictionary[type].Secondary;
+                positiveY.GetComponent<MeshRenderer>().material = materialsDictionary[type].Secondary;
+                negativeY.GetComponent<MeshRenderer>().material = materialsDictionary[type].Secondary;
+            // }
+            locked = false;
         }
     }
 }
