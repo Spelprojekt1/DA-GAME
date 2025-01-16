@@ -1,4 +1,4 @@
-Library: C:\temp\DA-GAME\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+Library: C:\temp\repos\DA-GAME\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --platform=Windows
 --backend=burst-llvm-16
 --target=X64_SSE2
@@ -55,10 +55,10 @@ Library: C:\temp\DA-GAME\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generate
 --assembly-defines=mscorlib;
 --linker-options=PdbAltPath="Anime shader test_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\temp\DA-GAME\Temp\Burst
+--temp-folder=C:\temp\repos\DA-GAME\Temp\Burst
 --key-folder=C:/Program Files/Unity 2022.3.29f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\temp\DA-GAME\Library\Burst
---output=C:\temp\DA-GAME\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--decode-folder=C:\temp\repos\DA-GAME\Library\Burst
+--output=C:\temp\repos\DA-GAME\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Jobs.IJobForExtensions+ForJobStruct`1[[UnityEngine.Rendering.Universal.ZBinningJob, Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEngine.Rendering.Universal.ZBinningJob&, Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--77fc393cb521ac129b1392d4eb94d29a
@@ -119,10 +119,10 @@ Library: C:\temp\DA-GAME\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generate
 --assembly-defines=mscorlib;
 --linker-options=PdbAltPath="Anime shader test_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\temp\DA-GAME\Temp\Burst
+--temp-folder=C:\temp\repos\DA-GAME\Temp\Burst
 --key-folder=C:/Program Files/Unity 2022.3.29f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\temp\DA-GAME\Library\Burst
---output=C:\temp\DA-GAME\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--decode-folder=C:\temp\repos\DA-GAME\Library\Burst
+--output=C:\temp\repos\DA-GAME\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Jobs.IJobForExtensions+ForJobStruct`1[[UnityEngine.Rendering.Universal.ZBinningJob, Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEngine.Rendering.Universal.ZBinningJob&, Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--77fc393cb521ac129b1392d4eb94d29a
@@ -181,10 +181,10 @@ Library: C:\temp\DA-GAME\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generate
 --assembly-defines=mscorlib;
 --linker-options=PdbAltPath="Anime shader test_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\temp\DA-GAME\Temp\Burst
+--temp-folder=C:\temp\repos\DA-GAME\Temp\Burst
 --key-folder=C:/Program Files/Unity 2022.3.29f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\temp\DA-GAME\Library\Burst
---output=C:\temp\DA-GAME\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--decode-folder=C:\temp\repos\DA-GAME\Library\Burst
+--output=C:\temp\repos\DA-GAME\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Burst.BurstCompiler+BurstCompilerHelper, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::IsBurstEnabled()--8c2be93e18276203cbd918daa2748a10
@@ -249,10 +249,10 @@ Library: C:\temp\DA-GAME\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generate
 --assembly-defines=mscorlib;
 --linker-options=PdbAltPath="Anime shader test_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\temp\DA-GAME\Temp\Burst
+--temp-folder=C:\temp\repos\DA-GAME\Temp\Burst
 --key-folder=C:/Program Files/Unity 2022.3.29f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
---decode-folder=C:\temp\DA-GAME\Library\Burst
---output=C:\temp\DA-GAME\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
+--decode-folder=C:\temp\repos\DA-GAME\Library\Burst
+--output=C:\temp\repos\DA-GAME\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Burst.BurstCompiler+BurstCompilerHelper, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::IsBurstEnabled()--8c2be93e18276203cbd918daa2748a10
