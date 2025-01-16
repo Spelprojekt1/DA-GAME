@@ -22,6 +22,7 @@ public class TargetHologram : MonoBehaviour
     {
         if (target)
         {
+            hologram.SetActive(false);
             if (target.CompareTag("Enemy"))
             {
                 switch (target.name)
@@ -70,6 +71,10 @@ public class TargetHologram : MonoBehaviour
         if (active && targetTransform != null)
         {
             hologram.transform.localRotation = Quaternion.Inverse(playerTransform.rotation) * targetTransform.rotation;
+        }
+        else
+        {
+            // hologram.SetActive(false);
         }
     }
 }
