@@ -4,8 +4,8 @@ public class EnemyRepositionState : EnemyBaseState
 {
     public override void EnterState(EnemyStateManager enemy)
     {
-        Debug.Log("Repo State");
-        enemy.enemyBaseBehaviorScript.movementSpeed = 700;
+       // Debug.Log("Repo State");
+        enemy.enemyBaseBehaviorScript.movementSpeed = 1000;
     }
 
     public override void UpdateState(EnemyStateManager enemy)

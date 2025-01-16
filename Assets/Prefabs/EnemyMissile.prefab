@@ -222,8 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a1baf7164d18841a06c28a56d3cfd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 8
-  torque: 5
+  force: 10
+  torque: 6
   targetPositionOffset: 5
   playerHitByProjectilePrefab: {fileID: 3041792852407685940, guid: 4874bdcc57025dc4ea096bd7511be01a,
     type: 3}

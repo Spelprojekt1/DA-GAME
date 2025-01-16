@@ -18,7 +18,7 @@ public class EnemyPatrolState : EnemyBaseState
     public override void EnterState(EnemyStateManager enemy)
     {
         //enemy.patrol = true;
-        Debug.Log("Patrol State");
+        //Debug.Log("Patrol State");
     }
 
     public override void UpdateState(EnemyStateManager enemy)

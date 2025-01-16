@@ -7,7 +7,7 @@ public class EnemyChaseState : EnemyBaseState
     {
         
         enemy.projectileTimer = 5f;
-        Debug.Log("Chase player state");
+       // Debug.Log("Chase player state");
         
     }
 
