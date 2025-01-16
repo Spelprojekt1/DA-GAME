@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyBaseBehavior : MonoBehaviour
 {
+    [SerializeField] protected bool noAi = false;
     //HP AND SHIELD 
     [SerializeField] private float health = 100f;
     [SerializeField] private float maxHealth = 100f;
@@ -167,6 +168,7 @@ public class EnemyBaseBehavior : MonoBehaviour
             }
         }
         
+        if (noAi) return;
         if (avoidTerrain)
         {
             rayColor = rayColorAvoidTerrain;

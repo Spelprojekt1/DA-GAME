@@ -1258,6 +1258,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2122068328139047884, guid: 78a30c3988c7c14449b1a965356af72c,
         type: 3}
+      propertyPath: noAi
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2122068328139047884, guid: 78a30c3988c7c14449b1a965356af72c,
+        type: 3}
       propertyPath: patrolTarget
       value: 
       objectReference: {fileID: 1978455916}

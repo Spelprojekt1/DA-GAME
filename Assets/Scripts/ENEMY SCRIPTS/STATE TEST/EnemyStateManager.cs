@@ -27,9 +27,15 @@ public class EnemyStateManager : EnemyBaseBehavior
    
     protected override void Update()
     {
+        if (noAi)
+        {
+            base.Update();
+            return;
+        }
+        
         currentState.UpdateState(this);
         distanceBetween = (playerTarget.transform.position - transform.position).magnitude;
-
+        
         base.Update();
     }
 
