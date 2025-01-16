@@ -6455,6 +6455,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7676845745958021257, guid: 3538bd78715fde64aab2b3246c486c36,
+        type: 3}
+      propertyPath: m_text
+      value: 'M - Open Missions
+
+
+        Mouse - PITCH, YAW
+
+        Q/E - ROLL
+
+        Mouse
+        wheel - Change weapons
+
+        SHIFT - Accelerate
+
+        CTRL - Brake/Reverse
+
+        Left
+        Mouse - Fire
+
+        Right Mouse - Lock Target'
+      objectReference: {fileID: 0}
     - target: {fileID: 7735628774210838549, guid: 3538bd78715fde64aab2b3246c486c36,
         type: 3}
       propertyPath: m_IsActive
