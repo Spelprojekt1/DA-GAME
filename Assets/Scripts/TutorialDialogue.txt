@@ -6,6 +6,6 @@ The cadet will be held liable for destruction of property. CondrSupplies will no
 Now it is time for your flight lesson cadet.
 First, let’s look at the movement system.
 Move around your mouse to look around.
-Press "Q" and "E" to move your ship on the YAW axis.
+Press "Q" and "E" to ROLL your ship.
 Press "Shift" to accelerate and "CTRL" to slow down and press "CTRL" again to accelerate backwards.
 That’s it for the movement, go through the yellow portal after pressing “enter” to start the next part of the tutorial.

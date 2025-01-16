@@ -54,7 +54,12 @@ public class LaserSpawner : ProjectileSpawner
                 length = MathF.Abs(Vector3.Magnitude(hit.collider.gameObject.transform.position - transform.position));
                 if (hit.collider.gameObject.CompareTag(targetTag))
                 {
-                    hit.collider.gameObject.GetComponent<EnemyBaseBehavior>().Hurt(new Damage(dps * Time.deltaTime,1f,0.5f));
+                    // hit.collider.gameObject.GetComponent<EnemyBaseBehavior>().Hurt(new Damage(dps * Time.deltaTime,1f,0.5f));
+                    
+                    EnemyBaseBehavior behavior = hit.collider.gameObject.GetComponent<EnemyBaseBehavior>();
+                    Damage appliedDamage = new Damage(dps * Time.deltaTime,1f,0.5f);
+                    behavior.Hurt(appliedDamage);
+                    
                     //hit.collider.gameObject.GetComponent<AudioPlay>().PlayAudio();
                     
                     //Hit SFX spawns at the enemy thats been hit
