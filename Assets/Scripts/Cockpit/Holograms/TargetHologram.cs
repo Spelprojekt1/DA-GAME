@@ -3,6 +3,10 @@ using UnityEngine;
 public class TargetHologram : MonoBehaviour
 {
     [SerializeField] private Transform playerTransform;
+    [SerializeField] private GameObject intercepter;
+    [SerializeField] private GameObject corvette;
+    [SerializeField] private GameObject outpost;
+    [SerializeField] private GameObject cargo;
     private Transform targetTransform;
     private GameObject hologram;
     private bool active = false;
@@ -11,13 +15,43 @@ public class TargetHologram : MonoBehaviour
     void Start()
     {
         // Set hologram to the first child of the hologram object
-        hologram = transform.GetChild(0).gameObject;
+        hologram = cargo;
     }
 
     public void OnTargetLocked(GameObject target)
     {
         if (target)
         {
+            if (target.CompareTag("Enemy"))
+            {
+                switch (target.name)
+                {
+                    default:
+                    case "Intercepter":
+                    {
+                        hologram = intercepter;
+                        break;
+                    }
+                    case "Corvette":
+                    {
+                        hologram = corvette;
+                        break;
+                    }
+                    
+                }
+            }
+            else
+            {
+                if (target.GetComponent<CargoEnd>() != null)
+                {
+                    hologram = outpost;
+                }
+
+                if (target.GetComponent<CargoStart>() != null)
+                {
+                    hologram = cargo;
+                }
+            }
             targetTransform = target.transform;
             active = true;
             hologram.SetActive(true);
